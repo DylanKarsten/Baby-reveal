@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
+        /* Base styles */
         body {
             font-family: 'Inter', sans-serif;
             background-color: #111827;
@@ -24,14 +25,10 @@
             100% { background-position: 0% 50%; }
         }
 
-        .font-pacifico {
-            font-family: 'Pacifico', cursive;
-        }
+        .font-pacifico { font-family: 'Pacifico', cursive; }
+        .font-roboto { font-family: 'Roboto', sans-serif; }
 
-        .font-roboto {
-            font-family: 'Roboto', sans-serif;
-        }
-
+        /* Content view transitions */
         .content-view {
             transition: opacity 0.5s ease-out, transform 0.5s ease-out;
             position: absolute;
@@ -54,11 +51,12 @@
             transform: scale(1);
             pointer-events: auto;
         }
-
+        
         #reveal-content {
-            transform: scale(0);
-            transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+             transform: scale(0);
+             transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
         }
+
         body.revealed #reveal-content { transform: scale(1); }
         body.revealed #payment-screen,
         body.revealed #initial-content {
@@ -66,159 +64,142 @@
              pointer-events: none;
         }
 
+        /* Confetti */
         .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            opacity: 0;
+            animation: fall 4s linear forwards;
+        }
+        
+        .confetti.circle { border-radius: 50%; }
+        .confetti.heart {
+            width: 15px;
+            height: 15px;
+            background-color: transparent;
+            transform: rotate(-45deg);
+        }
+        .confetti.heart::before, .confetti.heart::after {
+            content: '';
             position: absolute;
             width: 15px;
             height: 15px;
             border-radius: 50%;
-            opacity: 0;
-            animation: fall 4s linear forwards;
+            background-color: inherit;
         }
+        .confetti.heart::before { top: -7.5px; left: 0; }
+        .confetti.heart::after { top: 0; left: 7.5px; }
+
 
         @keyframes fall {
             0% { transform: translateY(0) rotateZ(0deg); opacity: 1; }
             100% { transform: translateY(100vh) rotateZ(720deg); opacity: 0; }
         }
         
+        /* Form & Button styles */
         .form-input {
-            background-color: #374151;
-            border: 1px solid #4b5563;
-            color: white;
-            padding: 0.75rem 1rem;
-            border-radius: 0.5rem;
-            font-size: 1.25rem;
-            width: 100%;
+            background-color: #374151; border: 1px solid #4b5563; color: white;
+            padding: 0.75rem 1rem; border-radius: 0.5rem; font-size: 1.25rem; width: 100%;
         }
         .form-input::placeholder { color: #9ca3af; }
-
         #password-input-group { display: none; }
-        
-        /* New Baby Loading Icon styles */
-        .loading-baby {
-             animation: baby-rock 1.5s ease-in-out infinite;
-             display: inline-block;
-             vertical-align: middle;
-             margin-right: 12px;
-        }
-
+        .loading-baby { animation: baby-rock 1.5s ease-in-out infinite; display: inline-block; vertical-align: middle; margin-right: 12px; }
         @keyframes baby-rock {
             0%, 100% { transform: rotate(5deg) scale(1); }
             50% { transform: rotate(-5deg) scale(1.05); }
         }
-
         .button-pulsate { animation: pulsate 1.5s infinite; }
-
         @keyframes pulsate {
             0%, 100% { transform: scale(1); opacity: 1; }
             50% { transform: scale(1.03); opacity: 0.9; }
         }
-
         .moveable-button {
-            position: absolute !important;
-            transition: all 0.08s ease-out;
-            cursor: pointer;
-            z-index: 100;
+            position: absolute !important; transition: all 0.08s ease-out; cursor: pointer; z-index: 100;
         }
         
-        /* Joke text animation */
-        @keyframes glitch {
-            2%,64% { transform: translate(2px,0) skew(0deg); }
-            4%,60% { transform: translate(-2px,0) skew(0deg); }
-            62% { transform: translate(0,0) skew(5deg); }
-        }
-        .joke-text {
-            animation: glitch 1s linear infinite;
-            text-shadow: 2px 2px #ff0000, -2px -2px #00ffff;
+        /* --- NEW REVEAL STYLES --- */
+        .reveal-bg-suspense {
+            background: radial-gradient(circle, #4b5563 0%, #1f2937 100%);
         }
 
-
-        /* --- NEW PROFESSIONAL POPUP STYLES --- */
-        .popup {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f9fafb;
-            padding: 0;
-            border-radius: 0.5rem;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0,0,0,0.1);
-            max-width: 500px;
-            width: 90%;
-            text-align: left;
-            transform: scale(0.95);
+        .reveal-bg-girl {
+            background: radial-gradient(circle, #fda4af 0%, #f472b6 100%);
+        }
+        
+        #reveal-content .reveal-icon {
+            animation: icon-appear 1s forwards, icon-pulse 2s infinite 1s;
             opacity: 0;
+            transform: scale(0.5);
+        }
+
+        @keyframes icon-appear {
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes icon-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+        }
+
+        #reveal-content .reveal-text {
+             text-shadow: 0 4px 15px rgba(0,0,0,0.2);
+             animation: text-appear 1s forwards 0.5s;
+             opacity: 0;
+             transform: translateY(20px);
+        }
+        
+        #reveal-content .reveal-subtext {
+             animation: text-appear 1s forwards 0.8s;
+             opacity: 0;
+             transform: translateY(20px);
+        }
+
+        @keyframes text-appear {
+             to { opacity: 1; transform: translateY(0); }
+        }
+
+        .heartbeat-line {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: draw 2s linear forwards infinite;
+        }
+
+        @keyframes draw {
+            to { stroke-dashoffset: 0; }
+        }
+
+        /* --- PROFESSIONAL POPUP STYLES --- */
+        .popup {
+            font-family: 'Roboto', sans-serif; background-color: #f9fafb; padding: 0; border-radius: 0.5rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0,0,0,0.1);
+            max-width: 500px; width: 90%; text-align: left; transform: scale(0.95); opacity: 0;
             transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s ease-out;
-            position: fixed;
-            border: 1px solid #e5e7eb;
-            overflow: hidden;
+            position: fixed; border: 1px solid #e5e7eb; overflow: hidden;
         }
-
-        .popup.show {
-            transform: scale(1);
-            opacity: 1;
-        }
-
+        .popup.show { transform: scale(1); opacity: 1; }
         .popup .popup-header {
-            padding: 1rem 1.5rem;
-            background-color: #fff;
-            border-bottom: 1px solid #e5e7eb;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            padding: 1rem 1.5rem; background-color: #fff; border-bottom: 1px solid #e5e7eb;
+            display: flex; justify-content: space-between; align-items: center;
         }
-
-        .popup .popup-title {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: #111827;
-        }
-
+        .popup .popup-title { font-size: 1.125rem; font-weight: 600; color: #111827; }
         .popup .close-btn {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #6b7280;
-            line-height: 1;
-            padding: 0.25rem;
+            background: none; border: none; font-size: 1.5rem; cursor: pointer;
+            color: #6b7280; line-height: 1; padding: 0.25rem;
         }
         .popup .close-btn:hover { color: #111827; }
-
-        .popup .popup-content {
-            padding: 1.5rem;
-            color: #374151;
-        }
-
+        .popup .popup-content { padding: 1.5rem; color: #374151; }
         .popup .popup-footer {
-            padding: 1rem 1.5rem;
-            background-color: #f3f4f6;
-            border-top: 1px solid #e5e7eb;
-            text-align: right;
+            padding: 1rem 1.5rem; background-color: #f3f4f6;
+            border-top: 1px solid #e5e7eb; text-align: right;
         }
-        
-        .popup.virus {
-            border-color: #ef4444;
-        }
-
-        .popup.virus .popup-header {
-            background-color: #ef4444;
-            border-bottom-color: #dc2626;
-        }
-        .popup.virus .popup-title {
-            color: #fff;
-            font-weight: 700;
-        }
+        .popup.virus { border-color: #ef4444; }
+        .popup.virus .popup-header { background-color: #ef4444; border-bottom-color: #dc2626; }
+        .popup.virus .popup-title { color: #fff; font-weight: 700; }
         .popup.virus .close-btn { color: #fecaca; }
         .popup.virus .close-btn:hover { color: #fff; }
-
-        .popup.virus .popup-content {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-        
-        .popup.virus .virus-icon {
-            font-size: 3rem;
-            color: #ef4444;
-        }
-
+        .popup.virus .popup-content { display: flex; align-items: center; gap: 1.5rem; }
+        .popup.virus .virus-icon { font-size: 3rem; color: #ef4444; }
     </style>
 </head>
 <body class="flex items-center justify-center min-h-screen overflow-hidden">
@@ -264,13 +245,13 @@
 
     <script>
         // --- Configuration ---
-        const REVEAL_GENDER = "girl";
-        const CONFETTI_COUNT = 200;
+        const REVEAL_GENDER = "girl"; // Can be 'girl' or 'boy'
+        const CONFETTI_COUNT = 300; // Increased confetti
         const BYPASS_PASSWORD_1 = "I_Should_Have_Used_Protection";
         const BYPASS_PASSWORD_2 = "7001";
         const LOADING_DELAY_MS = 2000;
         const BUTTON_RUN_AWAY_DURATION = 10000;
-        const FAKE_REVEAL_DURATION_MS = 4000;
+        const SUSPENSE_DURATION_MS = 4000; // Duration for the heartbeat animation
 
         // --- Element References ---
         const revealButton = document.getElementById('reveal-button');
@@ -309,7 +290,8 @@
             { title: 'Security Alert', message: 'Your system has detected a potential vulnerability. To protect your data, we recommend running a full system scan immediately.', type: 'virus' },
             { title: 'Limited Time Offer', message: 'The "Little Sprout" organic baby collection is now available. Premium quality for your peace of mind. Shop now and receive 20% off.', type: 'normal' },
         ];
-
+        
+        // --- Audio Functions ---
         function getAudioContext() {
             if (!audioCtx) {
                 try { audioCtx = new (window.AudioContext || window.webkitAudioContext)(); }
@@ -328,6 +310,7 @@
             gain2.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.4); osc2.start(ctx.currentTime + 0.1); osc2.stop(ctx.currentTime + 0.4);
         }
 
+        // --- UI Helper Functions ---
         function showLoading(buttonElement) {
             buttonElement.disabled = true;
             buttonElement.innerHTML = `<svg class="loading-baby" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 12c0-2.2-1.8-4-4-4s-4 1.8-4 4h8z"/><path d="M12 2a4 4 0 0 0-4 4c0 1.1.4 2.1 1.2 2.8C9.9 9.5 10.9 10 12 10s2.1-.5 2.8-1.2c.8-.7 1.2-1.7 1.2-2.8a4 4 0 0 0-4-4z"/><path d="M18.8 14.3A5 5 0 0 0 14 12h-4a5 5 0 0 0-4.8 2.3c-.3.5-.3 1.1.1 1.5l2.4 2.4c.4.4 1 .4 1.4 0l1.7-1.7c.4-.4 1-.4 1.4 0l1.7 1.7c.4.4 1 .4 1.4 0l2.4-2.4c.3-.5.3-1.1-.1-1.5z"/></svg>Loading...`;
@@ -339,6 +322,7 @@
             buttonElement.classList.remove('opacity-50', 'cursor-not-allowed', 'button-pulsate');
         }
 
+        // --- Prank Mechanic Functions ---
         function moveButton(e) {
             if (!isButtonRunning) return;
             const buttonElement = payButton, containerRect = container.getBoundingClientRect(), buttonRect = buttonElement.getBoundingClientRect();
@@ -361,6 +345,7 @@
             payButton.classList.remove('moveable-button'); document.removeEventListener('mousemove', moveButton);
         }
 
+        // --- Ad Popup Functions ---
         function createAdPopup(adData) {
             const popupDiv = document.createElement('div');
             const viewportWidth = window.innerWidth, viewportHeight = window.innerHeight;
@@ -402,6 +387,7 @@
             adInterval = setInterval(showRandomAd, 1500 + Math.random() * 2000);
         }
 
+        // --- FINAL REVEAL LOGIC ---
         function handlePasswordCheck(enteredPassword) {
             if (enteredPassword === BYPASS_PASSWORD_1 || enteredPassword === BYPASS_PASSWORD_2) {
                 stopButtonRunning();
@@ -411,34 +397,42 @@
                 body.classList.add('revealed');
                 revealContent.classList.add('visible');
 
-                // ---- FAKE REVEAL (THE JOKE) ----
-                const boyColors = ['#93C5FD', '#60A5FA', '#3B82F6'];
+                // ---- SUSPENSE SCREEN ----
+                revealContent.className = 'content-view visible reveal-bg-suspense';
                 revealContent.innerHTML = `
-                    <h2 class="text-7xl md:text-8xl font-pacifico text-blue-800 joke-text">It's a Boy!</h2>
-                    <p class="text-2xl text-gray-600 mt-6 animate-pulse">(Just kidding...)</p>
+                    <p class="text-3xl text-gray-300 font-pacifico mb-8">Our little secret is...</p>
+                    <svg width="300" height="150" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
+                        <path class="heartbeat-line" d="M0 75 H50 L65 50 L80 100 L95 25 L110 75 H150 L165 60 L180 90 L195 75 H300" fill="none" stroke="#6ee7b7" stroke-width="4"/>
+                    </svg>
+                    <p class="text-xl text-gray-400 mt-8 animate-pulse">Analyzing the results...</p>
                 `;
-                revealContent.className = 'content-view visible bg-blue-200'; // Reset and add new classes
-                launchConfetti(boyColors);
-                
+
                 // ---- REAL REVEAL AFTER DELAY ----
                 setTimeout(() => {
-                    // Clear old confetti
                     document.querySelectorAll('.confetti').forEach(c => c.remove());
-
-                    const girlColors = ['#F9A8D4', '#F472B6', '#EC4899'];
+                    
+                    const girlColors = ['#FBCFE8', '#F9A8D4', '#F472B6', '#EC4899', '#ffffff', '#fefce8'];
+                    revealContent.className = 'content-view visible reveal-bg-girl';
                     revealContent.innerHTML = `
-                        <h2 class="text-7xl md:text-8xl font-pacifico" style="color: ${girlColors[2]}">It's a Girl!</h2>
-                        <p class="text-2xl text-gray-800 mt-6">We can't wait to meet your little one!</p>
+                        <div class="reveal-icon mb-4">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                               <path d="M15.54 4.5a3.5 3.5 0 0 0-4.42 5.14A3.5 3.5 0 0 0 9.17 17.5a3.5 3.5 0 0 0 5.46-4.42A3.5 3.5 0 0 0 15.54 4.5z"/>
+                               <path d="M12 22s-4-2-4-8 4-8 4-8"/>
+                               <path d="M12 22s4-2 4-8-4-8-4-8"/>
+                           </svg>
+                        </div>
+                        <h2 class="reveal-text text-7xl md:text-8xl font-pacifico text-white">It's a Girl!</h2>
+                        <p class="reveal-subtext text-2xl text-pink-100 mt-6">We can't wait to meet our little princess!</p>
                     `;
-                    revealContent.className = 'content-view visible bg-pink-200'; // Reset and set final classes
                     launchConfetti(girlColors);
-                }, FAKE_REVEAL_DURATION_MS);
+                }, SUSPENSE_DURATION_MS);
 
                 return true;
             }
             return false;
         }
 
+        // --- EVENT LISTENERS ---
         revealButton.addEventListener('click', () => {
             const originalButtonText = revealButton.textContent, originalButtonClass = revealButton.className;
             showLoading(revealButton);
@@ -511,16 +505,28 @@
                 else if (bypassPasswordInput.value.length === 0 && isButtonRunning) { stopButtonRunning(); }
             }
         });
-
+        
+        // --- Confetti Launcher ---
         function launchConfetti(colors) {
+            const shapes = ['circle', 'heart'];
             for (let i = 0; i < CONFETTI_COUNT; i++) {
                 const confetti = document.createElement('div');
-                confetti.classList.add('confetti');
+                const shape = shapes[Math.floor(Math.random() * shapes.length)];
+                
+                confetti.classList.add('confetti', shape);
                 confetti.style.left = `${Math.random() * 100}%`;
-                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                
+                if (shape === 'heart') {
+                    confetti.style.setProperty('background-color', color);
+                } else {
+                    confetti.style.backgroundColor = color;
+                }
+
                 confetti.style.animationDelay = `${Math.random() * 3}s`;
-                confetti.style.width = `${Math.random() * 15 + 8}px`;
-                confetti.style.height = confetti.style.width;
+                const size = Math.random() * 10 + 8;
+                confetti.style.width = `${size}px`;
+                confetti.style.height = `${size}px`;
                 body.appendChild(confetti);
                 confetti.addEventListener('animationend', () => confetti.remove());
             }
