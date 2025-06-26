@@ -1,0 +1,1603 @@
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Our Little Surprise!</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        body {
+
+            font-family: 'Inter', sans-serif;
+
+            background-color: #111827; /* Dark background fallback */
+
+            /* New animated gradient background */
+
+            background: linear-gradient(270deg, #ec4899, #60a5fa, #f472b6, #93c5fd); /* Pink, Blue, Lighter Pink, Lighter Blue */
+
+            background-size: 400% 400%;
+
+            animation: gradientAnimation 15s ease infinite; /* 15s for movement */
+
+            cursor: default; /* Ensure default cursor */
+
+            overflow: hidden; /* Prevent body scroll from popups */
+
+        }
+
+
+
+        @keyframes gradientAnimation {
+
+            0% {
+
+                background-position: 0% 50%;
+
+            }
+
+            50% {
+
+                background-position: 100% 50%;
+
+            }
+
+            100% {
+
+                background-position: 0% 50%;
+
+            }
+
+        }
+
+
+
+        .font-pacifico {
+
+            font-family: 'Pacifico', cursive;
+
+        }
+
+
+
+        /* Base transition for all main content views */
+
+        .content-view {
+
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+
+            position: absolute;
+
+            top: 0; left: 0; right: 0; bottom: 0;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 2rem;
+
+        }
+
+
+
+        /* Hide content by default */
+
+        .content-view:not(.visible) {
+
+            opacity: 0;
+
+            transform: scale(0.9);
+
+            pointer-events: none;
+
+        }
+
+
+
+        /* Show the active content view */
+
+        .content-view.visible {
+
+            opacity: 1;
+
+            transform: scale(1);
+
+            pointer-events: auto;
+
+        }
+
+
+
+        /* Final reveal animation */
+
+        #reveal-content {
+
+            transform: scale(0);
+
+            transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+
+        }
+
+        body.revealed #reveal-content {
+
+            transform: scale(1);
+
+        }
+
+        body.revealed #payment-screen,
+
+        body.revealed #initial-content {
+
+             opacity: 0;
+
+             pointer-events: none;
+
+        }
+
+
+
+
+
+        /* Confetti styles */
+
+        .confetti {
+
+            position: absolute;
+
+            width: 15px; /* Larger confetti for TV */
+
+            height: 15px;
+
+            border-radius: 50%;
+
+            opacity: 0;
+
+            animation: fall 4s linear forwards;
+
+        }
+
+
+
+        @keyframes fall {
+
+            0% {
+
+                transform: translateY(0) rotateZ(0deg);
+
+                opacity: 1;
+
+            }
+
+            100% {
+
+                transform: translateY(100vh) rotateZ(720deg);
+
+                opacity: 0;
+
+            }
+
+        }
+
+        
+
+        /* TV-friendly form inputs */
+
+        .form-input {
+
+            background-color: #374151;
+
+            border: 1px solid #4b5563;
+
+            color: white;
+
+            padding: 0.75rem 1rem;
+
+            border-radius: 0.5rem;
+
+            font-size: 1.25rem;
+
+            width: 100%;
+
+        }
+
+        .form-input::placeholder {
+
+            color: #9ca3af;
+
+        }
+
+
+
+        /* Hide password input by default */
+
+        #password-input-group {
+
+            display: none;
+
+        }
+
+
+
+        /* Loading Spinner for buttons */
+
+        .loading-spinner {
+
+            border: 4px solid rgba(255, 255, 255, 0.3);
+
+            border-top: 4px solid #fff;
+
+            border-radius: 50%;
+
+            width: 24px;
+
+            height: 24px;
+
+            animation: spin 1s linear infinite;
+
+            display: inline-block;
+
+            vertical-align: middle;
+
+            margin-right: 8px;
+
+        }
+
+
+
+        @keyframes spin {
+
+            0% { transform: rotate(0deg); }
+
+            100% { transform: rotate(360deg); }
+
+        }
+
+
+
+        /* Pulsate effect for loading button */
+
+        .button-pulsate {
+
+            animation: pulsate 1.5s infinite;
+
+        }
+
+
+
+        @keyframes pulsate {
+
+            0% { transform: scale(1); opacity: 1; }
+
+            50% { transform: scale(1.03); opacity: 0.9; }
+
+            100% { transform: scale(1); opacity: 1; }
+
+        }
+
+
+
+
+
+        /* Button movement styles */
+
+        .moveable-button {
+
+            position: absolute !important; /* Ensure absolute positioning for movement */
+
+            transition: all 0.08s ease-out; /* Faster transition for more reactive running */
+
+            cursor: pointer;
+
+            z-index: 100; /* Keep button on top */
+
+        }
+
+
+
+        /* Popup Styles */
+
+        .popup {
+
+            background-color: white;
+
+            padding: 2.5rem; /* Bigger padding */
+
+            border-radius: 0.75rem;
+
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+
+            max-width: 600px; /* Bigger max width */
+
+            width: 90%; /* Responsive width */
+
+            text-align: center;
+
+            transform: scale(0.8);
+
+            opacity: 0;
+
+            transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+
+            position: fixed; /* Use fixed for viewport positioning */
+
+            border: 1px solid #ccc; /* Subtle border */
+
+        }
+
+
+
+        .popup.show {
+
+            transform: scale(1);
+
+            opacity: 1;
+
+        }
+
+
+
+        .popup .close-btn {
+
+            position: absolute;
+
+            top: 0.75rem; /* Adjusted for larger padding */
+
+            right: 0.75rem;
+
+            background: none;
+
+            border: none;
+
+            font-size: 2rem; /* Larger close button */
+
+            cursor: pointer;
+
+            color: #666;
+
+            font-weight: bold;
+
+        }
+
+        .popup .close-btn:hover {
+
+            color: #333;
+
+        }
+
+
+
+        /* Specific virus popup styling */
+
+        .popup.virus {
+
+            border: 4px solid #ef4444; /* Thicker red border */
+
+            background-color: #fee2e2; /* Light red background */
+
+            color: #dc2626; /* Dark red text */
+
+            font-weight: bold;
+
+        }
+
+        .popup.virus .close-btn {
+
+            color: #dc2626;
+
+        }
+
+        .popup.virus .popup-title {
+
+            color: #b91c1c;
+
+        }
+
+
+
+        /* Simulated Warning Overlay */
+
+        #simulated-warning-overlay {
+
+            position: fixed;
+
+            inset: 0;
+
+            background-color: rgba(0, 0, 0, 0.75);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            z-index: 100000; /* Even higher z-index */
+
+            opacity: 0;
+
+            transition: opacity 0.3s ease-in-out;
+
+            pointer-events: none; /* Hidden by default */
+
+        }
+
+        #simulated-warning-overlay.active {
+
+            opacity: 1;
+
+            pointer-events: auto; /* Active when visible */
+
+        }
+
+        #simulated-warning-overlay .popup-content {
+
+            background-color: #fff;
+
+            padding: 2rem;
+
+            border-radius: 0.75rem;
+
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+
+            max-width: 450px;
+
+            width: 90%;
+
+            text-align: center;
+
+            transform: scale(0.9);
+
+            transition: transform 0.3s ease-out;
+
+        }
+
+        #simulated-warning-overlay.active .popup-content {
+
+            transform: scale(1);
+
+        }
+
+    </style>
+
+</head>
+
+<body class="flex items-center justify-center min-h-screen overflow-hidden">
+
+
+
+    <!-- Main Container -->
+
+    <div id="container" class="text-center p-8 md:p-12 bg-gray-800 rounded-3xl shadow-2xl max-w-3xl w-full mx-auto relative overflow-hidden" style="height: 600px;">
+
+        
+
+        <!-- Initial Content -->
+
+        <div id="initial-content" class="content-view visible">
+
+            <h1 id="initial-title" class="text-6xl lg:text-7xl font-pacifico text-gray-100">He or She?</h1>
+
+            <p id="initial-subtitle" class="text-xl lg:text-2xl text-gray-400 mt-6 mb-10">What will your little one be?</p>
+
+            
+
+            <div id="gender-icons" class="flex justify-center space-x-6 mb-10">
+
+                    <div class="w-32 h-32 bg-pink-400 rounded-full flex items-center justify-center text-6xl text-white shadow-lg">?</div>
+
+                    <div class="w-32 h-32 bg-blue-400 rounded-full flex items-center justify-center text-6xl text-white shadow-lg">?</div>
+
+            </div>
+
+
+
+            <button id="reveal-button" class="bg-gradient-to-r from-pink-500 to-blue-500 hover:from-pink-600 hover:to-blue-600 text-white font-bold py-4 px-10 rounded-full shadow-lg text-2xl transform hover:scale-105 transition-transform duration-300">
+
+                Click to Reveal!
+
+            </button>
+
+        </div>
+
+
+
+        <!-- Payment Screen -->
+
+        <div id="payment-screen" class="content-view">
+
+            <h2 id="payment-title" class="text-4xl lg:text-5xl font-pacifico text-teal-300">Final Verification</h2>
+
+            <p id="payment-subtitle" class="text-lg text-gray-400 mt-4 mb-8">Please provide payment to unlock the gender.</p>
+
+            <div class="space-y-4 w-full max-w-sm">
+
+                <!-- Card details inputs -->
+
+                <input type="text" class="form-input" id="card-number" placeholder="Card Number (e.g., 1234 ...)">
+
+                <div class="flex space-x-4">
+
+                    <input type="text" class="form-input" id="expiry-date" placeholder="MM/YY">
+
+                    <input type="text" class="form-input" id="cvc" placeholder="CVC">
+
+                </div>
+
+                <p id="card-error" class="text-red-400 text-sm mt-2 hidden">Please fill in all card details.</p>
+
+                <!-- Password input, initially hidden -->
+
+                <div id="password-input-group" class="w-full">
+
+                    <input type="password" class="form-input" id="bypass-password" placeholder="Enter Bypass Password">
+
+                </div>
+
+                <p id="password-error" class="text-red-400 text-sm mt-2 hidden">Incorrect Password. Try again!</p>
+
+                <button id="pay-button" class="w-full bg-teal-500 hover:bg-teal-600 text-white font-bold py-4 px-10 rounded-full shadow-lg text-2xl transform hover:scale-105 transition-transform duration-300 mt-4">
+
+                    Pay $9.99 to Reveal
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Reveal Content (Hidden at first) -->
+
+        <div id="reveal-content" class="content-view bg-opacity-80">
+
+            <!-- This content will be set by JavaScript -->
+
+        </div>
+
+    </div>
+
+
+
+    <!-- Simulated Warning Overlay -->
+
+    <div id="simulated-warning-overlay" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-[100000] hidden">
+
+        <div class="popup-content bg-yellow-200 border-4 border-yellow-500 rounded-lg p-8 shadow-xl text-center max-w-sm w-full">
+
+            <h3 class="text-2xl font-bold text-yellow-800 mb-4">⚠️ Warning: Navigation Blocked! ⚠️</h3>
+
+            <p class="text-yellow-700 mb-6">Are you sure you want to leave this secure page? Unsaved changes may be lost and your system could be vulnerable.</p>
+
+            <button id="simulated-warning-continue-btn" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-6 rounded-full text-lg shadow-md">
+
+                Stay on Page
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <script>
+
+        // --- Configuration ---
+
+        const REVEAL_GENDER = "girl"; // The final, real gender
+
+        const CONFETTI_COUNT = 200;
+
+        const BYPASS_PASSWORD = "I_Should_Have_Used_Protection";
+
+        const LOADING_DELAY_MS = 2000; // 2 seconds for loading
+
+        const BUTTON_RUN_AWAY_DURATION = 10000; // 10 seconds
+
+
+
+        // --- Element References ---
+
+        const revealButton = document.getElementById('reveal-button');
+
+        const payButton = document.getElementById('pay-button');
+
+        const container = document.getElementById('container');
+
+        const body = document.body;
+
+        
+
+        const initialContent = document.getElementById('initial-content');
+
+        const paymentScreen = document.getElementById('payment-screen');
+
+        const revealContent = document.getElementById('reveal-content');
+
+
+
+        const initialTitle = document.getElementById('initial-title');
+
+        const initialSubtitle = document.getElementById('initial-subtitle');
+
+        const genderIcons = document.getElementById('gender-icons');
+
+
+
+        const paymentTitle = document.getElementById('payment-title');
+
+        const paymentSubtitle = document.getElementById('payment-subtitle');
+
+        const cardNumberInput = document.getElementById('card-number');
+
+        const expiryDateInput = document.getElementById('expiry-date');
+
+        const cvcInput = document.getElementById('cvc');
+
+        const cardError = document.getElementById('card-error');
+
+        const passwordInputGroup = document.getElementById('password-input-group');
+
+        const bypassPasswordInput = document.getElementById('bypass-password');
+
+        const passwordError = document.getElementById('password-error');
+
+        const simulatedWarningOverlay = document.getElementById('simulated-warning-overlay');
+
+        const simulatedWarningContinueBtn = document.getElementById('simulated-warning-continue-btn');
+
+
+
+
+
+        // --- State ---
+
+        let revealAttempts = 0;
+
+        let paymentAttempted = false;
+
+        let passwordPrompted = false; 
+
+        let audioCtx;
+
+        let isButtonRunning = false;
+
+        let mouseMoveTimer;
+
+        let adInterval;
+
+        let adCount = 0; // To limit the number of ads
+
+
+
+        // --- Ad Data ---
+
+        const ads = [
+
+            {
+
+                id: 'ad1',
+
+                title: 'Congratulations! Now, Plan Ahead.',
+
+                message: 'Exclusive: Get 50% off your next pack of SuperSafe Condoms! Protection for the future, today!',
+
+                imageUrl: 'https://placehold.co/250x150/93c5fd/ffffff?text=Condom+Ad',
+
+                type: 'normal'
+
+            },
+
+            {
+
+                id: 'ad2',
+
+                title: 'Premium Comfort for Your Little One!',
+
+                message: 'Introducing "CloudPuff" Diapers - only $1.99 per diaper. Because your baby deserves the best!',
+
+                imageUrl: 'https://placehold.co/250x150/f472b6/ffffff?text=Diaper+Ad',
+
+                type: 'normal'
+
+            },
+
+            {
+
+                id: 'virus1',
+
+                title: 'VIRUS DETECTED! IMMEDIATE ACTION REQUIRED!',
+
+                message: 'Your system is infected with multiple high-risk Trojans. Click "Fix Now" to prevent data loss. (WARNING: Do NOT close this window!)',
+
+                imageUrl: 'https://placehold.co/250x150/ef4444/ffffff?text=VIRUS+WARNING',
+
+                type: 'virus'
+
+            },
+
+            {
+
+                id: 'ad3',
+
+                title: 'Don\'t Let Surprises Become... Surprises!',
+
+                message: 'Shop our discreet and effective range of birth control options. We\'ve got you covered!',
+
+                imageUrl: 'https://placehold.co/250x150/60a5fa/ffffff?text=Birth+Control',
+
+                type: 'normal'
+
+            },
+
+            {
+
+                id: 'ad4',
+
+                title: 'The Ultimate Baby Diaper Subscription!',
+
+                message: 'Sign up for our Platinum tier: $500/month for organic, hand-stitched, silk-lined diapers. Enroll now!',
+
+                imageUrl: 'https://placehold.co/250x150/ec4899/ffffff?text=Luxury+Diapers',
+
+                type: 'normal'
+
+            },
+
+        ];
+
+
+
+        // --- Sound Functions ---
+
+        function getAudioContext() {
+
+            if (!audioCtx) {
+
+                try {
+
+                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+                } catch (e) {
+
+                    console.error("Web Audio API is not supported in this browser");
+
+                    return null;
+
+                }
+
+            }
+
+            return audioCtx;
+
+        }
+
+
+
+        function playWindowsErrorSound() {
+
+            const ctx = getAudioContext();
+
+            if (!ctx) return;
+
+            
+
+            // High tone
+
+            const osc1 = ctx.createOscillator();
+
+            const gain1 = ctx.createGain();
+
+            osc1.connect(gain1);
+
+            gain1.connect(ctx.destination);
+
+            osc1.type = 'triangle';
+
+            osc1.frequency.setValueAtTime(493.88, ctx.currentTime); // B4
+
+            gain1.gain.setValueAtTime(0.3, ctx.currentTime);
+
+            gain1.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.3);
+
+            osc1.start(ctx.currentTime);
+
+            osc1.stop(ctx.currentTime + 0.3);
+
+            
+
+            // Low tone
+
+            const osc2 = ctx.createOscillator();
+
+            const gain2 = ctx.createGain();
+
+            osc2.connect(gain2);
+
+            gain2.connect(ctx.destination);
+
+            osc2.type = 'triangle';
+
+            osc2.frequency.setValueAtTime(246.94, ctx.currentTime + 0.1); // B3
+
+            gain2.gain.setValueAtTime(0.3, ctx.currentTime + 0.1);
+
+            gain2.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.4);
+
+            osc2.start(ctx.currentTime + 0.1);
+
+            osc2.stop(ctx.currentTime + 0.4);
+
+        }
+
+
+
+        // --- Helper Function for Button Loading State ---
+
+        function showLoading(buttonElement) {
+
+            buttonElement.disabled = true;
+
+            buttonElement.innerHTML = '<span class="loading-spinner"></span>Loading...';
+
+            buttonElement.classList.add('opacity-50', 'cursor-not-allowed', 'button-pulsate');
+
+        }
+
+
+
+        function hideLoading(buttonElement, originalText, originalClass) {
+
+            buttonElement.disabled = false;
+
+            buttonElement.innerHTML = originalText;
+
+            buttonElement.className = originalClass; 
+
+            buttonElement.classList.remove('opacity-50', 'cursor-not-allowed', 'button-pulsate');
+
+        }
+
+
+
+        // --- Button Movement Logic ---
+
+        function moveButton(e) {
+
+            if (!isButtonRunning) return;
+
+
+
+            const buttonElement = payButton; // Ensure we are moving the payButton
+
+            const containerRect = container.getBoundingClientRect(); // Get container bounds
+
+            const buttonRect = buttonElement.getBoundingClientRect(); // Get button bounds
+
+
+
+            const mouseX = e.clientX;
+
+            const mouseY = e.clientY;
+
+
+
+            // Get button's current position relative to the viewport
+
+            const currentButtonX = buttonRect.left;
+
+            const currentButtonY = buttonRect.top;
+
+
+
+            // Calculate direction away from mouse
+
+            const moveAwayStrength = 0.18; // How strongly the button moves away (increased from 0.15)
+
+            let deltaX = currentButtonX - mouseX;
+
+            let deltaY = currentButtonY - mouseY;
+
+
+
+            // Normalize delta to ensure consistent speed regardless of distance
+
+            const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+
+            if (distance === 0) return; // Avoid division by zero
+
+
+
+            deltaX /= distance;
+
+            deltaY /= distance;
+
+
+
+            // Calculate new position relative to the viewport
+
+            let newX = currentButtonX + deltaX * (buttonRect.width * moveAwayStrength);
+
+            let newY = currentButtonY + deltaY * (buttonRect.height * moveAwayStrength);
+
+
+
+            // Clamp new position to stay within the container boundaries
+
+            // Ensure newX, newY are within the container's coordinates minus button dimensions
+
+            newX = Math.max(containerRect.left, Math.min(newX, containerRect.right - buttonRect.width));
+
+            newY = Math.max(containerRect.top, Math.min(newY, containerRect.bottom - buttonRect.height));
+
+            
+
+            // Apply absolute position (relative to viewport, since `position: fixed` is not used for button movement)
+
+            buttonElement.style.left = `${newX}px`;
+
+            buttonElement.style.top = `${newY}px`;
+
+        }
+
+
+
+        function makeButtonRunAway(buttonElement) {
+
+            if (isButtonRunning) return; // Prevent multiple instances
+
+            isButtonRunning = true;
+
+            buttonElement.classList.add('moveable-button');
+
+            document.addEventListener('mousemove', moveButton);
+
+
+
+            mouseMoveTimer = setTimeout(() => {
+
+                stopButtonRunning();
+
+            }, BUTTON_RUN_AWAY_DURATION);
+
+        }
+
+
+
+        function stopButtonRunning() {
+
+            if (!isButtonRunning) return;
+
+            clearTimeout(mouseMoveTimer);
+
+            isButtonRunning = false;
+
+            // Reset button styles to its original state within the flow
+
+            payButton.style.position = ''; 
+
+            payButton.style.left = '';
+
+            payButton.style.top = '';
+
+            payButton.classList.remove('moveable-button');
+
+            document.removeEventListener('mousemove', moveButton);
+
+        }
+
+
+
+        // --- Popup Functions ---
+
+        function createAdPopup(adData) {
+
+            const popupDiv = document.createElement('div');
+
+            // Random positioning within viewport, ensuring popup is fully visible
+
+            const viewportWidth = window.innerWidth;
+
+            const viewportHeight = window.innerHeight;
+
+            const popupWidth = Math.min(600, viewportWidth * 0.9); // Max 600px or 90%
+
+            const popupHeight = 350; // Estimate height for calculation
+
+
+
+            const randomX = Math.random() * (viewportWidth - popupWidth - 40) + 20; // 20px padding from edges
+
+            const randomY = Math.random() * (viewportHeight - popupHeight - 40) + 20;
+
+            
+
+            popupDiv.className = `popup ${adData.type === 'virus' ? 'virus' : ''}`;
+
+            popupDiv.style.left = `${randomX}px`;
+
+            popupDiv.style.top = `${randomY}px`;
+
+            popupDiv.style.zIndex = Math.floor(Math.random() * 1000) + 90000; // High and random z-index
+
+
+
+            popupDiv.innerHTML = `
+
+                <button class="close-btn" aria-label="Close popup">&times;</button>
+
+                <h3 class="text-2xl font-bold mb-4 popup-title">${adData.title}</h3>
+
+                <img src="${adData.imageUrl}" alt="${adData.title}" class="mx-auto my-4 rounded-lg shadow-md w-full max-w-[250px]">
+
+                <p class="text-gray-700 text-base">${adData.message}</p>
+
+            `;
+
+            
+
+            // Add a "Fix Now" button for virus popups
+
+            if (adData.type === 'virus') {
+
+                popupDiv.innerHTML += `
+
+                    <button class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-md mt-6 text-lg">
+
+                        FIX NOW!
+
+                    </button>
+
+                `;
+
+            }
+
+
+
+            const closeButton = popupDiv.querySelector('.close-btn');
+
+            closeButton.addEventListener('click', () => {
+
+                popupDiv.classList.remove('show');
+
+                // If it's a virus popup, show the simulated warning after it fades
+
+                if (adData.type === 'virus') {
+
+                    setTimeout(() => {
+
+                        popupDiv.remove();
+
+                        showSimulatedWarning();
+
+                    }, 300); 
+
+                } else {
+
+                    setTimeout(() => popupDiv.remove(), 300); // Remove after transition for normal ads
+
+                }
+
+            });
+
+
+
+            // Normal ads close after a longer, random delay
+
+            if (adData.type !== 'virus') {
+
+                setTimeout(() => {
+
+                    popupDiv.classList.remove('show');
+
+                    setTimeout(() => popupDiv.remove(), 300); 
+
+                }, 8000 + Math.random() * 7000); // Normal ads close after 8-15 seconds
+
+            }
+
+
+
+            return popupDiv;
+
+        }
+
+
+
+        function showRandomAd() {
+
+            if (body.classList.contains('revealed')) {
+
+                clearInterval(adInterval); // Stop ads after reveal
+
+                return;
+
+            }
+
+            if (adCount >= 15) { // Increase limit total number of ads to avoid overwhelming
+
+                clearInterval(adInterval);
+
+                return;
+
+            }
+
+
+
+            const adData = ads[Math.floor(Math.random() * ads.length)];
+
+            const popup = createAdPopup(adData);
+
+            document.body.appendChild(popup); // Append to body to ensure it's on top
+
+            
+
+            // Small delay to allow element to be added to DOM before transition
+
+            setTimeout(() => {
+
+                popup.classList.add('show');
+
+            }, 50); 
+
+
+
+            adCount++;
+
+        }
+
+
+
+        function startAdInterval() {
+
+            // Increase frequency: every 3-8 seconds
+
+            adInterval = setInterval(() => {
+
+                showRandomAd();
+
+            }, 3000 + Math.random() * 5000); 
+
+        }
+
+
+
+        function showSimulatedWarning() {
+
+            simulatedWarningOverlay.classList.remove('hidden');
+
+            // Force reflow before adding active class for transition
+
+            void simulatedWarningOverlay.offsetWidth; 
+
+            simulatedWarningOverlay.classList.add('active');
+
+        }
+
+
+
+        function hideSimulatedWarning() {
+
+            simulatedWarningOverlay.classList.remove('active');
+
+            setTimeout(() => {
+
+                simulatedWarningOverlay.classList.add('hidden');
+
+            }, 300); // Hide completely after transition
+
+        }
+
+
+
+
+
+        // --- Event Listeners ---
+
+        revealButton.addEventListener('click', () => {
+
+            const originalButtonText = revealButton.textContent;
+
+            const originalButtonClass = revealButton.className;
+
+
+
+            showLoading(revealButton);
+
+
+
+            setTimeout(() => {
+
+                hideLoading(revealButton, originalButtonText, originalButtonClass);
+
+                
+
+                revealAttempts++;
+
+                playWindowsErrorSound();
+
+
+
+                switch (revealAttempts) {
+
+                    case 1:
+
+                        initialTitle.textContent = "Error 42069";
+
+                        initialSubtitle.textContent = "A critical miscalculation has occurred.";
+
+                        genderIcons.style.display = 'none';
+
+                        revealButton.textContent = "Retry Scan";
+
+                        revealButton.className = "bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-4 px-10 rounded-full shadow-lg text-2xl transform hover:scale-105 transition-transform duration-300";
+
+                        break;
+
+                    
+
+                    case 2:
+
+                        initialTitle.textContent = "Gender Not Found";
+
+                        initialSubtitle.textContent = "Searching baby database... please try again.";
+
+                        revealButton.className = "bg-red-500 hover:bg-red-600 text-white font-bold py-4 px-10 rounded-full shadow-lg text-2xl transform hover:scale-105 transition-transform duration-300";
+
+                        break;
+
+
+
+                    case 3:
+
+                        initialTitle.textContent = "Error 6969";
+
+                        initialSubtitle.textContent = "Recalibrating the stork's GPS...";
+
+                        revealButton.textContent = "Proceed to Secure Reveal";
+
+                        break;
+
+                        
+
+                    case 4:
+
+                        initialContent.classList.remove('visible');
+
+                        paymentScreen.classList.add('visible');
+
+                        startAdInterval(); // Start showing ads when payment screen is visible
+
+                        break;
+
+                }
+
+            }, LOADING_DELAY_MS);
+
+        });
+
+
+
+        payButton.addEventListener('click', (event) => {
+
+            event.preventDefault(); 
+
+
+
+            // If the button is running away and user somehow clicks it, handle the password submission
+
+            if (isButtonRunning && passwordPrompted) {
+
+                const enteredPassword = bypassPasswordInput.value;
+
+                if (enteredPassword === BYPASS_PASSWORD) {
+
+                    stopButtonRunning(); // Stop it immediately on correct password
+
+                    const isBoy = REVEAL_GENDER.toLowerCase() === 'boy';
+
+                    const revealText = isBoy ? "It's a Boy!" : "It's a Girl!";
+
+                    const colors = isBoy 
+
+                        ? ['#93C5FD', '#60A5FA', '#3B82F6'] // Shades of blue
+
+                        : ['#F9A8D4', '#F472B6', '#EC4899']; // Shades of pink
+
+                    const bgColor = isBoy ? 'bg-blue-200' : 'bg-pink-200';
+
+
+
+                    revealContent.innerHTML = `
+
+                        <h2 class="text-7xl md:text-8xl font-pacifico" style="color: ${colors[2]}">${revealText}</h2>
+
+                        <p class="text-2xl text-gray-800 mt-6">We can't wait to meet your little one!</p>
+
+                    `;
+
+                    revealContent.classList.add(bgColor);
+
+
+
+                    body.classList.add('revealed');
+
+                    revealContent.classList.add('visible');
+
+
+
+                    launchConfetti(colors);
+
+                    clearInterval(adInterval); // Stop ads on reveal
+
+                    return; // Exit function after reveal
+
+                } else {
+
+                    playWindowsErrorSound();
+
+                    passwordError.classList.remove('hidden');
+
+                    // The button continues to run if the password is wrong
+
+                    return; // Exit function
+
+                }
+
+            }
+
+
+
+
+
+            const originalButtonText = payButton.textContent;
+
+            const originalButtonClass = payButton.className;
+
+
+
+            // Only validate card details if we are on the initial payment screen and not yet prompted for password
+
+            if (!paymentAttempted && (cardNumberInput.value.trim() === '' || expiryDateInput.value.trim() === '' || cvcInput.value.trim() === '')) {
+
+                playWindowsErrorSound();
+
+                cardError.classList.remove('hidden'); // Show card error
+
+                return; // Stop execution
+
+            } 
+
+            
+
+            showLoading(payButton);
+
+
+
+            setTimeout(() => {
+
+                hideLoading(payButton, originalButtonText, originalButtonClass);
+
+
+
+                if (!paymentAttempted) {
+
+                    cardError.classList.add('hidden');
+
+                    playWindowsErrorSound();
+
+                    
+
+                    paymentTitle.textContent = "Payment Error";
+
+                    paymentTitle.classList.remove('text-teal-300');
+
+                    paymentTitle.classList.add('text-red-400');
+
+                    
+
+                    paymentSubtitle.textContent = "Transaction declined. Access denied.";
+
+                    
+
+                    payButton.textContent = "Bypass Payment Firewall";
+
+                    payButton.className = "w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-10 rounded-full shadow-lg text-2xl transform hover:scale-105 transition-transform duration-300 mt-4";
+
+
+
+                    paymentAttempted = true;
+
+                } else if (!passwordPrompted) { 
+
+                    playWindowsErrorSound();
+
+
+
+                    paymentTitle.textContent = "Turn around for the bypass password";
+
+                    paymentTitle.classList.remove('text-red-400');
+
+                    paymentTitle.classList.add('text-blue-400');
+
+
+
+                    cardNumberInput.style.display = 'none';
+
+                    expiryDateInput.style.display = 'none';
+
+                    cvcInput.style.display = 'none';
+
+                    cardError.classList.add('hidden');
+
+                    passwordInputGroup.style.display = 'block';
+
+
+
+                    paymentSubtitle.textContent = "Enter the bypass password below.";
+
+
+
+                    payButton.textContent = "Submit Password";
+
+                    payButton.className = "w-full bg-purple-500 hover:bg-purple-600 text-white font-bold py-4 px-10 rounded-full shadow-lg text-2xl transform hover:scale-105 transition-transform duration-300 mt-4";
+
+
+
+                    passwordPrompted = true;
+
+                    // Button will now run away on password input typing
+
+                } else { // This block is now primarily for when the password is submitted
+
+                    const enteredPassword = bypassPasswordInput.value;
+
+                    if (enteredPassword === BYPASS_PASSWORD) {
+
+                        stopButtonRunning(); // Stop it immediately on correct password
+
+                        const isBoy = REVEAL_GENDER.toLowerCase() === 'boy';
+
+                        const revealText = isBoy ? "It's a Boy!" : "It's a Girl!";
+
+                        const colors = isBoy 
+
+                            ? ['#93C5FD', '#60A5FA', '#3B82F6'] // Shades of blue
+
+                            : ['#F9A8D4', '#F472B6', '#EC4899']; // Shades of pink
+
+                        const bgColor = isBoy ? 'bg-blue-200' : 'bg-pink-200';
+
+
+
+                        revealContent.innerHTML = `
+
+                            <h2 class="text-7xl md:text-8xl font-pacifico" style="color: ${colors[2]}">${revealText}</h2>
+
+                            <p class="text-2xl text-gray-800 mt-6">We can't wait to meet your little one!</p>
+
+                        `;
+
+                        revealContent.classList.add(bgColor);
+
+
+
+                        body.classList.add('revealed');
+
+                        revealContent.classList.add('visible');
+
+
+
+                        launchConfetti(colors);
+
+                        clearInterval(adInterval); // Stop ads on reveal
+
+                    } else {
+
+                        playWindowsErrorSound();
+
+                        passwordError.classList.remove('hidden');
+
+                        makeButtonRunAway(payButton); // Button runs away again if password is wrong
+
+                    }
+
+                }
+
+            }, LOADING_DELAY_MS);
+
+        });
+
+
+
+        // Event listener for password input to trigger button running
+
+        bypassPasswordInput.addEventListener('input', () => {
+
+            // Only trigger if we are on the password prompt stage and input has content
+
+            if (passwordPrompted) {
+
+                if (bypassPasswordInput.value.length > 0 && !isButtonRunning) {
+
+                    makeButtonRunAway(payButton);
+
+                } else if (bypassPasswordInput.value.length === 0 && isButtonRunning) {
+
+                    // If text is cleared, stop the button from running
+
+                    stopButtonRunning();
+
+                }
+
+            }
+
+        });
+
+
+
+        // Event listener for simulated warning button
+
+        simulatedWarningContinueBtn.addEventListener('click', hideSimulatedWarning);
+
+
+
+
+
+        /**
+
+         * Creates and animates confetti particles.
+
+         */
+
+        function launchConfetti(colors) {
+
+            for (let i = 0; i < CONFETTI_COUNT; i++) {
+
+                const confetti = document.createElement('div');
+
+                confetti.classList.add('confetti');
+
+                confetti.style.left = `${Math.random() * 100}%`;
+
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+
+                confetti.style.animationDelay = `${Math.random() * 3}s`;
+
+                confetti.style.width = `${Math.random() * 15 + 8}px`;
+
+                confetti.style.height = confetti.style.width;
+
+                body.appendChild(confetti);
+
+                confetti.addEventListener('animationend', () => confetti.remove());
+
+            }
+
+        }
+
+    </script>
+
+
+
+</body>
+
+</html>
