@@ -44,28 +44,26 @@
 </head>
 <body class="bg-yellow-50 text-gray-800">
 
-    <header class="bg-white shadow-md sticky top-0 z-50">
+    <!-- Header Section -->
+    <header class="bg-white shadow-md sticky top-0 z-40">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <h1 class="text-4xl font-pacifico text-orange-500">Die Karstens</h1>
+            <!-- Desktop Navigation Links -->
             <div class="hidden md:flex items-center space-x-8 font-bold">
                 <a href="index.html" class="text-gray-600 hover:text-orange-500 transition duration-300">Tuis</a>
                 <a href="BoyOrGirl.html" class="text-gray-600 hover:text-orange-500 transition duration-300">Gender Reveal!</a>
                 <a href="Familielede.html" class="text-gray-600 hover:text-orange-500 transition duration-300">Familielede</a>
                 <a href="sosiale_media.html" class="text-gray-600 hover:text-orange-500 transition duration-300">Sosiale Media</a>
             </div>
-            <button id="mobile-menu-button" class="md:hidden">
-                <i data-lucide="menu" class="w-8 h-8 text-orange-500"></i>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-open-button" class="md:hidden text-orange-500 focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </nav>
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 font-bold">
-            <a href="index.html" class="block py-2 text-gray-600 hover:text-orange-500">Tuis</a>
-            <a href="BoyOrGirl.html" class="block py-2 text-gray-600 hover:text-orange-500">Gender Reveal!</a>
-            <a href="Familielede.html" class="block py-2 text-gray-600 hover:text-orange-500">Familielede</a>
-            <a href="sosiale_media.html" class="block py-2 text-gray-600 hover:text-orange-500">Sosiale Media</a>
-        </div>
     </header>
 
     <main>
+        <!-- Hero Section -->
         <section class="relative h-[60vh] min-h-[400px] bg-gray-300">
             <img src="https://placehold.co/1600x900/FEF3C7/F97316?text=Welkom+by+die+Karsten+Kraal!" 
                  alt="'n Gelukkige familie" 
@@ -76,6 +74,7 @@
             </div>
         </section>
 
+        <!-- Quick Links Section -->
         <section class="py-16 sm:py-24 bg-white">
             <div class="container mx-auto px-6">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -102,6 +101,7 @@
             </div>
         </section>
 
+        <!-- Family Section -->
         <section class="py-16 sm:py-24">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="font-pacifico text-5xl text-orange-500">Ontmoet die Karstens!</h2>
@@ -109,34 +109,34 @@
                 
                 <div class="mt-12 flex flex-wrap justify-center gap-4 sm:gap-6">
                     <div class="w-24 h-24 sm:w-28 sm:h-28 bg-gray-200 rounded-full overflow-hidden shadow-md transform hover:scale-110 transition-transform duration-300">
-                        <img src="Pa.jpg" alt="Familielid 1" class="w-full h-full object-cover">
+                        <img src="Pa.jpg" alt="Pa" class="w-full h-full object-cover">
                     </div>
                     <div class="w-24 h-24 sm:w-28 sm:h-28 bg-gray-200 rounded-full overflow-hidden shadow-md transform hover:scale-110 transition-transform duration-300">
-                        <img src="nika.jpg" alt="Familielid 2" class="w-full h-full object-cover">
+                        <img src="nika.jpg" alt="Nika" class="w-full h-full object-cover">
                     </div>
                     <div class="w-24 h-24 sm:w-28 sm:h-28 bg-gray-200 rounded-full overflow-hidden shadow-md transform hover:scale-110 transition-transform duration-300">
-                        <img src="Junior.jpg" alt="Familielid 3" class="w-full h-full object-cover">
+                        <img src="Junior.jpg" alt="Junior" class="w-full h-full object-cover">
                     </div>
                     <div class="w-24 h-24 sm:w-28 sm:h-28 bg-gray-200 rounded-full overflow-hidden shadow-md transform hover:scale-110 transition-transform duration-300">
-                        <img src="Dylan.jpg" alt="Familielid 4" class="w-full h-full object-cover">
+                        <img src="Dylan.jpg" alt="Dylan" class="w-full h-full object-cover">
                     </div>
                     <div class="w-24 h-24 sm:w-28 sm:h-28 bg-gray-200 rounded-full overflow-hidden shadow-md transform hover:scale-110 transition-transform duration-300">
-                        <img src="Charm.jpg" alt="Familielid 5" class="w-full h-full object-cover">
+                        <img src="Charm.jpg" alt="Charmaine" class="w-full h-full object-cover">
                     </div>
                     <div class="w-24 h-24 sm:w-28 sm:h-28 bg-gray-200 rounded-full overflow-hidden shadow-md transform hover:scale-110 transition-transform duration-300">
-                        <img src="Brenda.jpg" alt="Familielid 6" class="w-full h-full object-cover">
+                        <img src="Brenda.jpg" alt="Brenda" class="w-full h-full object-cover">
                     </div>
                     <div class="w-24 h-24 sm:w-28 sm:h-28 bg-gray-200 rounded-full overflow-hidden shadow-md transform hover:scale-110 transition-transform duration-300">
-                        <img src="Chim.jpg" alt="Familielid 7" class="w-full h-full object-cover">
+                        <img src="Chim.jpg" alt="Chimonay" class="w-full h-full object-cover">
                     </div>
                     <div class="w-24 h-24 sm:w-28 sm:h-28 bg-gray-200 rounded-full overflow-hidden shadow-md transform hover:scale-110 transition-transform duration-300">
-                        <img src="Sas.jpg" alt="Familielid 8" class="w-full h-full object-cover">
+                        <img src="Sas.jpg" alt="Saskia" class="w-full h-full object-cover">
                     </div>
 					 <div class="w-24 h-24 sm:w-28 sm:h-28 bg-gray-200 rounded-full overflow-hidden shadow-md transform hover:scale-110 transition-transform duration-300">
-                        <img src="https://static.vecteezy.com/system/resources/previews/021/013/504/original/coming-soon-icon-symbol-coming-soon-icon-symbol-illustration-on-transparent-background-free-png.png" alt="Familielid 8" class="w-full h-full object-cover">
+                        <img src="https://static.vecteezy.com/system/resources/previews/021/013/504/original/coming-soon-icon-symbol-coming-soon-icon-symbol-illustration-on-transparent-background-free-png.png" alt="Binnekort Beskikbaar" class="w-full h-full object-cover">
                     </div>
 					 <div class="w-24 h-24 sm:w-28 sm:h-28 bg-gray-200 rounded-full overflow-hidden shadow-md transform hover:scale-110 transition-transform duration-300">
-                        <img src="https://static.vecteezy.com/system/resources/previews/021/013/504/original/coming-soon-icon-symbol-coming-soon-icon-symbol-illustration-on-transparent-background-free-png.png" alt="Familielid 8" class="w-full h-full object-cover">
+                        <img src="https://static.vecteezy.com/system/resources/previews/021/013/504/original/coming-soon-icon-symbol-coming-soon-icon-symbol-illustration-on-transparent-background-free-png.png" alt="Binnekort Beskikbaar" class="w-full h-full object-cover">
                     </div>
                 </div>
 
@@ -153,17 +153,51 @@
         </div>
     </footer>
 
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="hidden fixed inset-0 z-50">
+        <!-- Semi-transparent background -->
+        <div id="mobile-menu-overlay" class="fixed inset-0 bg-black opacity-50"></div>
+        <!-- Menu Content -->
+        <div class="absolute top-0 right-0 h-full w-4/5 max-w-xs bg-white shadow-lg p-5">
+            <div class="flex justify-end mb-4">
+                <button id="mobile-menu-close-button" class="text-gray-600 hover:text-orange-500">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <nav class="flex flex-col space-y-4 font-bold">
+                <a href="index.html" class="block py-2 text-lg text-gray-700 hover:text-orange-500">Tuis</a>
+                <a href="BoyOrGirl.html" class="block py-2 text-lg text-gray-700 hover:text-orange-500">Gender Reveal!</a>
+                <a href="Familielede.html" class="block py-2 text-lg text-gray-700 hover:text-orange-500">Familielede</a>
+                <a href="sosiale_media.html" class="block py-2 text-lg text-gray-700 hover:text-orange-500">Sosiale Media</a>
+            </nav>
+        </div>
+    </div>
+
+
     <script>
-        // Initialize Lucide Icons
+        // Initialize Lucide Icons for icons used in the main content
         lucide.createIcons();
 
-        // Mobile menu toggle
-        const menuButton = document.getElementById('mobile-menu-button');
+        // --- Mobile Menu Functionality ---
+        const openBtn = document.getElementById('mobile-menu-open-button');
+        const closeBtn = document.getElementById('mobile-menu-close-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        
-        menuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+        // Function to open the menu
+        function openMobileMenu() {
+            mobileMenu.classList.remove('hidden');
+        }
+
+        // Function to close the menu
+        function closeMobileMenu() {
+            mobileMenu.classList.add('hidden');
+        }
+
+        // Event listeners for the buttons and overlay
+        openBtn.addEventListener('click', openMobileMenu);
+        closeBtn.addEventListener('click', closeMobileMenu);
+        mobileMenuOverlay.addEventListener('click', closeMobileMenu); // Close menu when clicking outside
     </script>
 </body>
 </html>
