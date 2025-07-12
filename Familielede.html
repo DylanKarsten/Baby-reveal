@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="af">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Die Karstens - Ons Familielede</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Pacifico & Nunito -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide-icons@latest"></script>
+
+    <style>
+        /* Custom font for headings */
+        .font-pacifico {
+            font-family: 'Pacifico', cursive;
+        }
+        /* Default font for body */
+        body {
+            font-family: 'Nunito', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-yellow-50 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-4xl font-pacifico text-orange-500">Die Karstens</h1>
+            <div class="hidden md:flex items-center space-x-8 font-bold">
+                <a href="index.html" class="text-gray-600 hover:text-orange-500 transition duration-300">Tuis</a>
+                <a href="BoyOrGirl.html" class="text-gray-600 hover:text-orange-500 transition duration-300">Gender Reveal!</a>
+                <a href="lede.html" class="text-orange-500 transition duration-300">Familielede</a>
+                <a href="sosiale_media.html" class="text-gray-600 hover:text-orange-500 transition duration-300">Sosiale Media</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden">
+                <i data-lucide="menu" class="w-8 h-8 text-orange-500"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 font-bold">
+            <a href="index.html" class="block py-2 text-gray-600 hover:text-orange-500">Tuis</a>
+            <a href="#" class="block py-2 text-gray-600 hover:text-orange-500">Gender Reveal!</a>
+            <a href="lede.html" class="block py-2 text-orange-500">Familielede</a>
+            <a href="#" class="block py-2 text-gray-600 hover:text-orange-500">Sosiale Media</a>
+        </div>
+    </header>
+
+    <main class="py-16 sm:py-24">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="font-pacifico text-5xl md:text-6xl text-orange-500">Ontmoet die Hele Familie!</h2>
+            <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Elkeen van ons is uniek en spesiaal. Hier is 'n bietjie meer oor ons elkeen.</p>
+        </div>
+
+        <!-- Member Cards Section -->
+        <div class="container mx-auto px-6 mt-12">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Member Card 1 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    <img src="Pa.jpg" alt="Familielid 1" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-800">Marius Jr Karsten</h3>
+                        <p class="font-pacifico text-orange-500 text-lg">Die Pa</p>
+                        <p class="mt-2 text-gray-600">Marius: die man van die huis van sy vrou </br>Marius: grootste vrees... Brenda..</p>
+                    </div>
+                </div>
+
+                <!-- Member Card 2 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    <img src="Ma.jpg" alt="Familielid 2" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-800">Brenda Karsten</h3>
+                        <p class="font-pacifico text-orange-500 text-lg">Die Ma</p>
+                        <p class="mt-2 text-gray-600">Brenda: die regte "man" van die huis </br>Brenda: grootste vrees.. Vuil vloere</p>
+                    </div>
+                </div>
+
+                <!-- Member Card 3 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    <img src="Jun.jpg" alt="Familielid 3" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-800">Junior Karsten </h3>
+                        <p class="font-pacifico text-orange-500 text-lg">Oudste Kind</p>
+                        <p class="mt-2 text-gray-600">Junior: se hys nie honger nie maar kyk die kos uit jou microwave uit</p>
+                    </div>
+                </div>
+
+                <!-- Member Card 4 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    <img src="Dy.jpg" alt="Familielid 4" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-800">Dylan Karsten</h3>
+                        <p class="font-pacifico text-orange-500 text-lg">Middel Kind</p>
+                        <p class="mt-2 text-gray-600">Dylan: die een wat claim hy is n cat lover maar hou net van sy kat</p>
+                    </div>
+                </div>
+
+                <!-- Member Card 5 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    <img src="Charm.jpg" alt="Familielid 5" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-800">Charmone Karsten</h3>
+                        <p class="font-pacifico text-orange-500 text-lg">Jongste Kind</p>
+                        <p class="mt-2 text-gray-600">Charmone is die video-redakteur en 'n drama queen wat altyd die slagoffer van haarself is.</p>
+                    </div>
+                </div>
+
+                <!-- Member Card 6 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    <img src="Nika.jpg" alt="Familielid 6" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-800">Nicola Karsten</h3>
+                        <p class="font-pacifico text-orange-500 text-lg">Die Kat</p>
+                        <p class="mt-2 text-gray-600">Nicola: Sy sal pee teen n bank in ons huis om dit as haar gebied te beskou.. Dis nie haar bank nie..</p>
+                    </div>
+                </div>
+
+                <!-- Member Card 7 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    <img src="Sas.jpg" alt="Familielid 7" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-800">Saskea Stols </h3>
+                        <p class="font-pacifico text-orange-500 text-lg">Junior se "VROU"</p>
+                        <p class="mt-2 text-gray-600">Saskea: Mysterious.. Maar lyk soos die tiepe wat jou microwave plate sal steel as jy haar chocolate melkie drink</p>
+                    </div>
+                </div>
+
+                <!-- Member Card 8 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    <img src="Ch.jpg" alt="Familielid 8" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-800">Chermelé Wolmarans </h3>
+                        <p class="font-pacifico text-orange-500 text-lg">Die Hond</p>
+                        <p class="mt-2 text-gray-600">Chimmie: chimmie identifiseer as n Karsten die dag toe sy die hele family glo getrou het. Almal is te bang om haar te skei</p>
+                    </div>
+				</div>	
+					 <!-- Member Card 9 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    <img src="https://static.vecteezy.com/system/resources/previews/021/013/504/original/coming-soon-icon-symbol-coming-soon-icon-symbol-illustration-on-transparent-background-free-png.png" alt="Familielid 8" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-800">Dylan Crush </h3>
+                        <p class="font-pacifico text-orange-500 text-lg">Fairytale</p>
+                        <p class="mt-2 text-gray-600">I`m in love with a fairytale</p>
+                    </div>
+				</div>	
+					 <!-- Member Card 10 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    <img src="https://eliteagents.cloud/wp-content/uploads/2018/08/No-coming-soon.jpg" alt="Familielid 8" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-800">Charmoné se hand </h3>
+                        <p class="font-pacifico text-orange-500 text-lg">Flowers</p>
+                        <p class="mt-2 text-gray-600">I can buy myself flowers</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-16">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p>&copy; 2024 Die Karstens. Alle Regte Voorbehou.</p>
+            <p class="text-sm text-gray-400 mt-2">Met liefde gemaak vir ons familie en vriende.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
