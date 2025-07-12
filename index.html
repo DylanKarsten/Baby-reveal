@@ -174,10 +174,25 @@
         
         menuButton.addEventListener('click', () => {
             const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
-            menuButton.setAttribute('aria-expanded', !isExpanded);
-
-            mobileMenu.classList.toggle('hidden'); // This toggles visibility
-            mobileMenu.classList.toggle('open'); // This applies the transform for animation
+            
+            if (!isExpanded) {
+                // Menu is currently closed, open it
+                menuButton.setAttribute('aria-expanded', 'true');
+                mobileMenu.classList.remove('hidden'); // Make it visible
+                // Use a small timeout to allow 'hidden' removal to render before 'open' transition
+                setTimeout(() => {
+                    mobileMenu.classList.add('open'); // Trigger slide-in animation
+                }, 10); 
+            } else {
+                // Menu is currently open, close it
+                menuButton.setAttribute('aria-expanded', 'false');
+                mobileMenu.classList.remove('open'); // Trigger slide-out animation
+                // Add 'hidden' after the transition completes
+                mobileMenu.addEventListener('transitionend', function handler() {
+                    mobileMenu.classList.add('hidden'); // Hide it completely after animation
+                    mobileMenu.removeEventListener('transitionend', handler); // Remove listener to prevent multiple calls
+                });
+            }
         });
     </script>
 </body>
