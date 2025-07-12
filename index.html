@@ -41,13 +41,14 @@
             }
         }
 
-        /* Mobile menu slide-in effect */
+        /* Mobile menu slide-down effect using max-height */
         #mobile-menu {
-            transition: transform 0.3s ease-out;
-            transform: translateY(-100%); /* Start off-screen above */
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out; /* Smooth transition for max-height */
         }
         #mobile-menu.open {
-            transform: translateY(0); /* Slide in */
+            max-height: 500px; /* A value large enough to contain all menu items */
         }
     </style>
 </head>
@@ -66,8 +67,8 @@
                 <i data-lucide="menu" class="w-8 h-8 text-orange-500"></i>
             </button>
         </nav>
-        <!-- Mobile menu - initially hidden and slides down -->
-        <div id="mobile-menu" class="absolute top-full left-0 w-full bg-white shadow-lg md:hidden px-6 pb-4 font-bold hidden">
+        <!-- Mobile menu - now controlled by max-height -->
+        <div id="mobile-menu" class="absolute top-full left-0 w-full bg-white shadow-lg md:hidden px-6 pb-4 font-bold">
             <a href="index.html" class="block py-2 text-gray-600 hover:text-orange-500">Tuis</a>
             <a href="BoyOrGirl.html" class="block py-2 text-gray-600 hover:text-orange-500">Gender Reveal!</a>
             <a href="Familielede.html" class="block py-2 text-gray-600 hover:text-orange-500">Familielede</a>
@@ -175,24 +176,9 @@
         menuButton.addEventListener('click', () => {
             const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
             
-            if (!isExpanded) {
-                // Menu is currently closed, open it
-                menuButton.setAttribute('aria-expanded', 'true');
-                mobileMenu.classList.remove('hidden'); // Make it visible
-                // Use a small timeout to allow 'hidden' removal to render before 'open' transition
-                setTimeout(() => {
-                    mobileMenu.classList.add('open'); // Trigger slide-in animation
-                }, 10); 
-            } else {
-                // Menu is currently open, close it
-                menuButton.setAttribute('aria-expanded', 'false');
-                mobileMenu.classList.remove('open'); // Trigger slide-out animation
-                // Add 'hidden' after the transition completes
-                mobileMenu.addEventListener('transitionend', function handler() {
-                    mobileMenu.classList.add('hidden'); // Hide it completely after animation
-                    mobileMenu.removeEventListener('transitionend', handler); // Remove listener to prevent multiple calls
-                });
-            }
+            // Toggle the 'open' class to control max-height and visibility
+            mobileMenu.classList.toggle('open'); 
+            menuButton.setAttribute('aria-expanded', !isExpanded);
         });
     </script>
 </body>
