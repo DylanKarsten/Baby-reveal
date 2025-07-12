@@ -153,12 +153,13 @@
         </div>
     </footer>
 
-    <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="hidden fixed inset-0 z-50">
-        <!-- Semi-transparent background -->
-        <div id="mobile-menu-overlay" class="fixed inset-0 bg-black opacity-50"></div>
+    <!-- Mobile Menu Container -->
+    <div id="mobile-menu-container" class="fixed inset-0 z-50 transform transition-transform duration-300 ease-in-out translate-x-full" aria-hidden="true">
+        <!-- Semi-transparent background overlay -->
+        <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50"></div>
+        
         <!-- Menu Content -->
-        <div class="absolute top-0 right-0 h-full w-4/5 max-w-xs bg-white shadow-lg p-5">
+        <div class="relative w-4/5 max-w-xs h-full bg-white shadow-lg p-5 ml-auto">
             <div class="flex justify-end mb-4">
                 <button id="mobile-menu-close-button" class="text-gray-600 hover:text-orange-500">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
@@ -181,23 +182,25 @@
         // --- Mobile Menu Functionality ---
         const openBtn = document.getElementById('mobile-menu-open-button');
         const closeBtn = document.getElementById('mobile-menu-close-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const menuContainer = document.getElementById('mobile-menu-container');
+        const menuOverlay = document.getElementById('mobile-menu-overlay');
 
         // Function to open the menu
         function openMobileMenu() {
-            mobileMenu.classList.remove('hidden');
+            menuContainer.classList.remove('translate-x-full');
+            menuContainer.setAttribute('aria-hidden', 'false');
         }
 
         // Function to close the menu
         function closeMobileMenu() {
-            mobileMenu.classList.add('hidden');
+            menuContainer.classList.add('translate-x-full');
+            menuContainer.setAttribute('aria-hidden', 'true');
         }
 
         // Event listeners for the buttons and overlay
         openBtn.addEventListener('click', openMobileMenu);
         closeBtn.addEventListener('click', closeMobileMenu);
-        mobileMenuOverlay.addEventListener('click', closeMobileMenu); // Close menu when clicking outside
+        menuOverlay.addEventListener('click', closeMobileMenu); // Close menu when clicking the overlay
     </script>
 </body>
 </html>
