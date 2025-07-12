@@ -109,28 +109,28 @@
                 
                 <div class="mt-12 flex flex-wrap justify-center gap-4 sm:gap-6">
                     <div class="w-24 h-24 sm:w-28 sm:h-28 bg-gray-200 rounded-full overflow-hidden shadow-md transform hover:scale-110 transition-transform duration-300">
-                        <img src="Pa.jpg" alt="Pa" class="w-full h-full object-cover">
+                        <img src="Pa.jpg" alt="Pa" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/112x112/cccccc/333333?text=Pa';">
                     </div>
                     <div class="w-24 h-24 sm:w-28 sm:h-28 bg-gray-200 rounded-full overflow-hidden shadow-md transform hover:scale-110 transition-transform duration-300">
-                        <img src="nika.jpg" alt="Nika" class="w-full h-full object-cover">
+                        <img src="nika.jpg" alt="Nika" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/112x112/cccccc/333333?text=Nika';">
                     </div>
                     <div class="w-24 h-24 sm:w-28 sm:h-28 bg-gray-200 rounded-full overflow-hidden shadow-md transform hover:scale-110 transition-transform duration-300">
-                        <img src="Junior.jpg" alt="Junior" class="w-full h-full object-cover">
+                        <img src="Junior.jpg" alt="Junior" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/112x112/cccccc/333333?text=Junior';">
                     </div>
                     <div class="w-24 h-24 sm:w-28 sm:h-28 bg-gray-200 rounded-full overflow-hidden shadow-md transform hover:scale-110 transition-transform duration-300">
-                        <img src="Dylan.jpg" alt="Dylan" class="w-full h-full object-cover">
+                        <img src="Dylan.jpg" alt="Dylan" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/112x112/cccccc/333333?text=Dylan';">
                     </div>
                     <div class="w-24 h-24 sm:w-28 sm:h-28 bg-gray-200 rounded-full overflow-hidden shadow-md transform hover:scale-110 transition-transform duration-300">
-                        <img src="Charm.jpg" alt="Charmaine" class="w-full h-full object-cover">
+                        <img src="Charm.jpg" alt="Charmaine" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/112x112/cccccc/333333?text=Charmaine';">
                     </div>
                     <div class="w-24 h-24 sm:w-28 sm:h-28 bg-gray-200 rounded-full overflow-hidden shadow-md transform hover:scale-110 transition-transform duration-300">
-                        <img src="Brenda.jpg" alt="Brenda" class="w-full h-full object-cover">
+                        <img src="Brenda.jpg" alt="Brenda" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/112x112/cccccc/333333?text=Brenda';">
                     </div>
                     <div class="w-24 h-24 sm:w-28 sm:h-28 bg-gray-200 rounded-full overflow-hidden shadow-md transform hover:scale-110 transition-transform duration-300">
-                        <img src="Chim.jpg" alt="Chimonay" class="w-full h-full object-cover">
+                        <img src="Chim.jpg" alt="Chimonay" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/112x112/cccccc/333333?text=Chimonay';">
                     </div>
                     <div class="w-24 h-24 sm:w-28 sm:h-28 bg-gray-200 rounded-full overflow-hidden shadow-md transform hover:scale-110 transition-transform duration-300">
-                        <img src="Sas.jpg" alt="Saskia" class="w-full h-full object-cover">
+                        <img src="Sas.jpg" alt="Saskia" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/112x112/cccccc/333333?text=Saskia';">
                     </div>
 					 <div class="w-24 h-24 sm:w-28 sm:h-28 bg-gray-200 rounded-full overflow-hidden shadow-md transform hover:scale-110 transition-transform duration-300">
                         <img src="https://static.vecteezy.com/system/resources/previews/021/013/504/original/coming-soon-icon-symbol-coming-soon-icon-symbol-illustration-on-transparent-background-free-png.png" alt="Binnekort Beskikbaar" class="w-full h-full object-cover">
@@ -156,10 +156,12 @@
     <!-- Mobile Menu Container -->
     <div id="mobile-menu-container" class="fixed inset-0 z-50 transform transition-transform duration-300 ease-in-out translate-x-full" aria-hidden="true">
         <!-- Semi-transparent background overlay -->
-        <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50"></div>
+        <!-- VERANDERING: Verander van 'fixed' na 'absolute' sodat dit binne die ouer-element bly. -->
+        <div id="mobile-menu-overlay" class="absolute inset-0 bg-black bg-opacity-50"></div>
         
         <!-- Menu Content -->
-        <div class="relative w-4/5 max-w-xs h-full bg-white shadow-lg p-5 ml-auto">
+        <!-- VERANDERING: 'relative' en 'z-10' bygevoeg om te verseker dat hierdie inhoud bo-op die agtergrondlaag verskyn. -->
+        <div class="relative z-10 w-4/5 max-w-xs h-full bg-white shadow-lg p-5 ml-auto">
             <div class="flex justify-end mb-4">
                 <button id="mobile-menu-close-button" class="text-gray-600 hover:text-orange-500">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
