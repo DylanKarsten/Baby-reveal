@@ -169,12 +169,10 @@
     <!-- Mobile Menu Container -->
     <div id="mobile-menu-container" class="fixed inset-0 z-50 transform transition-transform duration-300 ease-in-out translate-x-full" aria-hidden="true">
         <!-- Semi-transparent background overlay -->
-        <!-- VERANDERING: Verander van 'fixed' na 'absolute' sodat dit binne die ouer-element bly. -->
-        <div id="mobile-menu-overlay" class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div id="mobile-menu-overlay" class="absolute inset-0 bg-black bg-opacity-50 z-40"></div> 
         
         <!-- Menu Content -->
-        <!-- VERANDERING: 'relative' en 'z-10' bygevoeg om te verseker dat hierdie inhoud bo-op die agtergrondlaag verskyn. -->
-        <div class="relative z-10 w-4/5 max-w-xs h-full bg-white shadow-lg p-5 ml-auto">
+        <div class="relative z-50 w-4/5 max-w-xs h-full bg-white shadow-lg p-5 ml-auto"> 
             <div class="flex justify-end mb-4">
                 <button id="mobile-menu-close-button" class="text-gray-600 hover:text-orange-500">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
