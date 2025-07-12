@@ -40,6 +40,19 @@
                 background-position: 0% 50%;
             }
         }
+
+        /* Adjustments for smaller screens */
+        @media (max-width: 640px) {
+            .hero-title-mobile {
+                font-size: 3rem; /* Smaller text for hero title on mobile */
+            }
+            .hero-subtitle-mobile {
+                font-size: 1rem; /* Smaller text for hero subtitle on mobile */
+            }
+            .section-title-mobile {
+                font-size: 3rem; /* Smaller text for section titles on mobile */
+            }
+        }
     </style>
 </head>
 <body class="bg-yellow-50 text-gray-800">
@@ -69,8 +82,8 @@
                  alt="'n Gelukkige familie" 
                  class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-center text-white p-4">
-                <h2 class="font-pacifico text-5xl md:text-7xl font-bold">Welkom by die Karsten Kraal!</h2>
-                <p class="mt-4 text-lg md:text-xl max-w-2xl font-semibold">Ons deel ons lewe, ons liefde, en ons storie met die mense wat die meeste saak maak.</p>
+                <h2 class="font-pacifico text-5xl md:text-7xl font-bold hero-title-mobile">Welkom by die Karsten Kraal!</h2>
+                <p class="mt-4 text-lg md:text-xl max-w-2xl font-semibold hero-subtitle-mobile">Ons deel ons lewe, ons liefde, en ons storie met die mense wat die meeste saak maak.</p>
             </div>
         </section>
 
@@ -83,7 +96,7 @@
                         <div class="bg-white/30 rounded-full p-4 mb-4">
                             <i data-lucide="shopping-cart" class="w-10 h-10"></i>
                         </div>
-                        <h3 class="font-pacifico text-4xl">Nicola se Aanlyn Winkel</h3>
+                        <h3 class="font-pacifico text-4xl section-title-mobile">Nicola se Aanlyn Winkel</h3>
                         <p class="mt-2 font-semibold">Besoek NicFix vir die nuutste en beste produkte.</p>
                         <a href="https://nicfix.shop" target="_blank" class="mt-6 inline-block bg-white/90 text-gray-800 font-bold py-3 px-8 rounded-full hover:bg-white transition-colors duration-300 shadow-lg">Besoek Winkel</a>
                     </div>
@@ -92,7 +105,7 @@
                          <div class="bg-lime-500 text-white rounded-full p-4 mb-4">
                             <i data-lucide="share-2" class="w-10 h-10"></i>
                         </div>
-                        <h3 class="font-pacifico text-4xl text-lime-800">Bly Gekonnekteer</h3>
+                        <h3 class="font-pacifico text-4xl section-title-mobile text-lime-800">Bly Gekonnekteer</h3>
                         <p class="mt-2 text-gray-600">Volg ons reis en daaglikse avonture op sosiale media.</p>
                         <a href="sosiale_media.html" class="mt-6 inline-block bg-lime-600 text-white font-bold py-3 px-8 rounded-full hover:bg-lime-700 transition-colors duration-300 shadow-lg">Vind Ons Aanlyn</a>
                     </div>
@@ -104,7 +117,7 @@
         <!-- Family Section -->
         <section class="py-16 sm:py-24">
             <div class="container mx-auto px-6 text-center">
-                <h2 class="font-pacifico text-5xl text-orange-500">Ontmoet die Karstens!</h2>
+                <h2 class="font-pacifico text-5xl section-title-mobile text-orange-500">Ontmoet die Karstens!</h2>
                 <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Ons is 'n besige, lawwe Mense! Leer ken elkeen van ons 'n bietjie beter.</p>
                 
                 <div class="mt-12 flex flex-wrap justify-center gap-4 sm:gap-6">
