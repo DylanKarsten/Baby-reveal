@@ -40,40 +40,20 @@
                 background-position: 0% 50%;
             }
         }
-
-        /* Mobile menu slide-down effect using max-height */
-        #mobile-menu {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out; /* Smooth transition for max-height */
-        }
-        #mobile-menu.open {
-            max-height: 500px; /* A value large enough to contain all menu items */
-        }
     </style>
 </head>
 <body class="bg-yellow-50 text-gray-800">
 
     <header class="bg-white shadow-md sticky top-0 z-50">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <h1 class="text-4xl font-pacifico text-orange-500">Die Karstens</h1>
-            <div class="hidden md:flex items-center space-x-8 font-bold">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center flex-wrap">
+            <h1 class="text-3xl sm:text-4xl font-pacifico text-orange-500">Die Karstens</h1>
+            <div class="flex items-center space-x-4 sm:space-x-8 font-bold text-sm sm:text-base mt-2 sm:mt-0">
                 <a href="index.html" class="text-gray-600 hover:text-orange-500 transition duration-300">Tuis</a>
                 <a href="BoyOrGirl.html" class="text-gray-600 hover:text-orange-500 transition duration-300">Gender Reveal!</a>
                 <a href="Familielede.html" class="text-gray-600 hover:text-orange-500 transition duration-300">Familielede</a>
                 <a href="sosiale_media.html" class="text-gray-600 hover:text-orange-500 transition duration-300">Sosiale Media</a>
             </div>
-            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500" aria-expanded="false" aria-controls="mobile-menu">
-                <i data-lucide="menu" class="w-8 h-8 text-orange-500"></i>
-            </button>
         </nav>
-        <!-- Mobile menu - now controlled by max-height -->
-        <div id="mobile-menu" class="absolute top-full left-0 w-full bg-white shadow-lg md:hidden px-6 pb-4 font-bold">
-            <a href="index.html" class="block py-2 text-gray-600 hover:text-orange-500">Tuis</a>
-            <a href="BoyOrGirl.html" class="block py-2 text-gray-600 hover:text-orange-500">Gender Reveal!</a>
-            <a href="Familielede.html" class="block py-2 text-gray-600 hover:text-orange-500">Familielede</a>
-            <a href="sosiale_media.html" class="block py-2 text-gray-600 hover:text-orange-500">Sosiale Media</a>
-        </div>
     </header>
 
     <main>
@@ -168,18 +148,6 @@
     <script>
         // Initialize Lucide Icons
         lucide.createIcons();
-
-        // Mobile menu toggle
-        const menuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        menuButton.addEventListener('click', () => {
-            const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
-            
-            // Toggle the 'open' class to control max-height and visibility
-            mobileMenu.classList.toggle('open'); 
-            menuButton.setAttribute('aria-expanded', !isExpanded);
-        });
     </script>
 </body>
 </html>
