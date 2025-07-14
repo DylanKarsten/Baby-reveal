@@ -52,8 +52,18 @@
                 <a href="BoyOrGirl.html" class="text-gray-600 hover:text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Gender Reveal!</a>
                 <a href="Familielede.html" class="text-gray-600 hover:text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Familielede</a>
                 <a href="sosiale_media.html" class="text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Sosiale Media</a>
+                <!-- New link for the Application Form -->
+                <a href="application_form.html" class="text-gray-600 hover:text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Aansoekvorm</a>
             </div>
         </nav>
+        <!-- Mobile Menu (Toegevoegde vir konsekwentheid) -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 font-bold text-center">
+            <a href="index.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md">Tuis</a>
+            <a href="BoyOrGirl.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md">Gender Reveal!</a>
+            <a href="Familielede.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md">Familielede</a>
+            <a href="sosiale_media.html" class="block py-2 text-orange-500 bg-orange-100 rounded-md">Sosiale Media</a>
+            <a href="application_form.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md">Aansoekvorm</a>
+        </div>
     </header>
 
     <main class="py-16 sm:py-24">
@@ -253,6 +263,16 @@
                 ],
             },
         });
+
+        // Mobiele spyskaart wissel
+        const mobileMenuButton = document.querySelector('#mobile-menu-button');
+        const mobileMenu = document.querySelector('#mobile-menu');
+
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
     </script>
 
 </body>
