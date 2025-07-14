@@ -42,8 +42,13 @@
     <!-- Header -->
     <header class="bg-white shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center relative">
-            <!-- Logo -->
-            <div class="flex-shrink-0">
+            <!-- Mobile Left Home Button (visible only on mobile) -->
+            <a href="index.html" class="md:hidden flex-shrink-0 text-orange-500 px-3 py-2 rounded-full bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500 transition-colors duration-300">
+                <i data-lucide="home" class="w-8 h-8"></i>
+            </a>
+
+            <!-- Logo (centered on mobile, left on desktop) -->
+            <div class="flex-shrink-0 mx-auto md:mx-0">
                 <h1 class="text-4xl font-pacifico text-orange-500">Die Karstens</h1>
             </div>
             
@@ -57,10 +62,10 @@
                 <a href="application_form.html" class="text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Aansoekvorm</a>
             </div>
 
-            <!-- Mobile Menu Button -->
+            <!-- Mobile Menu Toggle Button (on right) -->
             <div class="flex-shrink-0 md:hidden">
-                <button id="mobile-menu-button" class="text-orange-500 px-3 py-2 rounded-full bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500 transition-colors duration-300">
-                    <i data-lucide="home" class="w-8 h-8"></i>
+                <button id="mobile-menu-toggle-button" class="text-orange-500 px-3 py-2 rounded-full bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500 transition-colors duration-300">
+                    <i data-lucide="menu" class="w-8 h-8"></i>
                 </button>
             </div>
         </nav>
@@ -258,12 +263,13 @@
         lucide.createIcons();
 
         // Mobile menu toggle
-        const menuButton = document.getElementById('mobile-menu-button');
+        // Renamed to mobileMenuToggleButton to avoid conflict with the new home button
+        const mobileMenuToggleButton = document.getElementById('mobile-menu-toggle-button');
         const mobileMenu = document.getElementById('mobile-menu');
         
         // Add event listener only if elements exist
-        if (menuButton && mobileMenu) {
-            menuButton.addEventListener('click', () => {
+        if (mobileMenuToggleButton && mobileMenu) {
+            mobileMenuToggleButton.addEventListener('click', () => {
                 mobileMenu.classList.toggle('hidden');
             });
         }
