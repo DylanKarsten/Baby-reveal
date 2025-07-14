@@ -42,14 +42,8 @@
     <!-- Header -->
     <header class="bg-white shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center relative">
-            <!-- Mobile Left Home Button (visible only on mobile, now more noticeable) -->
-            <a href="index.html" class="md:hidden absolute top-4 left-4 bg-orange-500 text-white font-bold py-2 px-4 rounded-full shadow-lg hover:bg-orange-600 transition-colors duration-300 z-50 flex items-center space-x-2">
-                <i data-lucide="home" class="w-6 h-6"></i>
-                <span>Tuis</span>
-            </a>
-
-            <!-- Logo (centered on mobile, left on desktop) -->
-            <div class="flex-shrink-0 mx-auto md:mx-0">
+            <!-- Logo (now always on the left, not centered on mobile) -->
+            <div class="flex-shrink-0">
                 <h1 class="text-4xl font-pacifico text-orange-500">Die Karstens</h1>
             </div>
             
@@ -62,6 +56,12 @@
                 <!-- New link for the Application Form (active on this page) -->
                 <a href="application_form.html" class="text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Aansoekvorm</a>
             </div>
+
+            <!-- Mobile Right Home Button (visible only on mobile, now on the right) -->
+            <a href="index.html" class="md:hidden absolute top-4 right-4 bg-orange-500 text-white font-bold py-2 px-4 rounded-full shadow-lg hover:bg-orange-600 transition-colors duration-300 z-50 flex items-center space-x-2">
+                <i data-lucide="home" class="w-6 h-6"></i>
+                <span>Tuis</span>
+            </a>
 
             <!-- Removed Mobile Menu Toggle Button (on right) -->
             <!-- Die knoppie wat hier was, is nou verwyder soos per jou versoek.
