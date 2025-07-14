@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="af">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Die Karstens - Familie Aansoekvorm</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Pacifico & Nunito -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide-icons@latest"></script>
+
+    <style>
+        /* Custom font for headings */
+        .font-pacifico {
+            font-family: 'Pacifico', cursive;
+        }
+        /* Default font for body */
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #FFF8E1; /* Light, warm yellow background */
+        }
+        /* Custom shadow for a softer look */
+        .custom-shadow-lg {
+             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -4px rgba(0, 0, 0, 0.07);
+        }
+        /* Subtle hover effect for navigation links */
+        .nav-link-hover:hover {
+            transform: translateY(-2px);
+            color: #f97316; /* Orange-500 */
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex-shrink-0">
+                <h1 class="text-4xl font-pacifico text-orange-500">Die Karstens</h1>
+            </div>
+            
+            <!-- Desktop Menu (Symmetrical) -->
+            <div class="hidden md:flex flex-grow justify-center items-center space-x-8 font-bold">
+                <a href="index.html" class="text-gray-600 hover:text-orange-500 transition duration-300 nav-link-hover">Tuis</a>
+                <a href="BoyOrGirl.html" class="text-gray-600 hover:text-orange-500 transition duration-300 nav-link-hover">Gender Reveal!</a>
+                <a href="Familielede.html" class="text-gray-600 hover:text-orange-500 transition duration-300 nav-link-hover">Familielede</a>
+                <a href="sosiale_media.html" class="text-gray-600 hover:text-orange-500 transition duration-300 nav-link-hover">Sosiale Media</a>
+                <!-- New link for the Application Form -->
+                <a href="application_form.html" class="text-orange-500 border-b-2 border-orange-500 pb-1 transition duration-300 nav-link-hover">Aansoekvorm</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="flex-shrink-0 md:hidden">
+                <button id="mobile-menu-button" class="text-orange-500">
+                    <i data-lucide="menu" class="w-8 h-8"></i>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 font-bold text-center">
+            <a href="index.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md">Tuis</a>
+            <a href="BoyOrGirl.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md">Gender Reveal!</a>
+            <a href="Familielede.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md">Familielede</a>
+            <a href="sosiale_media.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md">Sosiale Media</a>
+            <!-- New link for the Application Form in mobile menu -->
+            <a href="application_form.html" class="block py-2 text-orange-500 bg-orange-100 rounded-md">Aansoekvorm</a>
+        </div>
+    </header>
+
+    <main class="py-16 sm:py-24">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="font-pacifico text-5xl md:text-6xl text-orange-500">Aansoek om 'n Karsten te Word!</h2>
+            <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Sjoe, jy's gelukkig! Ons het net TWEE eksklusiewe plekke oop in die Karsten-familie. Dink jy jy't wat dit verg? Vul hierdie *hoogs-wetenskaplike* vorm in om uit te vind!</p>
+        </div>
+
+        <div class="container mx-auto px-6 mt-12 max-w-2xl">
+            <div class="bg-white rounded-xl custom-shadow-lg p-8 sm:p-10 border-t-4 border-orange-400">
+                <!-- The form now submits directly via email -->
+                <form id="karstenApplicationForm" action="mailto:nalydnetsrak@gmail.com" method="post" enctype="text/plain" class="space-y-6">
+                    <div>
+                        <label for="full-name" class="block text-left text-lg font-semibold text-gray-700 mb-2">Jou Volle, Fantastiese Naam:</label>
+                        <input type="text" id="full-name" name="Volle Naam" placeholder="Bv. Jan van der Merwe (nie 'n Karsten nie... nog nie)"
+                               class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 text-base" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-left text-lg font-semibold text-gray-700 mb-2">Jou E-pos (ons belowe ons sal nie spam nie, net snaakse memes stuur):</label>
+                        <input type="email" id="email" name="E-pos" placeholder="jou.naam@ons-is-mal.com"
+                               class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 text-base" required>
+                    </div>
+                    <div>
+                        <label for="motivation" class="block text-left text-lg font-semibold text-gray-700 mb-2">Hoekom dink jy jy is Karsten-materiaal? (Wees kreatief, oorredend, en 'n bietjie mal):</label>
+                        <textarea id="motivation" name="Motivering" rows="6" placeholder="Ek kan die beste braaibroodjies maak EN ek is nie bang vir Brenda se skoon vloere nie..."
+                                  class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 text-base" required></textarea>
+                    </div>
+                    <div>
+                        <label for="superpower" class="block text-left text-lg font-semibold text-gray-700 mb-2">Watter unieke "superkrag" bring jy na die Karsten-kraal? (Kies een of maak jou eie op!):</label>
+                        <select id="superpower" name="Superkrag" 
+                                class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 text-base" required>
+                            <option value="">Kies jou superkrag...</option>
+                            <option value="braai-meester">Braai-meester (kan 'n skaap heel gaar braai met net een vuurhoutjie)</option>
+                            <option value="grappies-koning">Grappies-koning/koningin (kan selfs vir Pa Marius laat lag)</option>
+                            <option value="verlore-sokkie-vinder">Verlore-sokkie-vinder (spesialiseer in die opsporing van vermiste sokkies)</option>
+                            <option value="kos-detector">Kos-detector (kan ruik as Junior se hand naby jou kos is)</option>
+                            <option value="drama-queen">Drama Queen/King (kan Charmone se drama-vlak ewenaar of oortref)</option>
+                            <option value="kat-fluisteraar">Kat-fluisteraar (kan Nicola oorreed om nie teen die bank te pie nie)</option>
+                            <option value="ander">Ander (spesifiseer hieronder)</option>
+                        </select>
+                    </div>
+                    <div id="other-superpower-field" class="hidden">
+                        <label for="other-superpower" class="block text-left text-lg font-semibold text-gray-700 mb-2">Spesifiseer jou ander superkrag:</label>
+                        <input type="text" id="other-superpower" name="Ander Superkrag" placeholder="Bv. Ek kan 'n hele pizza alleen eet en nogsteeds honger wees."
+                               class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 text-base">
+                    </div>
+                    <div>
+                        <label for="fear" class="block text-left text-lg font-semibold text-gray-700 mb-2">Wat is jou grootste vrees in 'n Karsten-konteks?</label>
+                        <select id="fear" name="Grootste Vrees" 
+                                class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 text-base" required>
+                            <option value="">Kies jou grootste vrees...</option>
+                            <option value="vuil-vloere">Brenda se vuil vloere</option>
+                            <option value="junior-honger">Junior wat jou kos uit jou hand uit kyk</option>
+                            <option value="nicola-pee">Nicola wat teen die bank pie</option>
+                            <option value="geen-wifi">Geen WiFi by 'n familiebyeenkoms nie</option>
+                            <option value="verlore-afstandbeheer">Die verlore afstandbeheer</option>
+                            <option value="ander-vrees">Iets veel erger (spesifiseer hieronder)</option>
+                        </select>
+                    </div>
+                     <div id="other-fear-field" class="hidden">
+                        <label for="other-fear" class="block text-left text-lg font-semibold text-gray-700 mb-2">Spesifiseer jou ander vrees:</label>
+                        <input type="text" id="other-fear" name="Ander Vrees" placeholder="Bv. Om die laaste stukkie koek te mis."
+                               class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 text-base">
+                    </div>
+
+                    <!-- Nuwe Vrae -->
+                    <div>
+                        <label for="favorite-activity" class="block text-left text-lg font-semibold text-gray-700 mb-2">Wat is jou gunsteling Karsten-familie aktiwiteit?</label>
+                        <select id="favorite-activity" name="Gunsteling Aktiwiteit" 
+                                class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 text-base" required>
+                            <option value="">Kies 'n aktiwiteit...</option>
+                            <option value="braai">Braai (met Pa Marius se geheime sous)</option>
+                            <option value="memes-deel">Memes deel (die snaakser, hoe beter)</option>
+                            <option value="vloere-skoonmaak">Vloere skoonmaak (vir Brenda se goedkeuring)</option>
+                            <option value="katte-jaag">Katte jaag (veral Nicola as sy stout is)</option>
+                            <option value="drama-kyk">Drama kyk (Charmone se daaglikse episodes)</option>
+                            <option value="ander-aktiwiteit">Enige iets anders wat chaos bring!</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="favorite-food" class="block text-left text-lg font-semibold text-gray-700 mb-2">Wat is jou gunsteling kos? (Ons moet weet vir die braai-aande!)</label>
+                        <input type="text" id="favorite-food" name="Gunsteling Kos" placeholder="Bv. Pap en sous, pizza, koek, en nog meer koek."
+                               class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 text-base" required>
+                    </div>
+                    <div>
+                        <label for="coffee-tea" class="block text-left text-lg font-semibold text-gray-700 mb-2">Hoeveel koppies koffie/tee drink jy per dag? (Wees eerlik, ons oordeel nie... baie nie.)</label>
+                        <input type="number" id="coffee-tea" name="Koffie/Tee Per Dag" min="0" placeholder="Bv. 3"
+                               class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 text-base" required>
+                    </div>
+                    <div>
+                        <label for="keep-secrets" class="block text-left text-lg font-semibold text-gray-700 mb-2">Kan jy geheime hou? (Hierdie is 'n trick question... of is dit?)</label>
+                        <select id="keep-secrets" name="Kan Geheime Hou" 
+                                class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 text-base" required>
+                            <option value="">Kies jou antwoord...</option>
+                            <option value="ja">Ja (my lippe is verseël, soos 'n Karsten se braai-resep)</option>
+                            <option value="nee">Nee (ek is 'n oop boek, veral na 'n paar koppies koffie)</option>
+                            <option value="soms">Soms (hang af van die geheim en of daar koek betrokke is)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="best-trait" class="block text-left text-lg font-semibold text-gray-700 mb-2">Wat is jou beste eienskap wat die Karsten-familie sal aanvul? (Beïndruk ons!)</label>
+                        <textarea id="best-trait" name="Beste Eienskap" rows="4" placeholder="Ek is 'n meester van die 'stille oordeel' en kan enige ongemaklike situasie red met 'n vinnige grappie."
+                                  class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 text-base" required></textarea>
+                    </div>
+
+                    <!-- Nuwe Vraag: Watter Karsten se plek soek jy? -->
+                    <div>
+                        <label for="karsten-spot" class="block text-left text-lg font-semibold text-gray-700 mb-2">Watter Karsten se plek soek jy? (Kies wyslik, daar is net twee plekke!)</label>
+                        <select id="karsten-spot" name="Karsten Plek" 
+                                class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 text-base" required>
+                            <option value="">Maak jou keuse...</option>
+                            <option value="Dylan">Dylan se plek (vir die stil, maar snaakse tipe)</option>
+                            <option value="Charmone">Charmone se plek (vir die drama-koningin/koning)</option>
+                        </select>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit"
+                                class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-bold rounded-full shadow-sm text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 transition-colors duration-300 transform hover:scale-105">
+                            Dien Aansoek In (As jy durf!)
+                            <i data-lucide="sparkles" class="ml-3 w-5 h-5"></i>
+                        </button>
+                    </div>
+                </form>
+
+                <div class="mt-10 p-6 bg-yellow-50 rounded-lg border border-yellow-200 text-left text-gray-700">
+                    <h3 class="text-xl font-bold text-orange-500 mb-3">'n Ernstige Nota (vir die vervelige mense):</h3>
+                    <p class="mb-2">Hierdie vorm sal nou direk 'n e-pos stuur na <strong class="text-orange-600">nalydnetsrak@gmail.com</strong> met al jou fantastiese antwoorde!</p>
+                    <p class="mb-2">Let wel: Jou rekenaar se e-posprogram sal oopmaak met die vorm se inhoud gereed om gestuur te word. Maak seker jy klik "Stuur" in daardie program!</p>
+                    <p class="mt-4">Sterkte met die aansoekproses! Mag die kanse in jou guns wees!</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-24">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p class="font-bold">&copy; 2024 Die Karstens. Alle Regte Voorbehou.</p>
+            <p class="text-sm text-gray-400 mt-2">Met liefde gemaak vir ons familie en vriende.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Show/hide "Other" superpower field
+        const superpowerSelect = document.getElementById('superpower');
+        const otherSuperpowerField = document.getElementById('other-superpower-field');
+        superpowerSelect.addEventListener('change', () => {
+            if (superpowerSelect.value === 'ander') {
+                otherSuperpowerField.classList.remove('hidden');
+            } else {
+                otherSuperpowerField.classList.add('hidden');
+            }
+        });
+
+        // Show/hide "Other" fear field
+        const fearSelect = document.getElementById('fear');
+        const otherFearField = document.getElementById('other-fear-field');
+        fearSelect.addEventListener('change', () => {
+            if (fearSelect.value === 'ander-vrees') {
+                otherFearField.classList.remove('hidden');
+            } else {
+                otherFearField.classList.add('hidden');
+            }
+        });
+
+        // Handle form submission to format email body
+        document.getElementById('karstenApplicationForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const form = event.target;
+            const formData = new FormData(form);
+            let emailBody = "Karsten Familie Aansoekvorm Ingedien:\n\n";
+
+            // Loop through form data and build the email body
+            for (let [name, value] of formData.entries()) {
+                // Handle "Other" fields to include their specific input
+                if (name === "Ander Superkrag" && formData.get("Superkrag") !== "ander") {
+                    continue; // Skip if "Other Superpower" field is not selected
+                }
+                if (name === "Ander Vrees" && formData.get("Grootste Vrees") !== "ander-vrees") {
+                    continue; // Skip if "Other Fear" field is not selected
+                }
+
+                // Add field to email body, using the name attribute as the label
+                emailBody += `${name}: ${value}\n`;
+            }
+
+            // Encode the email body for the mailto link
+            const subject = encodeURIComponent("Nuwe Karsten Familie Aansoek!");
+            const body = encodeURIComponent(emailBody);
+            const mailtoLink = `mailto:nalydnetsrak@gmail.com?subject=${subject}&body=${body}`;
+            
+            window.location.href = mailtoLink; // Open mail client
+        });
+    </script>
+
+</body>
+</html>
