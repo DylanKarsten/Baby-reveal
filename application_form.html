@@ -65,7 +65,7 @@
             </div>
         </nav>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 font-bold text-center">
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 font-bold text-center w-full bg-white shadow-md absolute top-full left-0">
             <a href="index.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md">Tuis</a>
             <a href="BoyOrGirl.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md">Gender Reveal!</a>
             <a href="Familielede.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md">Familielede</a>
@@ -261,31 +261,38 @@
         const menuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         
-        menuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+        // Add event listener only if elements exist
+        if (menuButton && mobileMenu) {
+            menuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
 
         // Show/hide "Other" superpower field
         const superpowerSelect = document.getElementById('superpower');
         const otherSuperpowerField = document.getElementById('other-superpower-field');
-        superpowerSelect.addEventListener('change', () => {
-            if (superpowerSelect.value === 'ander') {
-                otherSuperpowerField.classList.remove('hidden');
-            } else {
-                otherSuperpowerField.classList.add('hidden');
-            }
-        });
+        if (superpowerSelect && otherSuperpowerField) {
+            superpowerSelect.addEventListener('change', () => {
+                if (superpowerSelect.value === 'ander') {
+                    otherSuperpowerField.classList.remove('hidden');
+                } else {
+                    otherSuperpowerField.classList.add('hidden');
+                }
+            });
+        }
 
         // Show/hide "Other" fear field
         const fearSelect = document.getElementById('fear');
         const otherFearField = document.getElementById('other-fear-field');
-        fearSelect.addEventListener('change', () => {
-            if (fearSelect.value === 'ander-vrees') {
-                otherFearField.classList.remove('hidden');
-            } else {
-                otherFearField.classList.add('hidden');
-            }
-        });
+        if (fearSelect && otherFearField) {
+            fearSelect.addEventListener('change', () => {
+                if (fearSelect.value === 'ander-vrees') {
+                    otherFearField.classList.remove('hidden');
+                } else {
+                    otherFearField.classList.add('hidden');
+                }
+            });
+        }
 
         // Contact preference logic
         const contactEmailRadio = document.getElementById('contact-email-radio');
@@ -309,9 +316,11 @@
             }
         }
 
-        contactEmailRadio.addEventListener('change', toggleContactFields);
-        contactPhoneRadio.addEventListener('change', toggleContactFields);
-        toggleContactFields(); // Set initial state
+        if (contactEmailRadio && contactPhoneRadio) {
+            contactEmailRadio.addEventListener('change', toggleContactFields);
+            contactPhoneRadio.addEventListener('change', toggleContactFields);
+            toggleContactFields(); // Set initial state
+        }
 
         // Handle form submission to format email body
         document.getElementById('karstenApplicationForm').addEventListener('submit', function(event) {
