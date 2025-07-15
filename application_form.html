@@ -58,7 +58,8 @@
             </div>
 
             <!-- Mobile Right Home Button (visible only on mobile, now on the right) -->
-            <a href="index.html" class="md:hidden absolute top-4 right-4 bg-orange-500 text-white font-bold py-2 px-4 rounded-full shadow-lg hover:bg-orange-600 transition-colors duration-300 z-50 flex items-center space-x-2">
+            <!-- Enhanced styling for the Home button -->
+            <a href="index.html" class="md:hidden absolute top-4 right-4 bg-orange-500 text-white font-bold py-2 px-4 rounded-full shadow-xl hover:bg-orange-600 transition-all duration-300 z-50 flex items-center space-x-2 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500">
                 <i data-lucide="home" class="w-6 h-6"></i>
                 <span>Tuis</span>
             </a>
@@ -94,33 +95,19 @@
                                class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 text-base" required>
                     </div>
 
-                    <!-- New Contact Preference Section -->
+                    <!-- Contact Information: Both Email and Phone are now required -->
                     <div>
-                        <label class="block text-left text-lg font-semibold text-gray-700 mb-2">Hoe wil ons jou kontak? (Kies een, ons belowe ons sal nie spam nie, net snaakse memes stuur!):</label>
-                        <div class="flex items-center space-x-4 mb-4">
-                            <label class="inline-flex items-center">
-                                <input type="radio" name="Kontak Voorkeur Tipe" value="E-pos" class="form-radio text-orange-500" checked id="contact-email-radio">
-                                <span class="ml-2 text-gray-700">E-pos</span>
-                            </label>
-                            <label class="inline-flex items-center">
-                                <input type="radio" name="Kontak Voorkeur Tipe" value="Telefoonnommer" class="form-radio text-orange-500" id="contact-phone-radio">
-                                <span class="ml-2 text-gray-700">Telefoonnommer</span>
-                            </label>
-                        </div>
-
-                        <div id="contact-email-field">
-                            <label for="email" class="sr-only">E-pos Adres:</label>
-                            <input type="email" id="email" name="Kontak Waarde (E-pos)" placeholder="jou.naam@ons-is-mal.com"
-                                   class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 text-base">
-                        </div>
-
-                        <div id="contact-phone-field" class="hidden">
-                            <label for="phone" class="sr-only">Telefoonnommer:</label>
-                            <input type="tel" id="phone" name="Kontak Waarde (Telefoonnommer)" placeholder="Bv. 082 123 4567"
-                                   class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 text-base">
-                        </div>
+                        <label for="email" class="block text-left text-lg font-semibold text-gray-700 mb-2">E-pos Adres:</label>
+                        <input type="email" id="email" name="E-pos Adres" placeholder="jou.naam@ons-is-mal.com"
+                               class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 text-base" required>
                     </div>
-                    <!-- End New Contact Preference Section -->
+
+                    <div>
+                        <label for="phone" class="block text-left text-lg font-semibold text-gray-700 mb-2">Telefoonnommer:</label>
+                        <input type="tel" id="phone" name="Telefoonnommer" placeholder="Bv. 082 123 4567"
+                               class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 text-base" required>
+                    </div>
+                    <!-- End Contact Information Section -->
 
                     <div>
                         <label for="motivation" class="block text-left text-lg font-semibold text-gray-700 mb-2">Hoekom dink jy jy is Karsten-materiaal? (Wees kreatief, oorredend, en 'n bietjie mal):</label>
@@ -242,6 +229,7 @@
                     <h3 class="text-xl font-bold text-orange-500 mb-3">'n Ernstige Nota (vir die vervelige mense):</h3>
                     <p class="mb-2">Hierdie vorm sal nou direk 'n e-pos stuur na <strong class="text-orange-600">nalydnetsrak@gmail.com</strong> met al jou fantastiese antwoorde!</p>
                     <p class="mb-2">Let wel: Jou rekenaar se e-posprogram sal oopmaak met die vorm se inhoud gereed om gestuur te word. Maak seker jy klik "Stuur" in daardie program!</p>
+                    <p class="mb-2">Beide jou e-pos adres en telefoonnommer sal in die e-pos se liggaam ingesluit word.</p>
                     <p class="mt-4">Sterkte met die aansoekproses! Mag die kanse in jou guns wees!</p>
                 </div>
             </div>
@@ -260,12 +248,10 @@
         // Initialize Lucide Icons
         lucide.createIcons();
 
-        // Mobile menu toggle
-        // Renamed to mobileMenuToggleButton to avoid conflict with the new home button
+        // Mobile menu toggle (still present but not used by a toggle button in this version)
         const mobileMenuToggleButton = document.getElementById('mobile-menu-toggle-button');
         const mobileMenu = document.getElementById('mobile-menu');
         
-        // Add event listener only if elements exist
         if (mobileMenuToggleButton && mobileMenu) {
             mobileMenuToggleButton.addEventListener('click', () => {
                 mobileMenu.classList.toggle('hidden');
@@ -298,34 +284,6 @@
             });
         }
 
-        // Contact preference logic
-        const contactEmailRadio = document.getElementById('contact-email-radio');
-        const contactPhoneRadio = document.getElementById('contact-phone-radio');
-        const contactEmailField = document.getElementById('contact-email-field');
-        const contactPhoneField = document.getElementById('contact-phone-field');
-        const emailInput = document.getElementById('email');
-        const phoneInput = document.getElementById('phone');
-
-        function toggleContactFields() {
-            if (contactEmailRadio.checked) {
-                contactEmailField.classList.remove('hidden');
-                contactPhoneField.classList.add('hidden');
-                emailInput.setAttribute('required', 'required');
-                phoneInput.removeAttribute('required');
-            } else {
-                contactEmailField.classList.add('hidden');
-                contactPhoneField.classList.remove('hidden');
-                phoneInput.setAttribute('required', 'required');
-                emailInput.removeAttribute('required');
-            }
-        }
-
-        if (contactEmailRadio && contactPhoneRadio) {
-            contactEmailRadio.addEventListener('change', toggleContactFields);
-            contactPhoneRadio.addEventListener('change', toggleContactFields);
-            toggleContactFields(); // Set initial state
-        }
-
         // Handle form submission to format email body
         document.getElementById('karstenApplicationForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent default form submission
@@ -336,33 +294,28 @@
             const applicantName = formData.get("Volle Naam") || "Onbekende Aansoeker";
             const karstenSpot = formData.get("Karsten Plek") || "Onbekend";
 
-            let emailBody = `--- Karsten Familie Aansoekvorm Ingedien ---\n`;
-            emailBody += `Datum: ${currentDate}\n\n`;
+            let emailBody = `--- Karsten Familie Aansoekvorm Ingedien ---\n\n`;
+            emailBody += `Datum van Aansoek: ${currentDate}\n\n`;
 
-            emailBody += `Kontak Inligting:\n`;
-            emailBody += `Naam: ${applicantName}\n`;
-            
-            // Dynamically add contact info based on selection
-            if (contactEmailRadio.checked) {
-                emailBody += `E-pos: ${formData.get("Kontak Waarde (E-pos)") || "Nie verskaf"}\n\n`;
-            } else {
-                emailBody += `Telefoonnommer: ${formData.get("Kontak Waarde (Telefoonnommer)") || "Nie verskaf"}\n\n`;
-            }
+            emailBody += `--- Aansoeker se Inligting ---\n`;
+            emailBody += `Volle Naam: ${applicantName}\n`;
+            emailBody += `E-pos Adres: ${formData.get("E-pos Adres") || "Nie verskaf"}\n`; // Always include email
+            emailBody += `Telefoonnommer: ${formData.get("Telefoonnommer") || "Nie verskaf"}\n\n`; // Always include phone
 
-            emailBody += `Aansoek Besonderhede:\n`;
+            emailBody += `--- Aansoek Besonderhede ---\n`;
             emailBody += `Motivering:\n${formData.get("Motivering") || "Nie verskaf"}\n\n`;
 
             // Superkrag
             let superpowerValue = formData.get("Superkrag");
             if (superpowerValue === "ander") {
-                superpowerValue = formData.get("Ander Superkrag") || "Nie gespesifiseer";
+                superpowerValue = `Ander: ${formData.get("Ander Superkrag") || "Nie gespesifiseer"}`;
             }
             emailBody += `Superkrag: ${superpowerValue}\n`;
 
             // Grootste Vrees
             let fearValue = formData.get("Grootste Vrees");
             if (fearValue === "ander-vrees") {
-                fearValue = formData.get("Ander Vrees") || "Nie gespesifiseer";
+                fearValue = `Ander: ${formData.get("Ander Vrees") || "Nie gespesifiseer"}`;
             }
             emailBody += `Grootste Vrees: ${fearValue}\n\n`;
 
@@ -373,7 +326,7 @@
             emailBody += `Beste Eienskap:\n${formData.get("Beste Eienskap") || "Nie verskaf"}\n\n`;
 
             // Karsten Plek
-            emailBody += `Aansoek vir Karsten Plek: ${karstenSpot}\n`;
+            emailBody += `Voorkeur Karsten Plek: ${karstenSpot}\n`;
             
             // Manier Van Chaos (optional field)
             const chaosMethod = formData.get("Manier Van Chaos");
@@ -398,3 +351,4 @@
 
 </body>
 </html>
+
