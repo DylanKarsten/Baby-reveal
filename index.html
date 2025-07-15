@@ -102,9 +102,9 @@
                     </div>
 
                     <div class="bg-lime-100 rounded-xl p-8 text-center flex flex-col items-center shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 border-4 border-transparent hover:border-lime-300">
-                         <div class="bg-lime-500 text-white rounded-full p-4 mb-4 shadow-inner">
-                            <i data-lucide="share-2" class="w-10 h-10"></i>
-                        </div>
+                           <div class="bg-lime-500 text-white rounded-full p-4 mb-4 shadow-inner">
+                               <i data-lucide="share-2" class="w-10 h-10"></i>
+                           </div>
                         <h3 class="font-pacifico text-3xl sm:text-4xl text-lime-800">Bly Gekonnekteer</h3>
                         <p class="mt-2 text-gray-600 text-sm sm:text-base">Volg ons reis en daaglikse avonture op sosiale media.</p>
                         <a href="sosiale_media.html" class="mt-6 inline-block bg-lime-600 text-white font-bold py-3 px-8 rounded-full hover:bg-lime-700 transition-colors duration-300 shadow-lg text-sm sm:text-base transform hover:scale-105">Vind Ons Aanlyn</a>
@@ -113,6 +113,38 @@
                 </div>
             </div>
         </section>
+
+        <!-- Photo of the Week and Video of the Week Section -->
+        <section class="py-16 sm:py-24 bg-yellow-100">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="font-pacifico text-4xl sm:text-5xl text-orange-600 mb-12">Week se Hoogtepunte</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
+                    <!-- Photo of the Week -->
+                    <div class="bg-white rounded-xl p-6 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 border-4 border-orange-200 flex flex-col items-center">
+                        <h3 class="font-pacifico text-3xl sm:text-4xl text-orange-500 mb-6">Foto van die Week</h3>
+                        <div class="w-full max-w-md mx-auto rounded-lg overflow-hidden shadow-lg border border-gray-200">
+                            <img src="CT.jpg" alt="Foto van die Week" class="w-full h-auto object-cover">
+                        </div>
+                        <p class="mt-4 text-gray-700 text-base sm:text-lg">Hierdie week se pragtige oomblik vasgevang!</p>
+                    </div>
+
+                    <!-- Video of the Week -->
+                    <div class="bg-white rounded-xl p-6 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 border-4 border-orange-200 flex flex-col items-center">
+                        <h3 class="font-pacifico text-3xl sm:text-4xl text-orange-500 mb-6">Video van die Week</h3>
+                        <div class="w-full max-w-md mx-auto rounded-lg overflow-hidden shadow-lg border border-gray-200">
+                            <!-- Using controls and preload for better user experience -->
+                            <video controls preload="metadata" class="w-full h-auto">
+                                <source src="CKV.mp4" type="video/mp4">
+                                Jou blaaier ondersteun nie die video-etiket nie.
+                            </video>
+                        </div>
+                        <p class="mt-4 text-gray-700 text-base sm:text-lg">Kyk hierdie prettige video van die week!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Photo of the Week and Video of the Week Section -->
 
         <section class="py-16 sm:py-24 bg-yellow-50">
             <div class="container mx-auto px-6 text-center">
