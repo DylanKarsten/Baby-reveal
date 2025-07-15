@@ -47,6 +47,26 @@
             transform: translateY(-2px);
             color: #f97316; /* Orange-500 */
         }
+
+        /* Styles for the watermark overlay */
+        .watermark-container {
+            position: relative;
+            display: inline-block; /* Ensures container wraps content */
+        }
+
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-25deg); /* Rotate for a more watermark-like effect */
+            color: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
+            font-family: 'Pacifico', cursive;
+            font-size: 2.5rem; /* Large font size */
+            font-weight: bold;
+            pointer-events: none; /* Allows clicks to pass through to the media */
+            z-index: 10; /* Ensure it's above the media */
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3); /* Subtle shadow for readability */
+        }
     </style>
 </head>
 <body class="bg-yellow-50 text-gray-800">
@@ -123,23 +143,27 @@
                     <!-- Photo of the Week -->
                     <div class="bg-white rounded-xl p-6 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 border-4 border-orange-200 flex flex-col items-center">
                         <h3 class="font-pacifico text-3xl sm:text-4xl text-orange-500 mb-6">Foto van die Week</h3>
-                        <div class="w-full max-w-md mx-auto rounded-lg overflow-hidden shadow-lg border border-gray-200">
+                        <div class="w-full max-w-md mx-auto rounded-lg overflow-hidden shadow-lg border border-gray-200 watermark-container">
                             <img src="CT.jpg" alt="Foto van die Week" class="w-full h-auto object-cover">
+                            <span class="watermark">The Karstens</span>
                         </div>
                         <p class="mt-4 text-gray-700 text-base sm:text-lg">Hierdie week se pragtige oomblik vasgevang!</p>
+                        <a href="CT.jpg" download="CT_Karstens.jpg" class="mt-4 inline-block bg-orange-500 text-white font-bold py-2 px-6 rounded-full hover:bg-orange-600 transition-colors duration-300 shadow-lg text-sm sm:text-base">Laai Foto Af</a>
                     </div>
 
                     <!-- Video of the Week -->
                     <div class="bg-white rounded-xl p-6 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 border-4 border-orange-200 flex flex-col items-center">
                         <h3 class="font-pacifico text-3xl sm:text-4xl text-orange-500 mb-6">Video van die Week</h3>
-                        <div class="w-full max-w-md mx-auto rounded-lg overflow-hidden shadow-lg border border-gray-200">
+                        <div class="w-full max-w-md mx-auto rounded-lg overflow-hidden shadow-lg border border-gray-200 watermark-container">
                             <!-- Using controls and preload for better user experience -->
                             <video controls preload="metadata" class="w-full h-auto">
                                 <source src="CKV.mp4" type="video/mp4">
                                 Jou blaaier ondersteun nie die video-etiket nie.
                             </video>
+                            <span class="watermark">The Karstens</span>
                         </div>
                         <p class="mt-4 text-gray-700 text-base sm:text-lg">Kyk hierdie prettige video van die week!</p>
+                        <a href="CKV.mp4" download="CKV_Karstens.mp4" class="mt-4 inline-block bg-orange-500 text-white font-bold py-2 px-6 rounded-full hover:bg-orange-600 transition-colors duration-300 shadow-lg text-sm sm:text-base">Laai Video Af</a>
                     </div>
                 </div>
             </div>
