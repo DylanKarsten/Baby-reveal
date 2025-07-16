@@ -83,11 +83,7 @@
                 <a href="application_form.html" class="text-gray-600 hover:text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Aansoekvorm</a>
             </div>
         </nav>
-        <!-- Mobile Menu (Toegevoegde vir konsekwentheid, indien nie reeds teenwoordig nie) -->
-        <!-- Let wel: Die oorspronklike index.html het nie 'n mobiele spyskaart div of knoppie gehad nie.
-             As jy 'n funksionele mobiele spyskaart wil hê, sal jy 'n knoppie en JavaScript moet byvoeg
-             soos in die sosiale_media.html lêer. Vir nou voeg ek net die skakel by die veronderstelde
-             mobiele spyskaart as dit sou bestaan. -->
+        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 font-bold text-center">
             <a href="index.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md">Tuis</a>
             <a href="BoyOrGirl.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md">Gender Reveal!</a>
@@ -144,42 +140,16 @@
                     <div class="bg-white rounded-xl p-6 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 border-4 border-orange-200 flex flex-col items-center">
                         <h3 class="font-pacifico text-3xl sm:text-4xl text-orange-500 mb-6">Foto van die Week</h3>
                         <div class="w-full max-w-md mx-auto rounded-lg overflow-hidden shadow-lg border border-gray-200 watermark-container">
-                            <img src="CT.jpg" alt="Foto van die Week" class="w-full h-auto object-cover">
+                            <img src="DP.jpg" alt="Foto van die Week" class="w-full h-auto object-cover">
                             <span class="watermark">The Karstens</span>
                         </div>
-                        <p class="mt-4 text-gray-700 text-base sm:text-lg">Hierdie week se pragtige oomblik vasgevang!</p>
-                        <a href="CT.jpg" download="CT_Karstens.jpg" class="mt-4 inline-block bg-orange-500 text-white font-bold py-2 px-6 rounded-full hover:bg-orange-600 transition-colors duration-300 shadow-lg text-sm sm:text-base">Laai Foto Af</a>
+                        <p class="mt-4 text-gray-700 text-base sm:text-lg">'n Spesiale oomblik van ons week.</p>
+                        <a href="DP.jpg" download="DP_Karstens.jpg" class="mt-4 inline-block bg-orange-500 text-white font-bold py-2 px-6 rounded-full hover:bg-orange-600 transition-colors duration-300 shadow-lg text-sm sm:text-base">Laai Foto Af</a>
                     </div>
 
                     <!-- Video of the Week -->
                     <div class="bg-white rounded-xl p-6 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 border-4 border-orange-200 flex flex-col items-center">
                         <h3 class="font-pacifico text-3xl sm:text-4xl text-orange-500 mb-6">Video van die Week</h3>
-                        <div class="w-full max-w-md mx-auto rounded-lg overflow-hidden shadow-lg border border-gray-200 watermark-container">
-                            <!-- Using controls and preload for better user experience -->
-                            <video controls preload="metadata" class="w-full h-auto">
-                                <source src="CKV.mp4" type="video/mp4">
-                                Jou blaaier ondersteun nie die video-etiket nie.
-                            </video>
-                            <span class="watermark">The Karstens</span>
-                        </div>
-                        <p class="mt-4 text-gray-700 text-base sm:text-lg">Kyk hierdie prettige video van die week!</p>
-                        <a href="CKV.mp4" download="CKV_Karstens.mp4" class="mt-4 inline-block bg-orange-500 text-white font-bold py-2 px-6 rounded-full hover:bg-orange-600 transition-colors duration-300 shadow-lg text-sm sm:text-base">Laai Video Af</a>
-                    </div>
-                    
-                    <!-- NEW: Photo of the Day -->
-                    <div class="bg-white rounded-xl p-6 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 border-4 border-orange-200 flex flex-col items-center">
-                        <h3 class="font-pacifico text-3xl sm:text-4xl text-orange-500 mb-6">Foto van die Week</h3>
-                        <div class="w-full max-w-md mx-auto rounded-lg overflow-hidden shadow-lg border border-gray-200 watermark-container">
-                            <img src="DP.jpg" alt="Foto van die Dag" class="w-full h-auto object-cover">
-                            <span class="watermark">The Karstens</span>
-                        </div>
-                        <p class="mt-4 text-gray-700 text-base sm:text-lg">'n Spesiale oomblik van ons Week.</p>
-                        <a href="DP.jpg" download="DP_Karstens.jpg" class="mt-4 inline-block bg-orange-500 text-white font-bold py-2 px-6 rounded-full hover:bg-orange-600 transition-colors duration-300 shadow-lg text-sm sm:text-base">Laai Foto Af</a>
-                    </div>
-
-                    <!-- NEW: Another Video -->
-                    <div class="bg-white rounded-xl p-6 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 border-4 border-orange-200 flex flex-col items-center">
-                        <h3 class="font-pacifico text-3xl sm:text-4xl text-orange-500 mb-6">Nog 'n Video</h3>
                         <div class="w-full max-w-md mx-auto rounded-lg overflow-hidden shadow-lg border border-gray-200 watermark-container">
                             <video controls preload="metadata" class="w-full h-auto">
                                 <source src="NV.mp4" type="video/mp4">
@@ -189,6 +159,31 @@
                         </div>
                         <p class="mt-4 text-gray-700 text-base sm:text-lg">Nog 'n wonderlike herinnering vasgevang!</p>
                         <a href="NV.mp4" download="NV_Karstens.mp4" class="mt-4 inline-block bg-orange-500 text-white font-bold py-2 px-6 rounded-full hover:bg-orange-600 transition-colors duration-300 shadow-lg text-sm sm:text-base">Laai Video Af</a>
+                    </div>
+                    
+                    <!-- Photo of the Day -->
+                    <div class="bg-white rounded-xl p-6 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 border-4 border-orange-200 flex flex-col items-center">
+                        <h3 class="font-pacifico text-3xl sm:text-4xl text-orange-500 mb-6">Foto van die Dag</h3>
+                        <div class="w-full max-w-md mx-auto rounded-lg overflow-hidden shadow-lg border border-gray-200 watermark-container">
+                            <img src="CT.jpg" alt="Foto van die Dag" class="w-full h-auto object-cover">
+                            <span class="watermark">The Karstens</span>
+                        </div>
+                        <p class="mt-4 text-gray-700 text-base sm:text-lg">Gister se pragtige oomblik vasgevang!</p>
+                        <a href="CT.jpg" download="CT_Karstens.jpg" class="mt-4 inline-block bg-orange-500 text-white font-bold py-2 px-6 rounded-full hover:bg-orange-600 transition-colors duration-300 shadow-lg text-sm sm:text-base">Laai Foto Af</a>
+                    </div>
+
+                    <!-- Previous Video -->
+                    <div class="bg-white rounded-xl p-6 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 border-4 border-orange-200 flex flex-col items-center">
+                        <h3 class="font-pacifico text-3xl sm:text-4xl text-orange-500 mb-6">Nog 'n Video</h3>
+                        <div class="w-full max-w-md mx-auto rounded-lg overflow-hidden shadow-lg border border-gray-200 watermark-container">
+                            <video controls preload="metadata" class="w-full h-auto">
+                                <source src="CKV.mp4" type="video/mp4">
+                                Jou blaaier ondersteun nie die video-etiket nie.
+                            </video>
+                            <span class="watermark">The Karstens</span>
+                        </div>
+                        <p class="mt-4 text-gray-700 text-base sm:text-lg">Kyk hierdie prettige video!</p>
+                        <a href="CKV.mp4" download="CKV_Karstens.mp4" class="mt-4 inline-block bg-orange-500 text-white font-bold py-2 px-6 rounded-full hover:bg-orange-600 transition-colors duration-300 shadow-lg text-sm sm:text-base">Laai Video Af</a>
                     </div>
                 </div>
             </div>
