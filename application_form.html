@@ -28,7 +28,7 @@
         }
         /* Custom shadow for a softer look */
         .custom-shadow-lg {
-             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -4px rgba(0, 0, 0, 0.07);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -4px rgba(0, 0, 0, 0.07);
         }
         /* Subtle hover effect for navigation links */
         .nav-link-hover:hover {
@@ -41,40 +41,34 @@
 
     <!-- Header -->
     <header class="bg-white shadow-md sticky top-0 z-50">
-        <nav class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center relative">
-            <!-- Logo (now always on the left, not centered on mobile) -->
+        <nav class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
             <div class="flex-shrink-0">
-                <h1 class="text-4xl font-pacifico text-orange-500">Die Karstens</h1>
+                <a href="index.html" class="text-4xl font-pacifico text-orange-500">Die Karstens</a>
             </div>
             
-            <!-- Desktop Menu (Symmetrical) -->
+            <!-- Desktop Menu -->
             <div class="hidden md:flex flex-grow justify-center items-center space-x-2 sm:space-x-4 font-bold text-sm sm:text-base">
                 <a href="index.html" class="text-gray-600 hover:text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Tuis</a>
                 <a href="BoyOrGirl.html" class="text-gray-600 hover:text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Gender Reveal!</a>
                 <a href="Familielede.html" class="text-gray-600 hover:text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Familielede</a>
                 <a href="sosiale_media.html" class="text-gray-600 hover:text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Sosiale Media</a>
-                <!-- New link for the Application Form (active on this page) -->
                 <a href="application_form.html" class="text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Aansoekvorm</a>
             </div>
 
-            <!-- Mobile Right Home Button (visible only on mobile, now on the right) -->
-            <!-- Enhanced styling for the Home button -->
-            <a href="index.html" class="md:hidden absolute top-4 right-4 bg-orange-500 text-white font-bold py-2 px-4 rounded-full shadow-xl hover:bg-orange-600 transition-all duration-300 z-50 flex items-center space-x-2 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500">
-                <i data-lucide="home" class="w-6 h-6"></i>
-                <span>Tuis</span>
-            </a>
-
-            <!-- Removed Mobile Menu Toggle Button (on right) -->
-            <!-- Die knoppie wat hier was, is nou verwyder soos per jou versoek.
-                 As jy 'n manier nodig het om die volledige mobiele spyskaart later oop te maak, laat weet my asseblief! -->
+            <!-- Mobile Menu Toggle Button (Hamburger) -->
+            <div class="md:hidden">
+                <button id="mobile-menu-toggle-button" class="text-gray-600 hover:text-orange-500 focus:outline-none">
+                    <i data-lucide="menu" class="w-8 h-8"></i>
+                </button>
+            </div>
         </nav>
-        <!-- Mobile Menu (still exists but is not directly accessible without a toggle button) -->
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 font-bold text-center w-full bg-white shadow-md absolute top-full left-0 z-40">
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 font-bold text-center w-full bg-white shadow-md">
             <a href="index.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md">Tuis</a>
             <a href="BoyOrGirl.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md">Gender Reveal!</a>
             <a href="Familielede.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md">Familielede</a>
             <a href="sosiale_media.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md">Sosiale Media</a>
-            <!-- New link for the Application Form in mobile menu (active on this page) -->
             <a href="application_form.html" class="block py-2 text-orange-500 bg-orange-100 rounded-md">Aansoekvorm</a>
         </div>
     </header>
@@ -87,15 +81,15 @@
 
         <div class="container mx-auto px-6 mt-12 max-w-2xl">
             <div class="bg-white rounded-xl custom-shadow-lg p-8 sm:p-10 border-t-4 border-orange-400">
-                <!-- The form now submits directly via email -->
-                <form id="karstenApplicationForm" action="mailto:nalydnetsrak@gmail.com" method="post" enctype="text/plain" class="space-y-6">
+                <!-- The form submission is handled by JavaScript -->
+                <form id="karstenApplicationForm" class="space-y-6">
                     <div>
                         <label for="full-name" class="block text-left text-lg font-semibold text-gray-700 mb-2">Jou Volle, Fantastiese Naam:</label>
                         <input type="text" id="full-name" name="Volle Naam" placeholder="Bv. Jan van der Merwe (nie 'n Karsten nie... nog nie)"
                                class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 text-base" required>
                     </div>
 
-                    <!-- Contact Information: Both Email and Phone are now required -->
+                    <!-- Contact Information -->
                     <div>
                         <label for="email" class="block text-left text-lg font-semibold text-gray-700 mb-2">E-pos Adres:</label>
                         <input type="email" id="email" name="E-pos Adres" placeholder="jou.naam@ons-is-mal.com"
@@ -107,8 +101,7 @@
                         <input type="tel" id="phone" name="Telefoonnommer" placeholder="Bv. 082 123 4567"
                                class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 text-base" required>
                     </div>
-                    <!-- End Contact Information Section -->
-
+                    
                     <div>
                         <label for="motivation" class="block text-left text-lg font-semibold text-gray-700 mb-2">Hoekom dink jy jy is Karsten-materiaal? (Wees kreatief, oorredend, en 'n bietjie mal):</label>
                         <textarea id="motivation" name="Motivering" rows="6" placeholder="Ek kan die beste braaibroodjies maak EN ek is nie bang vir Brenda se skoon vloere nie..."
@@ -155,8 +148,6 @@
                         <input type="text" id="other-fear" name="Ander Vrees" placeholder="Bv. Om die laaste stukkie koek te mis."
                                class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 text-base">
                     </div>
-
-                    <!-- Nuwe Vrae -->
                     <div>
                         <label for="favorite-activity" class="block text-left text-lg font-semibold text-gray-700 mb-2">Wat is jou gunsteling Karsten-familie aktiwiteit?</label>
                         <select id="favorite-activity" name="Gunsteling Aktiwiteit" 
@@ -197,8 +188,6 @@
                         <textarea id="best-trait" name="Beste Eienskap" rows="4" placeholder="Ek is 'n meester van die 'stille oordeel' en kan enige ongemaklike situasie red met 'n vinnige grappie."
                                   class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 text-base" required></textarea>
                     </div>
-
-                    <!-- Nuwe Vraag: Watter Karsten se plek soek jy? -->
                     <div>
                         <label for="karsten-spot" class="block text-left text-lg font-semibold text-gray-700 mb-2">Watter Karsten se plek soek jy? (Kies wyslik, daar is net twee plekke!)</label>
                         <select id="karsten-spot" name="Karsten Plek" 
@@ -208,8 +197,6 @@
                             <option value="Charmone">Charmone se plek: Ek is gebore vir die kollig, 'n drama-koningin/koning in wording. Charmone se plek wag vir jou!</option>
                         </select>
                     </div>
-
-                    <!-- Nuwe Vraag: Jou gunsteling manier om chaos te veroorsaak -->
                     <div>
                         <label for="chaos-method" class="block text-left text-lg font-semibold text-gray-700 mb-2">Jou gunsteling manier om chaos te veroorsaak (op 'n goeie manier natuurlik!):</label>
                         <textarea id="chaos-method" name="Manier Van Chaos" rows="3" placeholder="Bv. Deur te maak asof ek slaap tydens 'n familiebespreking, of die laaste stukkie koek te steel."
@@ -248,7 +235,7 @@
         // Initialize Lucide Icons
         lucide.createIcons();
 
-        // Mobile menu toggle (still present but not used by a toggle button in this version)
+        // Mobile menu toggle
         const mobileMenuToggleButton = document.getElementById('mobile-menu-toggle-button');
         const mobileMenu = document.getElementById('mobile-menu');
         
@@ -299,8 +286,8 @@
 
             emailBody += `--- Aansoeker se Inligting ---\n`;
             emailBody += `Volle Naam: ${applicantName}\n`;
-            emailBody += `E-pos Adres: ${formData.get("E-pos Adres") || "Nie verskaf"}\n`; // Always include email
-            emailBody += `Telefoonnommer: ${formData.get("Telefoonnommer") || "Nie verskaf"}\n\n`; // Always include phone
+            emailBody += `E-pos Adres: ${formData.get("E-pos Adres") || "Nie verskaf"}\n`;
+            emailBody += `Telefoonnommer: ${formData.get("Telefoonnommer") || "Nie verskaf"}\n\n`;
 
             emailBody += `--- Aansoek Besonderhede ---\n`;
             emailBody += `Motivering:\n${formData.get("Motivering") || "Nie verskaf"}\n\n`;
@@ -351,4 +338,3 @@
 
 </body>
 </html>
-
