@@ -24,11 +24,11 @@
         /* Default font for body */
         body {
             font-family: 'Nunito', sans-serif;
-            background-color: #FFF8E1; /* Ligte, warm geel agtergrond */
+            background-color: #FFF8E1; /* Light, warm yellow background */
         }
         /* Custom shadow for a softer look */
         .custom-shadow-lg {
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -4px rgba(0, 0, 0, 0.07);
+             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -4px rgba(0, 0, 0, 0.07);
         }
         /* Subtle hover effect for navigation links */
         .nav-link-hover:hover {
@@ -44,37 +44,33 @@
         <nav class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
             <!-- Logo -->
             <div class="flex-shrink-0">
-                <a href="index.html" class="text-4xl font-pacifico text-orange-500">Die Karstens</a>
+                <h1 class="text-4xl font-pacifico text-orange-500">Die Karstens</h1>
             </div>
             
-            <!-- Desktop Menu -->
+            <!-- Desktop Menu (Symmetrical) -->
             <div class="hidden md:flex flex-grow justify-center items-center space-x-2 sm:space-x-4 font-bold text-sm sm:text-base">
                 <a href="index.html" class="text-gray-600 hover:text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Tuis</a>
                 <a href="BoyOrGirl.html" class="text-gray-600 hover:text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Gender Reveal!</a>
                 <a href="Familielede.html" class="text-gray-600 hover:text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Familielede</a>
                 <a href="sosiale_media.html" class="text-gray-600 hover:text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Sosiale Media</a>
+                <!-- New link for the Application Form (active on this page) -->
                 <a href="application_form.html" class="text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Aansoekvorm</a>
             </div>
 
-            <!-- Mobile Menu Area -->
-            <div class="md:hidden flex items-center space-x-2">
-                <!-- Home Button -->
-                <a href="index.html" class="bg-orange-500 text-white font-bold py-2 px-3 rounded-full shadow-lg hover:bg-orange-600 transition-all duration-300 flex items-center space-x-1 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500">
-                    <i data-lucide="home" class="w-5 h-5"></i>
-                    <span class="text-sm">Tuis</span>
-                </a>
-                <!-- Hamburger -->
-                <button id="mobile-menu-toggle-button" class="text-gray-600 hover:text-orange-500 focus:outline-none">
+            <!-- Mobile Menu Button -->
+            <div class="flex-shrink-0 md:hidden">
+                <button id="mobile-menu-button" class="text-orange-500 px-3 py-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">
                     <i data-lucide="menu" class="w-8 h-8"></i>
                 </button>
             </div>
         </nav>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 font-bold text-center w-full bg-white shadow-md">
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 font-bold text-center">
             <a href="index.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md">Tuis</a>
             <a href="BoyOrGirl.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md">Gender Reveal!</a>
             <a href="Familielede.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md">Familielede</a>
             <a href="sosiale_media.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md">Sosiale Media</a>
+            <!-- New link for the Application Form in mobile menu (active on this page) -->
             <a href="application_form.html" class="block py-2 text-orange-500 bg-orange-100 rounded-md">Aansoekvorm</a>
         </div>
     </header>
@@ -87,27 +83,42 @@
 
         <div class="container mx-auto px-6 mt-12 max-w-2xl">
             <div class="bg-white rounded-xl custom-shadow-lg p-8 sm:p-10 border-t-4 border-orange-400">
-                <!-- The form submission is handled by JavaScript -->
-                <form id="karstenApplicationForm" class="space-y-6">
+                <!-- The form now submits directly via email -->
+                <form id="karstenApplicationForm" action="mailto:nalydnetsrak@gmail.com" method="post" enctype="text/plain" class="space-y-6">
                     <div>
                         <label for="full-name" class="block text-left text-lg font-semibold text-gray-700 mb-2">Jou Volle, Fantastiese Naam:</label>
                         <input type="text" id="full-name" name="Volle Naam" placeholder="Bv. Jan van der Merwe (nie 'n Karsten nie... nog nie)"
                                class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 text-base" required>
                     </div>
 
-                    <!-- Contact Information -->
+                    <!-- New Contact Preference Section -->
                     <div>
-                        <label for="email" class="block text-left text-lg font-semibold text-gray-700 mb-2">E-pos Adres:</label>
-                        <input type="email" id="email" name="E-pos Adres" placeholder="jou.naam@ons-is-mal.com"
-                               class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 text-base" required>
-                    </div>
+                        <label class="block text-left text-lg font-semibold text-gray-700 mb-2">Hoe wil ons jou kontak? (Kies een, ons belowe ons sal nie spam nie, net snaakse memes stuur!):</label>
+                        <div class="flex items-center space-x-4 mb-4">
+                            <label class="inline-flex items-center">
+                                <input type="radio" name="Kontak Voorkeur Tipe" value="E-pos" class="form-radio text-orange-500" checked id="contact-email-radio">
+                                <span class="ml-2 text-gray-700">E-pos</span>
+                            </label>
+                            <label class="inline-flex items-center">
+                                <input type="radio" name="Kontak Voorkeur Tipe" value="Telefoonnommer" class="form-radio text-orange-500" id="contact-phone-radio">
+                                <span class="ml-2 text-gray-700">Telefoonnommer</span>
+                            </label>
+                        </div>
 
-                    <div>
-                        <label for="phone" class="block text-left text-lg font-semibold text-gray-700 mb-2">Telefoonnommer:</label>
-                        <input type="tel" id="phone" name="Telefoonnommer" placeholder="Bv. 082 123 4567"
-                               class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 text-base" required>
+                        <div id="contact-email-field">
+                            <label for="email" class="sr-only">E-pos Adres:</label>
+                            <input type="email" id="email" name="Kontak Waarde (E-pos)" placeholder="jou.naam@ons-is-mal.com"
+                                   class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 text-base">
+                        </div>
+
+                        <div id="contact-phone-field" class="hidden">
+                            <label for="phone" class="sr-only">Telefoonnommer:</label>
+                            <input type="tel" id="phone" name="Kontak Waarde (Telefoonnommer)" placeholder="Bv. 082 123 4567"
+                                   class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 text-base">
+                        </div>
                     </div>
-                    
+                    <!-- End New Contact Preference Section -->
+
                     <div>
                         <label for="motivation" class="block text-left text-lg font-semibold text-gray-700 mb-2">Hoekom dink jy jy is Karsten-materiaal? (Wees kreatief, oorredend, en 'n bietjie mal):</label>
                         <textarea id="motivation" name="Motivering" rows="6" placeholder="Ek kan die beste braaibroodjies maak EN ek is nie bang vir Brenda se skoon vloere nie..."
@@ -154,6 +165,8 @@
                         <input type="text" id="other-fear" name="Ander Vrees" placeholder="Bv. Om die laaste stukkie koek te mis."
                                class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 text-base">
                     </div>
+
+                    <!-- Nuwe Vrae -->
                     <div>
                         <label for="favorite-activity" class="block text-left text-lg font-semibold text-gray-700 mb-2">Wat is jou gunsteling Karsten-familie aktiwiteit?</label>
                         <select id="favorite-activity" name="Gunsteling Aktiwiteit" 
@@ -194,15 +207,19 @@
                         <textarea id="best-trait" name="Beste Eienskap" rows="4" placeholder="Ek is 'n meester van die 'stille oordeel' en kan enige ongemaklike situasie red met 'n vinnige grappie."
                                   class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 text-base" required></textarea>
                     </div>
+
+                    <!-- Nuwe Vraag: Watter Karsten se plek soek jy? -->
                     <div>
                         <label for="karsten-spot" class="block text-left text-lg font-semibold text-gray-700 mb-2">Watter Karsten se plek soek jy? (Kies wyslik, daar is net twee plekke!)</label>
                         <select id="karsten-spot" name="Karsten Plek" 
                                 class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 text-base" required>
                             <option value="">Maak jou keuse...</option>
                             <option value="Dylan">Dylan se plek: Ek is 'n stil, maar dodelike snaakse siel wat van katte hou en horisontale strepe vermy. Ek sal Dylan se stil hoekie vul.</option>
-                            <option value="Charmone">Charmone se plek: Ek is gebore vir die kollig, 'n drama-koningin/koning in wording. Charmone se plek wag vir jou!</option>
+                            <option value="Charmone">Charmone se plek: Ek is gebore vir die kollig, 'n drama-koningin/koning in wording, en ek droom van video-redigering. Charmone se plek wag vir my!</option>
                         </select>
                     </div>
+
+                    <!-- Nuwe Vraag: Jou gunsteling manier om chaos te veroorsaak -->
                     <div>
                         <label for="chaos-method" class="block text-left text-lg font-semibold text-gray-700 mb-2">Jou gunsteling manier om chaos te veroorsaak (op 'n goeie manier natuurlik!):</label>
                         <textarea id="chaos-method" name="Manier Van Chaos" rows="3" placeholder="Bv. Deur te maak asof ek slaap tydens 'n familiebespreking, of die laaste stukkie koek te steel."
@@ -222,7 +239,6 @@
                     <h3 class="text-xl font-bold text-orange-500 mb-3">'n Ernstige Nota (vir die vervelige mense):</h3>
                     <p class="mb-2">Hierdie vorm sal nou direk 'n e-pos stuur na <strong class="text-orange-600">nalydnetsrak@gmail.com</strong> met al jou fantastiese antwoorde!</p>
                     <p class="mb-2">Let wel: Jou rekenaar se e-posprogram sal oopmaak met die vorm se inhoud gereed om gestuur te word. Maak seker jy klik "Stuur" in daardie program!</p>
-                    <p class="mb-2">Beide jou e-pos adres en telefoonnommer sal in die e-pos se liggaam ingesluit word.</p>
                     <p class="mt-4">Sterkte met die aansoekproses! Mag die kanse in jou guns wees!</p>
                 </div>
             </div>
@@ -242,40 +258,60 @@
         lucide.createIcons();
 
         // Mobile menu toggle
-        const mobileMenuToggleButton = document.getElementById('mobile-menu-toggle-button');
+        const menuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         
-        if (mobileMenuToggleButton && mobileMenu) {
-            mobileMenuToggleButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-        }
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
 
         // Show/hide "Other" superpower field
         const superpowerSelect = document.getElementById('superpower');
         const otherSuperpowerField = document.getElementById('other-superpower-field');
-        if (superpowerSelect && otherSuperpowerField) {
-            superpowerSelect.addEventListener('change', () => {
-                if (superpowerSelect.value === 'ander') {
-                    otherSuperpowerField.classList.remove('hidden');
-                } else {
-                    otherSuperpowerField.classList.add('hidden');
-                }
-            });
-        }
+        superpowerSelect.addEventListener('change', () => {
+            if (superpowerSelect.value === 'ander') {
+                otherSuperpowerField.classList.remove('hidden');
+            } else {
+                otherSuperpowerField.classList.add('hidden');
+            }
+        });
 
         // Show/hide "Other" fear field
         const fearSelect = document.getElementById('fear');
         const otherFearField = document.getElementById('other-fear-field');
-        if (fearSelect && otherFearField) {
-            fearSelect.addEventListener('change', () => {
-                if (fearSelect.value === 'ander-vrees') {
-                    otherFearField.classList.remove('hidden');
-                } else {
-                    otherFearField.classList.add('hidden');
-                }
-            });
+        fearSelect.addEventListener('change', () => {
+            if (fearSelect.value === 'ander-vrees') {
+                otherFearField.classList.remove('hidden');
+            } else {
+                otherFearField.classList.add('hidden');
+            }
+        });
+
+        // Contact preference logic
+        const contactEmailRadio = document.getElementById('contact-email-radio');
+        const contactPhoneRadio = document.getElementById('contact-phone-radio');
+        const contactEmailField = document.getElementById('contact-email-field');
+        const contactPhoneField = document.getElementById('contact-phone-field');
+        const emailInput = document.getElementById('email');
+        const phoneInput = document.getElementById('phone');
+
+        function toggleContactFields() {
+            if (contactEmailRadio.checked) {
+                contactEmailField.classList.remove('hidden');
+                contactPhoneField.classList.add('hidden');
+                emailInput.setAttribute('required', 'required');
+                phoneInput.removeAttribute('required');
+            } else {
+                contactEmailField.classList.add('hidden');
+                contactPhoneField.classList.remove('hidden');
+                phoneInput.setAttribute('required', 'required');
+                emailInput.removeAttribute('required');
+            }
         }
+
+        contactEmailRadio.addEventListener('change', toggleContactFields);
+        contactPhoneRadio.addEventListener('change', toggleContactFields);
+        toggleContactFields(); // Set initial state
 
         // Handle form submission to format email body
         document.getElementById('karstenApplicationForm').addEventListener('submit', function(event) {
@@ -287,28 +323,33 @@
             const applicantName = formData.get("Volle Naam") || "Onbekende Aansoeker";
             const karstenSpot = formData.get("Karsten Plek") || "Onbekend";
 
-            let emailBody = `--- Karsten Familie Aansoekvorm Ingedien ---\n\n`;
-            emailBody += `Datum van Aansoek: ${currentDate}\n\n`;
+            let emailBody = `--- Karsten Familie Aansoekvorm Ingedien ---\n`;
+            emailBody += `Datum: ${currentDate}\n\n`;
 
-            emailBody += `--- Aansoeker se Inligting ---\n`;
-            emailBody += `Volle Naam: ${applicantName}\n`;
-            emailBody += `E-pos Adres: ${formData.get("E-pos Adres") || "Nie verskaf"}\n`;
-            emailBody += `Telefoonnommer: ${formData.get("Telefoonnommer") || "Nie verskaf"}\n\n`;
+            emailBody += `Kontak Inligting:\n`;
+            emailBody += `Naam: ${applicantName}\n`;
+            
+            // Dynamically add contact info based on selection
+            if (contactEmailRadio.checked) {
+                emailBody += `E-pos: ${formData.get("Kontak Waarde (E-pos)") || "Nie verskaf"}\n\n`;
+            } else {
+                emailBody += `Telefoonnommer: ${formData.get("Kontak Waarde (Telefoonnommer)") || "Nie verskaf"}\n\n`;
+            }
 
-            emailBody += `--- Aansoek Besonderhede ---\n`;
+            emailBody += `Aansoek Besonderhede:\n`;
             emailBody += `Motivering:\n${formData.get("Motivering") || "Nie verskaf"}\n\n`;
 
             // Superkrag
             let superpowerValue = formData.get("Superkrag");
             if (superpowerValue === "ander") {
-                superpowerValue = `Ander: ${formData.get("Ander Superkrag") || "Nie gespesifiseer"}`;
+                superpowerValue = formData.get("Ander Superkrag") || "Nie gespesifiseer";
             }
             emailBody += `Superkrag: ${superpowerValue}\n`;
 
             // Grootste Vrees
             let fearValue = formData.get("Grootste Vrees");
             if (fearValue === "ander-vrees") {
-                fearValue = `Ander: ${formData.get("Ander Vrees") || "Nie gespesifiseer"}`;
+                fearValue = formData.get("Ander Vrees") || "Nie gespesifiseer";
             }
             emailBody += `Grootste Vrees: ${fearValue}\n\n`;
 
@@ -319,7 +360,7 @@
             emailBody += `Beste Eienskap:\n${formData.get("Beste Eienskap") || "Nie verskaf"}\n\n`;
 
             // Karsten Plek
-            emailBody += `Voorkeur Karsten Plek: ${karstenSpot}\n`;
+            emailBody += `Aansoek vir Karsten Plek: ${karstenSpot}\n`;
             
             // Manier Van Chaos (optional field)
             const chaosMethod = formData.get("Manier Van Chaos");
@@ -344,5 +385,3 @@
 
 </body>
 </html>
-
-This code is ready to go! When you preview it and submit the form, it will attempt to open the user's default email client with the pre-filled message addressed to nalydnetsrak@gmail.com.
