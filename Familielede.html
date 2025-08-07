@@ -14,54 +14,72 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
     
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide-icons@latest"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
-        /* Pasgemaakte lettertipe vir opskrifte */
+        /* Custom font for headings */
         .font-pacifico {
             font-family: 'Pacifico', cursive;
         }
-        /* Standaard lettertipe vir die liggaam */
+        /* Default font for the body */
         body {
             font-family: 'Nunito', sans-serif;
-            background-color: #FFF8E1; /* Ligte, warm geel agtergrond */
+            background-color: #FFFBEF; /* A slightly warmer, lighter cream background */
         }
-        /* Pasgemaakte skadu vir 'n sagter voorkoms */
-        .custom-shadow-lg {
-             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -4px rgba(0, 0, 0, 0.07);
+        /* Styling for the stat bars */
+        .stat-bar-bg {
+            background-color: #F3F4F6; /* gray-200 */
+            border-radius: 9999px;
+            height: 8px;
+            overflow: hidden;
+            flex-grow: 1;
         }
-
-        /* Subtle hover effect for navigation links */
+        .stat-bar {
+            background-color: #F97316; /* orange-500 */
+            height: 100%;
+            border-radius: 9999px;
+            transition: width 0.5s ease-in-out;
+        }
+        /* Enhanced hover effect for navigation links */
+        .nav-link-hover {
+            transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+        }
         .nav-link-hover:hover {
             transform: translateY(-2px);
-            color: #f97316; /* Orange-500 */
+            color: #F97316; /* orange-500 */
         }
     </style>
 </head>
-<body class="text-gray-800">
+<body class="text-gray-800 antialiased">
 
-    <!-- Kopskrif -->
-    <header class="bg-white shadow-lg sticky top-0 z-50">
-        <nav class="container mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-center">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <!-- Logo -->
-            <h1 class="text-3xl sm:text-4xl font-pacifico text-orange-500 mb-2 sm:mb-0">Die Karstens</h1>
+            <a href="index.html" class="text-3xl sm:text-4xl font-pacifico text-orange-500">Die Karstens</a>
             
-            <!-- Desktop Spyskaart (Simmetries) -->
-            <div class="flex flex-wrap justify-center space-x-2 sm:space-x-4 font-bold text-sm sm:text-base">
-                <a href="index.html" class="text-gray-600 hover:text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Tuis</a>
-                <a href="BoyOrGirl.html" class="text-gray-600 hover:text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Gender Reveal!</a>
-                <a href="Familielede.html" class="text-gray-600 hover:text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Familielede</a>
-                <a href="sosiale_media.html" class="text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Sosiale Media</a>
-                <!-- New link for the Application Form -->
-                <a href="application_form.html" class="text-gray-600 hover:text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Aansoekvorm</a>
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-2 font-bold">
+                <a href="index.html" class="text-gray-600 nav-link-hover px-4 py-2 rounded-full">Tuis</a>
+                <a href="BoyOrGirl.html" class="text-gray-600 nav-link-hover px-4 py-2 rounded-full">Gender Reveal!</a>
+                <a href="Familielede.html" class="text-orange-500 bg-orange-50 px-4 py-2 rounded-full">Familielede</a>
+                <a href="sosiale_media.html" class="text-gray-600 nav-link-hover px-4 py-2 rounded-full">Sosiale Media</a>
+                <a href="application_form.html" class="text-gray-600 nav-link-hover px-4 py-2 rounded-full">Aansoekvorm</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-600 hover:text-orange-500 focus:outline-none">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
             </div>
         </nav>
-        <!-- Mobile Menu (Toegevoegde vir konsekwentheid) -->
+        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 font-bold text-center">
             <a href="index.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md">Tuis</a>
             <a href="BoyOrGirl.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md">Gender Reveal!</a>
-            <a href="Familielede.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md">Familielede</a>
-            <a href="sosiale_media.html" class="block py-2 text-orange-500 bg-orange-100 rounded-md">Sosiale Media</a>
+            <a href="Familielede.html" class="block py-2 text-orange-500 bg-orange-100 rounded-md">Familielede</a>
+            <a href="sosiale_media.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md">Sosiale Media</a>
             <a href="application_form.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md">Aansoekvorm</a>
         </div>
     </header>
@@ -72,183 +90,151 @@
             <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Elkeen van ons is uniek en spesiaal. Hier is 'n bietjie meer oor ons elkeen, insluitend ons spesiale statistieke!</p>
         </div>
 
-        <!-- Member Cards Section -->
-        <div class="container mx-auto px-6 mt-12">
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                
-                <!-- Helper function to create a stat bar -->
-                <script>
-                    const createStatBar = (label, value) => {
-                        const numericValue = parseFloat(value);
-                        // Cap the percentage at 100 for values > 10
-                        const percentage = !isNaN(numericValue) ? Math.min(numericValue * 10, 100) : 0;
-                        const displayValue = isNaN(numericValue) ? value : numericValue;
-                        return `
-                        <div class="flex items-center mb-2">
-                            <strong class="w-24 text-xs font-bold text-gray-600">${label}</strong>
-                            <div class="flex-1 stat-bar-bg mr-2">
-                                <div class="stat-bar" style="width: ${percentage}%;"></div>
-                            </div>
-                            <span class="text-sm font-extrabold text-gray-700">${displayValue}</span>
-                        </div>`;
-                    }
-                </script>
-
-                <!-- Member Card 1: Marius Jr -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                    <img src="Pa.jpg" alt="Marius Jr Karsten" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/d1d5db/374151?text=Foto+Nie+Beskikbaar';">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-gray-800">Marius Jr Karsten</h3>
-                        <p class="font-pacifico text-orange-500 text-lg">Die Pa</p>
-                        <p class="mt-2 text-gray-600 h-16">Marius: die man van die huis van sy vrou. Sy grootste vrees... Brenda.</p>
-                        <div id="stats-marius" class="mt-4 pt-4 border-t border-gray-200"></div>
-                        <script>
-                            document.getElementById('stats-marius').innerHTML = createStatBar('Strength', 8) + createStatBar('Perception', 2) + createStatBar('Endurance', 1) + createStatBar('Charisma', 6) + createStatBar('Intelligence', 3) + createStatBar('Agility', 1) + createStatBar('Luck', 6);
-                        </script>
-                    </div>
-                </div>
-
-                <!-- Member Card 2: Brenda -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                    <img src="Ma.jpg" alt="Brenda Karsten" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/d1d5db/374151?text=Foto+Nie+Beskikbaar';">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-gray-800">Brenda Karsten</h3>
-                        <p class="font-pacifico text-orange-500 text-lg">Die Ma</p>
-                        <p class="mt-2 text-gray-600 h-16">Brenda: die regte "man" van die huis. Haar grootste vrees... Vuil vloere.</p>
-                        <div id="stats-brenda" class="mt-4 pt-4 border-t border-gray-200"></div>
-                        <script>
-                            document.getElementById('stats-brenda').innerHTML = createStatBar('Strength', 10) + createStatBar('Perception', 10) + createStatBar('Endurance', 100) + createStatBar('Charisma', 10) + createStatBar('Intelligence', 9) + createStatBar('Agility', 10) + createStatBar('Luck', 8);
-                        </script>
-                    </div>
-                </div>
-
-                <!-- Member Card 3: Junior -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                    <img src="Jun.jpg" alt="Junior Karsten" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/d1d5db/374151?text=Foto+Nie+Beskikbaar';">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-gray-800">Junior Karsten</h3>
-                        <p class="font-pacifico text-orange-500 text-lg">Oudste Kind</p>
-                        <p class="mt-2 text-gray-600 h-16">Junior: sê hy's nie honger nie maar kyk die kos uit jou mikrogolf uit.</p>
-                        <div id="stats-junior" class="mt-4 pt-4 border-t border-gray-200"></div>
-                        <script>
-                            document.getElementById('stats-junior').innerHTML = createStatBar('Strength', 3) + createStatBar('Perception', 4) + createStatBar('Endurance', 5) + createStatBar('Charisma', 6) + createStatBar('Intelligence', 2) + createStatBar('Agility', 1) + createStatBar('Luck', 7);
-                        </script>
-                    </div>
-                </div>
-
-                <!-- Member Card 4: Dylan -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                    <img src="Dy.jpg" alt="Dylan Karsten" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/d1d5db/374151?text=Foto+Nie+Beskikbaar';">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-gray-800">Dylan Karsten</h3>
-                        <p class="font-pacifico text-orange-500 text-lg">Middel Kind</p>
-                        <p class="mt-2 text-gray-600 h-16">Dylan: die een wat claim hy is 'n "cat lover" maar hou net van sy eie kat.</p>
-                        <div id="stats-dylan" class="mt-4 pt-4 border-t border-gray-200"></div>
-                          <script>
-                            document.getElementById('stats-dylan').innerHTML = createStatBar('Strength', 100) + createStatBar('Perception', 1) + createStatBar('Endurance', 8) + createStatBar('Charisma', 8) + createStatBar('Intelligence', 5) + createStatBar('Agility', 7) + createStatBar('Luck', 9);
-                        </script>
-                    </div>
-                </div>
-
-                <!-- Member Card 5: Charmone -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                    <img src="Charm.jpg" alt="Charmone Karsten" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/d1d5db/374151?text=Foto+Nie+Beskikbaar';">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-gray-800">Charmone Karsten</h3>
-                        <p class="font-pacifico text-orange-500 text-lg">Jongste Kind</p>
-                        <p class="mt-2 text-gray-600 h-16">Charmone is die video-redakteur en 'n drama queen wat altyd die slagoffer van haarself is.</p>
-                        <div id="stats-charmone" class="mt-4 pt-4 border-t border-gray-200"></div>
-                        <script>
-                            document.getElementById('stats-charmone').innerHTML = createStatBar('Strength', 1) + createStatBar('Perception', 2) + createStatBar('Endurance', 8) + createStatBar('Charisma', 1) + createStatBar('Intelligence', 2) + createStatBar('Agility', 7) + createStatBar('Luck', 9);
-                        </script>
-                    </div>
-                </div>
-
-                <!-- Member Card 6: Nicola -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                    <img src="nika.jpg" alt="Nicola die Kat" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/d1d5db/374151?text=Foto+Nie+Beskikbaar';">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-gray-800">Nicola Karsten</h3>
-                        <p class="font-pacifico text-orange-500 text-lg">Die Kat</p>
-                        <p class="mt-2 text-gray-600 h-16">Nicola: Sy sal teen 'n bank piepie om dit as haar gebied te beskou... Dis nie haar bank nie.</p>
-                        <div id="stats-nicola" class="mt-4 pt-4 border-t border-gray-200"></div>
-                        <script>
-                            document.getElementById('stats-nicola').innerHTML = createStatBar('Strength', 9) + createStatBar('Perception', 8) + createStatBar('Endurance', 7) + createStatBar('Charisma', 9) + createStatBar('Intelligence', 10) + createStatBar('Agility', 7) + createStatBar('Luck', 100);
-                        </script>
-                    </div>
-                </div>
-
-                <!-- Member Card 7: Saskea -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                    <img src="Sas.jpg" alt="Saskea Stols" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/d1d5db/374151?text=Foto+Nie+Beskikbaar';">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-gray-800">Saskea Stols</h3>
-                        <p class="font-pacifico text-orange-500 text-lg">Junior se "VROU"</p>
-                        <p class="mt-2 text-gray-600 h-16">Saskea: Misterieus... Maar lyk soos die tipe wat jou mikrogolfplate sal steel as jy haar sjokolademelk drink.</p>
-                        <div id="stats-saskea" class="mt-4 pt-4 border-t border-gray-200"></div>
-                        <script>
-                            document.getElementById('stats-saskea').innerHTML = createStatBar('Strength', 1) + createStatBar('Perception', 2) + createStatBar('Endurance', 3) + createStatBar('Charisma', 6) + createStatBar('Intelligence', 8) + createStatBar('Agility', 4) + createStatBar('Luck', 8);
-                        </script>
-                    </div>
-                </div>
-
-                <!-- Member Card 8: Chermelé -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                    <img src="Ch.jpg" alt="Chermelé Wolmarans" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/d1d5db/374151?text=Foto+Nie+Beskikbaar';">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-gray-800">Chermelé Wolmarans</h3>
-                        <p class="font-pacifico text-orange-500 text-lg">Die Hond</p>
-                        <p class="mt-2 text-gray-600 h-16">Chimmie: identifiseer as 'n Karsten die dag toe sy die hele familie glo getrou het. Almal is te bang om haar te skei.</p>
-                        <div id="stats-chermele" class="mt-4 pt-4 border-t border-gray-200"></div>
-                        <script>
-                            document.getElementById('stats-chermele').innerHTML = createStatBar('Strength', 8) + createStatBar('Perception', 10) + createStatBar('Endurance', 8) + createStatBar('Charisma', 1000) + createStatBar('Intelligence', 9) + createStatBar('Agility', 8) + createStatBar('Luck', 8);
-                        </script>
-                    </div>
-                </div>
-
-                <!-- Member Card 9: Dylan's Crush -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                    <img src="https://placehold.co/400x300/fecdd3/be123c?text=?" alt="Dylan se Crush" class="w-full h-56 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-gray-800">Dylan se Crush</h3>
-                        <p class="font-pacifico text-orange-500 text-lg">Fairytale</p>
-                        <p class="mt-2 text-gray-600 h-16">I'm in love with a fairytale...</p>
-                        <div id="stats-crush" class="mt-4 pt-4 border-t border-gray-200"></div>
-                        <script>
-                            document.getElementById('stats-crush').innerHTML = createStatBar('Strength', '?') + createStatBar('Perception', '?') + createStatBar('Endurance', '?') + createStatBar('Charisma', 10) + createStatBar('Intelligence', '?') + createStatBar('Agility', '?') + createStatBar('Luck', 10);
-                        </script>
-                    </div>
-                </div>
-
-                <!-- Member Card 10: Charmoné's Hand -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                    <img src="CT.jpg" alt="Charmoné se Hand" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/e0e7ff/4338ca?text=Foto+Nie+Beskikbaar';">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-gray-800">Charmoné se Hand</h3>
-                        <p class="font-pacifico text-orange-500 text-lg">Flowers</p>
-                        <p class="mt-2 text-gray-600 h-16">I can buy myself flowers...</p>
-                        <div id="stats-hand" class="mt-4 pt-4 border-t border-gray-200"></div>
-                        <script>
-                            document.getElementById('stats-hand').innerHTML = createStatBar('Strength', 10) + createStatBar('Perception', 2) + createStatBar('Endurance', 10) + createStatBar('Charisma', 1) + createStatBar('Intelligence', 10) + createStatBar('Agility', 5) + createStatBar('Luck', 10);
-                        </script>
-                    </div>
-                </div>
-
-            </div>
+        <!-- Member Cards Section - This will be populated by JavaScript -->
+        <div id="member-cards-container" class="container mx-auto px-6 mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <!-- Member cards will be inserted here -->
         </div>
     </main>
 
     <!-- Footer -->
     <footer class="bg-gray-800 text-white mt-16">
         <div class="container mx-auto px-6 py-8 text-center">
-            <p>&copy; 2024 Die Karstens. Alle Regte Voorbehou.</p>
+            <p class="font-bold">&copy; 2024 Die Karstens. Alle Regte Voorbehou.</p>
             <p class="text-sm text-gray-400 mt-2">Met liefde gemaak vir ons familie en vriende.</p>
         </div>
     </footer>
 
     <script>
-        // Wait for the DOM to be fully loaded before running scripts
         document.addEventListener('DOMContentLoaded', () => {
+            // --- DATA ---
+            // Centralized data for all family members. Makes it easy to add/remove/edit people.
+            const familyMembers = [
+                {
+                    name: "Marius Jr Karsten",
+                    title: "Die Pa",
+                    description: "Marius: die man van die huis van sy vrou. Sy grootste vrees... Brenda.",
+                    image: "Pa.jpg",
+                    stats: { Strength: 8, Perception: 2, Endurance: 1, Charisma: 6, Intelligence: 3, Agility: 1, Luck: 6 }
+                },
+                {
+                    name: "Brenda Karsten",
+                    title: "Die Ma",
+                    description: "Brenda: die regte \"man\" van die huis. Haar grootste vrees... Vuil vloere.",
+                    image: "Ma.jpg",
+                    stats: { Strength: 10, Perception: 10, Endurance: 100, Charisma: 10, Intelligence: 9, Agility: 10, Luck: 8 }
+                },
+                {
+                    name: "Junior Karsten",
+                    title: "Oudste Kind",
+                    description: "Junior: sê hy's nie honger nie maar kyk die kos uit jou mikrogolf uit.",
+                    image: "Jun.jpg",
+                    stats: { Strength: 3, Perception: 4, Endurance: 5, Charisma: 6, Intelligence: 2, Agility: 1, Luck: 7 }
+                },
+                {
+                    name: "Dylan Karsten",
+                    title: "Middel Kind",
+                    description: "Dylan: die een wat claim hy is 'n \"cat lover\" maar hou net van sy eie kat.",
+                    image: "Dy.jpg",
+                    stats: { Strength: 100, Perception: 1, Endurance: 8, Charisma: 8, Intelligence: 5, Agility: 7, Luck: 9 }
+                },
+                {
+                    name: "Charmone Karsten",
+                    title: "Jongste Kind",
+                    description: "Charmone is die video-redakteur en 'n drama queen wat altyd die slagoffer van haarself is.",
+                    image: "Charm.jpg",
+                    stats: { Strength: 1, Perception: 2, Endurance: 8, Charisma: 1, Intelligence: 2, Agility: 7, Luck: 9 }
+                },
+                {
+                    name: "Nicola Karsten",
+                    title: "Die Kat",
+                    description: "Nicola: Sy sal teen 'n bank piepie om dit as haar gebied te beskou... Dis nie haar bank nie.",
+                    image: "nika.jpg",
+                    stats: { Strength: 9, Perception: 8, Endurance: 7, Charisma: 9, Intelligence: 10, Agility: 7, Luck: 100 }
+                },
+                {
+                    name: "Saskea Stols",
+                    title: "Junior se \"VROU\"",
+                    description: "Saskea: Misterieus... Maar lyk soos die tipe wat jou mikrogolfplate sal steel as jy haar sjokolademelk drink.",
+                    image: "Sas.jpg",
+                    stats: { Strength: 1, Perception: 2, Endurance: 3, Charisma: 6, Intelligence: 8, Agility: 4, Luck: 8 }
+                },
+                {
+                    name: "Chermelé Wolmarans",
+                    title: "Die Hond",
+                    description: "Chimmie: identifiseer as 'n Karsten die dag toe sy die hele familie glo getrou het. Almal is te bang om haar te skei.",
+                    image: "Ch.jpg",
+                    stats: { Strength: 8, Perception: 10, Endurance: 8, Charisma: 1000, Intelligence: 9, Agility: 8, Luck: 8 }
+                },
+                {
+                    name: "Dylan se Crush",
+                    title: "Fairytale",
+                    description: "I'm in love with a fairytale...",
+                    image: "https://placehold.co/400x300/fecdd3/be123c?text=?",
+                    stats: { Strength: '?', Perception: '?', Endurance: '?', Charisma: 10, Intelligence: '?', Agility: '?', Luck: 10 }
+                },
+                {
+                    name: "Charmoné se Hand",
+                    title: "Flowers",
+                    description: "I can buy myself flowers...",
+                    image: "CT.jpg",
+                    stats: { Strength: 10, Perception: 2, Endurance: 10, Charisma: 1, Intelligence: 10, Agility: 5, Luck: 10 }
+                }
+            ];
+
+            // --- FUNCTIONS ---
+            
+            // Helper function to create a single stat bar
+            const createStatBar = (label, value) => {
+                const numericValue = parseFloat(value);
+                // Cap the percentage at 100 for display purposes
+                const percentage = !isNaN(numericValue) ? Math.min(numericValue * 10, 100) : 0;
+                const displayValue = isNaN(numericValue) ? value : numericValue;
+                
+                return `
+                <div class="flex items-center mb-2 last:mb-0">
+                    <strong class="w-28 text-xs font-bold text-gray-600 uppercase tracking-wider">${label}</strong>
+                    <div class="flex-1 stat-bar-bg mr-2">
+                        <div class="stat-bar" style="width: ${percentage}%;"></div>
+                    </div>
+                    <span class="text-sm font-extrabold text-gray-700 w-8 text-right">${displayValue}</span>
+                </div>`;
+            };
+
+            // Function to create a full member card from a data object
+            const createMemberCard = (member) => {
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 flex flex-col";
+                
+                let statsHtml = '';
+                for (const [key, value] of Object.entries(member.stats)) {
+                    statsHtml += createStatBar(key, value);
+                }
+
+                card.innerHTML = `
+                    <img src="${member.image}" alt="${member.name}" class="w-full h-60 object-cover object-center" onerror="this.onerror=null;this.src='https://placehold.co/400x300/d1d5db/374151?text=Foto+Onbeskikbaar';">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-2xl font-bold text-gray-900">${member.name}</h3>
+                        <p class="font-pacifico text-orange-500 text-lg mb-2">${member.title}</p>
+                        <p class="text-gray-600 h-20 flex-grow">${member.description}</p>
+                        <div class="mt-4 pt-4 border-t border-gray-200">
+                            ${statsHtml}
+                        </div>
+                    </div>
+                `;
+                return card;
+            };
+
+            // --- SCRIPT EXECUTION ---
+
+            // Populate the page with member cards
+            const container = document.getElementById('member-cards-container');
+            if (container) {
+                familyMembers.forEach(member => {
+                    const card = createMemberCard(member);
+                    container.appendChild(card);
+                });
+            }
+
             // Initialize Lucide Icons
             lucide.createIcons();
 
@@ -258,14 +244,18 @@
             
             if (menuButton && mobileMenu) {
                 menuButton.addEventListener('click', () => {
-                    // Toggle 'hidden' class to hide/show the menu
                     mobileMenu.classList.toggle('hidden');
+                    // Optional: Change icon to 'x' when menu is open
+                    const icon = menuButton.querySelector('i');
+                    if (mobileMenu.classList.contains('hidden')) {
+                        icon.setAttribute('data-lucide', 'menu');
+                    } else {
+                        icon.setAttribute('data-lucide', 'x');
+                    }
+                    lucide.createIcons(); // Re-render icons after changing attribute
                 });
             }
         });
     </script>
 </body>
 </html>
-
-
-
