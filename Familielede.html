@@ -47,23 +47,25 @@
 
     <!-- Header -->
     <header class="bg-white shadow-md sticky top-0 z-50">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <h1 class="text-4xl font-pacifico text-orange-500">Die Karstens</h1>
-            <div class="hidden md:flex items-center space-x-8 font-bold">
+        <nav class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+            <div class="flex-shrink-0">
+                <h1 class="text-4xl font-pacifico text-orange-500">Die Karstens</h1>
+            </div>
+            <div class="hidden md:flex flex-grow justify-center items-center space-x-2 sm:space-x-4 font-bold text-sm sm:text-base">
                 <a href="index.html" class="text-gray-600 hover:text-orange-500 transition duration-300">Tuis</a>
                 <a href="BoyOrGirl.html" class="text-gray-600 hover:text-orange-500 transition duration-300">Gender Reveal!</a>
                 <a href="lede.html" class="text-orange-500 transition duration-300">Familielede</a>
                 <a href="sosiale_media.html" class="text-gray-600 hover:text-orange-500 transition duration-300">Sosiale Media</a>
                 <a href="application_form.html" class="text-gray-600 hover:text-orange-500 transition duration-300">Aansoekvorm</a>
             </div>
-            <!-- Mobile Menu Button -->
+            <!-- Mobile Menu Button: Visible on small screens, hidden on medium and larger -->
             <div class="flex-shrink-0 md:hidden">
                 <button id="mobile-menu-button" class="w-12 h-12 flex items-center justify-center bg-orange-500 text-white rounded-full shadow-md hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500" aria-label="Toggle mobile menu">
                     <i data-lucide="menu" class="w-8 h-8"></i>
                 </button>
             </div>
         </nav>
-        <!-- Mobile Menu -->
+        <!-- Mobile Navigation Menu: Toggled by the mobile menu button -->
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 font-bold text-center bg-white shadow-lg">
             <a href="index.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md text-sm">Tuis</a>
             <a href="BoyOrGirl.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md text-sm">Gender Reveal!</a>
@@ -145,7 +147,7 @@
 
                 <!-- Member Card 4: Dylan -->
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                    <img src="DH.jpg" alt="Dylan Karsten" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/d1d5db/374151?text=Foto+Nie+Beskikbaar';">
+                    <img src="Dy.jpg" alt="Dylan Karsten" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/d1d5db/374151?text=Foto+Nie+Beskikbaar';">
                     <div class="p-6">
                         <h3 class="text-2xl font-bold text-gray-800">Dylan Karsten</h3>
                         <p class="font-pacifico text-orange-500 text-lg">Middel Kind</p>
@@ -259,12 +261,13 @@
             // Initialize Lucide Icons
             lucide.createIcons();
 
-            // Mobile menu toggle
+            // Mobile menu toggle functionality
             const menuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             
             if (menuButton && mobileMenu) {
                 menuButton.addEventListener('click', () => {
+                    // Toggle 'hidden' class to hide/show the menu
                     mobileMenu.classList.toggle('hidden');
                 });
             }
