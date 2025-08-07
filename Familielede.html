@@ -265,18 +265,21 @@
     </footer>
 
     <script>
-        // Initialize Lucide Icons
-        lucide.createIcons();
+        // Wait for the DOM to be fully loaded before running scripts
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize Lucide Icons
+            lucide.createIcons();
 
-        // Mobile menu toggle
-        const menuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        if (menuButton && mobileMenu) {
-            menuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('open');
-            });
-        }
+            // Mobile menu toggle
+            const menuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (menuButton && mobileMenu) {
+                menuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('open');
+                });
+            }
+        });
     </script>
 </body>
 </html>
