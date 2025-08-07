@@ -41,15 +41,6 @@
             transition: width 0.5s ease-in-out;
             box-shadow: 0 0 5px rgba(249, 115, 22, 0.5);
         }
-        /* Mobile Menu Animation */
-        #mobile-menu {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-out;
-        }
-        #mobile-menu.open {
-            max-height: 500px; /* Adjust if more menu items are added */
-        }
     </style>
 </head>
 <body class="bg-yellow-50 text-gray-800">
@@ -66,21 +57,19 @@
                 <a href="application_form.html" class="text-gray-600 hover:text-orange-500 transition duration-300">Aansoekvorm</a>
             </div>
             <!-- Mobile Menu Button -->
-            <div class="md:hidden">
-                <button id="mobile-menu-button" class="p-2 -mr-2 rounded-md hover:bg-yellow-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-500" aria-expanded="false">
-                    <i data-lucide="menu" class="w-8 h-8 text-orange-500"></i>
+            <div class="flex-shrink-0 md:hidden">
+                <button id="mobile-menu-button" class="w-12 h-12 flex items-center justify-center bg-orange-500 text-white rounded-full shadow-md hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500" aria-label="Toggle mobile menu">
+                    <i data-lucide="menu" class="w-8 h-8"></i>
                 </button>
             </div>
         </nav>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="md:hidden bg-white shadow-lg">
-            <div class="px-4 pt-2 pb-4 space-y-2 text-center">
-                <a href="index.html" class="block py-3 rounded-lg text-gray-600 hover:text-orange-500 hover:bg-yellow-100 transition duration-300">Tuis</a>
-                <a href="BoyOrGirl.html" class="block py-3 rounded-lg text-gray-600 hover:text-orange-500 hover:bg-yellow-100 transition duration-300">Gender Reveal!</a>
-                <a href="lede.html" class="block py-3 rounded-lg text-orange-500 bg-orange-100 font-bold">Familielede</a>
-                <a href="sosiale_media.html" class="block py-3 rounded-lg text-gray-600 hover:text-orange-500 hover:bg-yellow-100 transition duration-300">Sosiale Media</a>
-                <a href="application_form.html" class="block py-3 rounded-lg text-gray-600 hover:text-orange-500 hover:bg-yellow-100 transition duration-300">Aansoekvorm</a>
-            </div>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 font-bold text-center bg-white shadow-lg">
+            <a href="index.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md text-sm">Tuis</a>
+            <a href="BoyOrGirl.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md text-sm">Gender Reveal!</a>
+            <a href="lede.html" class="block py-2 text-orange-500 bg-orange-100 rounded-md text-sm">Familielede</a>
+            <a href="sosiale_media.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md text-sm">Sosiale Media</a>
+            <a href="application_form.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md text-sm">Aansoekvorm</a>
         </div>
     </header>
 
@@ -156,7 +145,7 @@
 
                 <!-- Member Card 4: Dylan -->
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                    <img src="Dy.jpg" alt="Dylan Karsten" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/d1d5db/374151?text=Foto+Nie+Beskikbaar';">
+                    <img src="DH.jpg" alt="Dylan Karsten" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/d1d5db/374151?text=Foto+Nie+Beskikbaar';">
                     <div class="p-6">
                         <h3 class="text-2xl font-bold text-gray-800">Dylan Karsten</h3>
                         <p class="font-pacifico text-orange-500 text-lg">Middel Kind</p>
@@ -276,7 +265,7 @@
             
             if (menuButton && mobileMenu) {
                 menuButton.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('open');
+                    mobileMenu.classList.toggle('hidden');
                 });
             }
         });
