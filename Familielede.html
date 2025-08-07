@@ -54,17 +54,23 @@
                 <a href="lede.html" class="text-orange-500 transition duration-300">Familielede</a>
                 <a href="sosiale_media.html" class="text-gray-600 hover:text-orange-500 transition duration-300">Sosiale Media</a>
             </div>
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden">
-                <i data-lucide="menu" class="w-8 h-8 text-orange-500"></i>
-            </button>
+                      <div class="flex-shrink-0 md:hidden">
+                <button id="mobile-menu-button" class="w-12 h-12 flex items-center justify-center bg-orange-500 text-white rounded-full shadow-md hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500" aria-label="Toggle mobile menu">
+                    <i data-lucide="menu" class="w-8 h-8"></i>
+                </button>
+            </div>
         </nav>
-       <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 font-bold">
-            <a href="index.html" class="block py-2 text-gray-600 hover:text-orange-500">Tuis</a>
-            <a href="#" class="block py-2 text-gray-600 hover:text-orange-500">Gender Reveal!</a>
-            <a href="lede.html" class="block py-2 text-orange-500">Familielede</a>
-            <a href="#" class="block py-2 text-gray-600 hover:text-orange-500">Sosiale Media</a>
+        <!-- Mobile Navigation Menu: Toggled by the mobile menu button -->
+        <!-- Removed redundant md:hidden and will explicitly toggle flex for display -->
+        <div id="mobile-menu" class="hidden px-6 pb-4 font-bold text-center bg-white shadow-lg">
+            <!-- Updated 'Tuis' link to match index.html styling in mobile menu -->
+            <a href="index.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md text-sm">Tuis</a>
+            <!-- Applied consistent styling to other navigation links in mobile menu -->
+            <a href="BoyOrGirl.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md text-sm">Gender Reveal!</a>
+            <a href="Familielede.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md text-sm">Familielede</a>
+            <a href="sosiale_media.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md text-sm">Sosiale Media</a>
+            <!-- Active link for the current page in mobile menu (Aansoekvorm) - kept active styling -->
+            <a href="application_form.html" class="block py-2 text-orange-500 bg-orange-100 rounded-md text-sm">Aansoekvorm</a>
         </div>
     </header>
 
@@ -343,3 +349,4 @@
     </script>
 </body>
 </html>
+
