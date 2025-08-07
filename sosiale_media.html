@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Die Karstens - Familielede</title>
+    <title>Die Karstens - Sosiale Media</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -17,30 +17,16 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
-        /* Custom font for headings */
+        /* Pasgemaakte lettertipe vir opskrifte */
         .font-pacifico {
             font-family: 'Pacifico', cursive;
         }
-        /* Default font for the body */
+        /* Standaard lettertipe vir die liggaam */
         body {
             font-family: 'Nunito', sans-serif;
-            background-color: #FFFBEF; /* A slightly warmer, lighter cream background */
+            background-color: #FFFBEF; /* Ligte, warm room agtergrond */
         }
-        /* Styling for the stat bars */
-        .stat-bar-bg {
-            background-color: #F3F4F6; /* gray-200 */
-            border-radius: 9999px;
-            height: 8px;
-            overflow: hidden;
-            flex-grow: 1;
-        }
-        .stat-bar {
-            background-color: #F97316; /* orange-500 */
-            height: 100%;
-            border-radius: 9999px;
-            transition: width 0.5s ease-in-out;
-        }
-        /* Enhanced hover effect for navigation links */
+        /* Verbeterde sweef-effek vir navigasieskakels */
         .nav-link-hover {
             transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
         }
@@ -48,55 +34,59 @@
             transform: translateY(-2px);
             color: #F97316; /* orange-500 */
         }
+        /* Spesifieke kleure vir TikTok-ikoon */
+        [data-lucide="tiktok"] {
+            color: #010101;
+        }
     </style>
 </head>
 <body class="text-gray-800 antialiased">
 
-    <!-- Header -->
+    <!-- Kopskrif -->
     <header class="bg-white shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <!-- Logo -->
             <a href="index.html" class="text-3xl sm:text-4xl font-pacifico text-orange-500">Die Karstens</a>
             
-            <!-- Desktop Menu -->
+            <!-- Desktop Spyskaart -->
             <div class="hidden md:flex items-center space-x-2 font-bold">
                 <a href="index.html" class="text-gray-600 nav-link-hover px-4 py-2 rounded-full">Tuis</a>
                 <a href="BoyOrGirl.html" class="text-gray-600 nav-link-hover px-4 py-2 rounded-full">Gender Reveal!</a>
-                <a href="Familielede.html" class="text-orange-500 bg-orange-50 px-4 py-2 rounded-full">Familielede</a>
-                <a href="sosiale_media.html" class="text-gray-600 nav-link-hover px-4 py-2 rounded-full">Sosiale Media</a>
+                <a href="Familielede.html" class="text-gray-600 nav-link-hover px-4 py-2 rounded-full">Familielede</a>
+                <a href="sosiale_media.html" class="text-orange-500 bg-orange-50 px-4 py-2 rounded-full">Sosiale Media</a>
                 <a href="application_form.html" class="text-gray-600 nav-link-hover px-4 py-2 rounded-full">Aansoekvorm</a>
             </div>
 
-            <!-- Mobile Menu Button -->
+            <!-- Mobiele Spyskaart Knoppie -->
             <div class="md:hidden">
                 <button id="mobile-menu-button" class="text-gray-600 hover:text-orange-500 focus:outline-none">
                     <i data-lucide="menu" class="w-6 h-6"></i>
                 </button>
             </div>
         </nav>
-        <!-- Mobile Menu -->
+        <!-- Mobiele Spyskaart -->
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 font-bold text-center">
             <a href="index.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md">Tuis</a>
             <a href="BoyOrGirl.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md">Gender Reveal!</a>
-            <a href="Familielede.html" class="block py-2 text-orange-500 bg-orange-100 rounded-md">Familielede</a>
-            <a href="sosiale_media.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md">Sosiale Media</a>
+            <a href="Familielede.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md">Familielede</a>
+            <a href="sosiale_media.html" class="block py-2 text-orange-500 bg-orange-100 rounded-md">Sosiale Media</a>
             <a href="application_form.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md">Aansoekvorm</a>
         </div>
     </header>
 
     <main class="py-16 sm:py-24">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="font-pacifico text-5xl md:text-6xl text-orange-500">Ontmoet die Hele Familie!</h2>
-            <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Elkeen van ons is uniek en spesiaal. Hier is 'n bietjie meer oor ons elkeen, insluitend ons spesiale statistieke!</p>
+            <h2 class="font-pacifico text-5xl md:text-6xl text-orange-500">Volg Ons Avonture!</h2>
+            <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Vind elke familielid op hul gunsteling sosiale media platforms en bly op hoogte van ons daaglikse lewens.</p>
         </div>
 
-        <!-- Member Cards Section - This will be populated by JavaScript -->
-        <div id="member-cards-container" class="container mx-auto px-6 mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            <!-- Member cards will be inserted here -->
+        <!-- Sosiale Media Kaartjies Afdeling - Sal deur JavaScript gevul word -->
+        <div id="social-cards-container" class="container mx-auto px-6 mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <!-- Sosiale media kaartjies sal hier ingevoeg word -->
         </div>
     </main>
 
-    <!-- Footer -->
+    <!-- Voetskrif -->
     <footer class="bg-gray-800 text-white mt-16">
         <div class="container mx-auto px-6 py-8 text-center">
             <p class="font-bold">&copy; 2024 Die Karstens. Alle Regte Voorbehou.</p>
@@ -107,153 +97,157 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // --- DATA ---
-            // Centralized data for all family members. Makes it easy to add/remove/edit people.
-            const familyMembers = [
+            // Gesentraliseerde data vir alle sosiale media rekeninge.
+            const socialMediaAccounts = [
                 {
                     name: "Marius Jr Karsten",
-                    title: "Die Pa",
-                    description: "Marius: die man van die huis van sy vrou. Sy grootste vrees... Brenda.",
-                    image: "Pa.jpg",
-                    stats: { Strength: 8, Perception: 2, Endurance: 1, Charisma: 6, Intelligence: 3, Agility: 1, Luck: 6 }
+                    borderColor: "border-orange-400 hover:border-orange-500",
+                    socials: [
+                        { platform: "Facebook", url: "https://www.facebook.com/marius.karsten.5", icon: "facebook", color: "text-blue-600" },
+                        { platform: "Instagram", url: "https://www.instagram.com/marius.karsten.jnr/", icon: "instagram", color: "text-pink-600" },
+                        { platform: "TikTok", url: "https://www.tiktok.com/@die.normale.karstens?is_from_webapp=1&sender_device=pc", icon: "tiktok", color: "text-black" }
+                    ]
                 },
                 {
                     name: "Brenda Karsten",
-                    title: "Die Ma",
-                    description: "Brenda: die regte \"man\" van die huis. Haar grootste vrees... Vuil vloere.",
-                    image: "Ma.jpg",
-                    stats: { Strength: 10, Perception: 10, Endurance: 100, Charisma: 10, Intelligence: 9, Agility: 10, Luck: 8 }
+                    borderColor: "border-blue-400 hover:border-blue-500",
+                    socials: [
+                        { platform: "Facebook", url: "https://www.facebook.com/brenda.karsten1", icon: "facebook", color: "text-blue-600" },
+                        { platform: "Instagram", url: "https://www.instagram.com/karstenbrenda/", icon: "instagram", color: "text-pink-600" },
+                        { platform: "TikTok", url: "https://www.tiktok.com/@bren12356?is_from_webapp=1&sender_device=pc", icon: "tiktok", color: "text-black" }
+                    ]
                 },
                 {
                     name: "Junior Karsten",
-                    title: "Oudste Kind",
-                    description: "Junior: sê hy's nie honger nie maar kyk die kos uit jou mikrogolf uit.",
-                    image: "Jun.jpg",
-                    stats: { Strength: 3, Perception: 4, Endurance: 5, Charisma: 6, Intelligence: 2, Agility: 1, Luck: 7 }
+                    borderColor: "border-pink-400 hover:border-pink-500",
+                    socials: [
+                        { platform: "Facebook", url: "https://www.facebook.com/junior.karsten.585", icon: "facebook", color: "text-blue-600" },
+                        { platform: "Instagram", url: "https://www.instagram.com/juniormariuskarsten/", icon: "instagram", color: "text-pink-600" },
+                        { platform: "TikTok", url: "https://www.tiktok.com/@juniorkarsten69?is_from_webapp=1&sender_device=pc", icon: "tiktok", color: "text-black" }
+                    ]
                 },
                 {
                     name: "Dylan Karsten",
-                    title: "Middel Kind",
-                    description: "Dylan: die een wat claim hy is 'n \"cat lover\" maar hou net van sy eie kat.",
-                    image: "Dy.jpg",
-                    stats: { Strength: 100, Perception: 1, Endurance: 8, Charisma: 8, Intelligence: 5, Agility: 7, Luck: 9 }
+                    borderColor: "border-teal-400 hover:border-teal-500",
+                    socials: [
+                        { platform: "Facebook", url: "https://www.facebook.com/dylan.karsten.7", icon: "facebook", color: "text-blue-600" },
+                        { platform: "Instagram", url: "https://www.instagram.com/dylan_karsten_47/", icon: "instagram", color: "text-pink-600" },
+                        { platform: "TikTok", url: "https://www.tiktok.com/@fat0cow0?is_from_webapp=1&sender_device=pc", icon: "tiktok", color: "text-black" }
+                    ]
                 },
                 {
                     name: "Charmone Karsten",
-                    title: "Jongste Kind",
-                    description: "Charmone is die video-redakteur en 'n drama queen wat altyd die slagoffer van haarself is.",
-                    image: "Charm.jpg",
-                    stats: { Strength: 1, Perception: 2, Endurance: 8, Charisma: 1, Intelligence: 2, Agility: 7, Luck: 9 }
+                    borderColor: "border-purple-400 hover:border-purple-500",
+                    socials: [
+                        { platform: "Facebook", url: "https://www.facebook.com/profile.php?id=100068064489207", icon: "facebook", color: "text-blue-600" },
+                        { platform: "Instagram", url: "https://www.instagram.com/charmie_karsten/", icon: "instagram", color: "text-pink-600" },
+                        { platform: "TikTok", url: "https://www.tiktok.com/@charmii_e?is_from_webapp=1&sender_device=pc", icon: "tiktok", color: "text-black" }
+                    ]
                 },
                 {
                     name: "Nicola Karsten",
-                    title: "Die Kat",
-                    description: "Nicola: Sy sal teen 'n bank piepie om dit as haar gebied te beskou... Dis nie haar bank nie.",
-                    image: "nika.jpg",
-                    stats: { Strength: 9, Perception: 8, Endurance: 7, Charisma: 9, Intelligence: 10, Agility: 7, Luck: 100 }
+                    borderColor: "border-red-400 hover:border-red-500",
+                    socials: [
+                        { platform: "Facebook", url: "https://www.facebook.com/nicola.karsten", icon: "facebook", color: "text-blue-600" },
+                        { platform: "Instagram", url: "https://www.instagram.com/nicola.karsten/", icon: "instagram", color: "text-pink-600" },
+                        { platform: "TikTok", url: "https://www.tiktok.com/@nicolakarsten?is_from_webapp=1&sender_device=pc", icon: "tiktok", color: "text-black" }
+                    ]
                 },
                 {
                     name: "Saskea Stols",
-                    title: "Junior se \"VROU\"",
-                    description: "Saskea: Misterieus... Maar lyk soos die tipe wat jou mikrogolfplate sal steel as jy haar sjokolademelk drink.",
-                    image: "Sas.jpg",
-                    stats: { Strength: 1, Perception: 2, Endurance: 3, Charisma: 6, Intelligence: 8, Agility: 4, Luck: 8 }
+                    borderColor: "border-yellow-400 hover:border-yellow-500",
+                    socials: [
+                        { platform: "Facebook", url: "https://www.facebook.com/profile.php?id=61556812700972", icon: "facebook", color: "text-blue-600" },
+                        { platform: "Instagram", url: "https://www.instagram.com/_sassie_stols_/", icon: "instagram", color: "text-pink-600" },
+                        { platform: "TikTok", url: "https://www.tiktok.com/@sassie2006?is_from_webapp=1&sender_device=pc", icon: "tiktok", color: "text-black" }
+                    ]
                 },
                 {
                     name: "Chermelé Wolmarans",
-                    title: "Die Hond",
-                    description: "Chimmie: identifiseer as 'n Karsten die dag toe sy die hele familie glo getrou het. Almal is te bang om haar te skei.",
-                    image: "Ch.jpg",
-                    stats: { Strength: 8, Perception: 10, Endurance: 8, Charisma: 1000, Intelligence: 9, Agility: 8, Luck: 8 }
-                },
-                {
-                    name: "Dylan se Crush",
-                    title: "Fairytale",
-                    description: "I'm in love with a fairytale...",
-                    image: "https://placehold.co/400x300/fecdd3/be123c?text=?",
-                    stats: { Strength: '?', Perception: '?', Endurance: '?', Charisma: 10, Intelligence: '?', Agility: '?', Luck: 10 }
-                },
-                {
-                    name: "Charmoné se Hand",
-                    title: "Flowers",
-                    description: "I can buy myself flowers...",
-                    image: "CT.jpg",
-                    stats: { Strength: 10, Perception: 2, Endurance: 10, Charisma: 1, Intelligence: 10, Agility: 5, Luck: 10 }
+                    borderColor: "border-green-400 hover:border-green-500",
+                    socials: [
+                        { platform: "Facebook", url: "https://www.facebook.com/chermele.wolmarans.2025", icon: "facebook", color: "text-blue-600" },
+                        { platform: "Instagram", url: "https://www.instagram.com/its_me_chimmie/", icon: "instagram", color: "text-pink-600" },
+                        { platform: "TikTok", url: "https://www.tiktok.com/@its_me_chimmie07?is_from_webapp=1&sender_device=pc", icon: "tiktok", color: "text-black" }
+                    ]
                 }
             ];
 
-            // --- FUNCTIONS ---
-            
-            // Helper function to create a single stat bar
-            const createStatBar = (label, value) => {
-                const numericValue = parseFloat(value);
-                // Cap the percentage at 100 for display purposes
-                const percentage = !isNaN(numericValue) ? Math.min(numericValue * 10, 100) : 0;
-                const displayValue = isNaN(numericValue) ? value : numericValue;
-                
-                return `
-                <div class="flex items-center mb-2 last:mb-0">
-                    <strong class="w-28 text-xs font-bold text-gray-600 uppercase tracking-wider">${label}</strong>
-                    <div class="flex-1 stat-bar-bg mr-2">
-                        <div class="stat-bar" style="width: ${percentage}%;"></div>
-                    </div>
-                    <span class="text-sm font-extrabold text-gray-700 w-8 text-right">${displayValue}</span>
-                </div>`;
-            };
+            // --- FUNKSIES ---
 
-            // Function to create a full member card from a data object
-            const createMemberCard = (member) => {
+            // Funksie om 'n volle sosiale media kaartjie te skep
+            const createSocialCard = (account) => {
                 const card = document.createElement('div');
-                // Updated class to match the style of the social media page cards
-                card.className = "bg-white rounded-xl shadow-xl transform hover:-translate-y-2 transition-all duration-300 flex flex-col border-t-4 border-orange-400 hover:border-orange-500";
+                card.className = `bg-white rounded-xl shadow-xl p-6 text-center transform hover:-translate-y-2 transition-all duration-300 flex flex-col ${account.borderColor}`;
                 
-                let statsHtml = '';
-                for (const [key, value] of Object.entries(member.stats)) {
-                    statsHtml += createStatBar(key, value);
-                }
+                let linksHtml = '';
+                account.socials.forEach(social => {
+                    linksHtml += `
+                        <a href="${social.url}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center space-x-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300 shadow-inner">
+                            <i data-lucide="${social.icon}" class="w-6 h-6 ${social.color}"></i>
+                            <span class="font-semibold text-gray-700">${social.platform}</span>
+                        </a>
+                    `;
+                });
 
                 card.innerHTML = `
-                    <img src="${member.image}" alt="${member.name}" class="w-full h-60 object-cover object-center rounded-t-lg" onerror="this.onerror=null;this.src='https://placehold.co/400x300/d1d5db/374151?text=Foto+Onbeskikbaar';">
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-2xl font-bold text-gray-900">${member.name}</h3>
-                        <p class="font-pacifico text-orange-500 text-lg mb-2">${member.title}</p>
-                        <p class="text-gray-600 h-20 flex-grow">${member.description}</p>
-                        <div class="mt-4 pt-4 border-t border-gray-200">
-                            ${statsHtml}
-                        </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4 flex-grow">${account.name}</h3>
+                    <div class="space-y-3">
+                        ${linksHtml}
                     </div>
                 `;
                 return card;
             };
 
-            // --- SCRIPT EXECUTION ---
+            // --- SKRIP UITVOERING ---
 
-            // Populate the page with member cards
-            const container = document.getElementById('member-cards-container');
+            // Definieer die pasgemaakte TikTok-ikoon vir Lucide
+            const icons = {
+                Tiktok: [
+                    'svg',
+                    {
+                        xmlns: 'http://www.w3.org/2000/svg',
+                        width: '24',
+                        height: '24',
+                        viewBox: '0 0 24 24',
+                        fill: 'none',
+                        stroke: 'currentColor',
+                        'stroke-width': '2',
+                        'stroke-linecap': 'round',
+                        'stroke-linejoin': 'round',
+                    },
+                    [
+                        ['path', { d: 'M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z' }],
+                    ],
+                ],
+            };
+            lucide.createIcons({ icons });
+
+            // Vul die bladsy met sosiale media kaartjies
+            const container = document.getElementById('social-cards-container');
             if (container) {
-                familyMembers.forEach(member => {
-                    const card = createMemberCard(member);
+                socialMediaAccounts.forEach(account => {
+                    const card = createSocialCard(account);
                     container.appendChild(card);
                 });
+                // Her-inisialiseer ikone nadat hulle by die DOM gevoeg is
+                lucide.createIcons({ icons });
             }
 
-            // Initialize Lucide Icons
-            lucide.createIcons();
-
-            // Mobile menu toggle functionality
+            // Mobiele spyskaart wissel funksionaliteit
             const menuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             
             if (menuButton && mobileMenu) {
                 menuButton.addEventListener('click', () => {
                     mobileMenu.classList.toggle('hidden');
-                    // Optional: Change icon to 'x' when menu is open
                     const icon = menuButton.querySelector('i');
                     if (mobileMenu.classList.contains('hidden')) {
                         icon.setAttribute('data-lucide', 'menu');
                     } else {
                         icon.setAttribute('data-lucide', 'x');
                     }
-                    lucide.createIcons(); // Re-render icons after changing attribute
+                    lucide.createIcons({ icons });
                 });
             }
         });
