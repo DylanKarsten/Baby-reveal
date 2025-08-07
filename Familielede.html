@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="af">
 <head>
     <meta charset="UTF-8">
@@ -23,72 +24,45 @@
         /* Standaard lettertipe vir die liggaam */
         body {
             font-family: 'Nunito', sans-serif;
-            background-color: #FFFBEB; /* Effens ligter, warmer geel agtergrond */
-            color: #374151; /* gray-700 */
+            background-color: #FFF8E1; /* Ligte, warm geel agtergrond */
         }
         /* Pasgemaakte skadu vir 'n sagter voorkoms */
         .custom-shadow-lg {
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -4px rgba(0, 0, 0, 0.07);
+             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -4px rgba(0, 0, 0, 0.07);
         }
 
-        /* Subtiele sweef-effek vir navigasieskakels */
+        /* Subtle hover effect for navigation links */
         .nav-link-hover:hover {
             transform: translateY(-2px);
-            color: #f97316; /* orange-500 */
-        }
-        
-        /* Styl vir die statistiek-balke */
-        .stat-bar-bg {
-            background-color: #f3f4f6; /* gray-100 */
-            border-radius: 9999px;
-            height: 0.75rem; /* 12px */
-            overflow: hidden;
-        }
-
-        .stat-bar {
-            height: 100%;
-            border-radius: 9999px;
-            background-image: linear-gradient(to right, #fbbf24, #f97316); /* amber-400 to orange-500 */
-            transition: width 1s ease-in-out;
-            animation: fill-bar 1s ease-in-out forwards;
-        }
-
-        @keyframes fill-bar {
-            from { width: 0; }
+            color: #f97316; /* Orange-500 */
         }
     </style>
 </head>
-<body class="antialiased">
+<body class="text-gray-800">
 
     <!-- Kopskrif -->
-    <header class="bg-white shadow-md sticky top-0 z-50">
-        <nav class="container mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-center">
             <!-- Logo -->
-            <a href="index.html" class="text-3xl sm:text-4xl font-pacifico text-orange-500">Die Karstens</a>
+            <h1 class="text-3xl sm:text-4xl font-pacifico text-orange-500 mb-2 sm:mb-0">Die Karstens</h1>
             
-            <!-- Desktop Spyskaart -->
-            <div class="hidden sm:flex flex-wrap justify-center items-center space-x-2 font-bold text-sm">
-                <a href="index.html" class="text-gray-600 hover:text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-md">Tuis</a>
-                <a href="BoyOrGirl.html" class="text-gray-600 hover:text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-md">Gender Reveal!</a>
-                <a href="Familielede.html" class="font-bold text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-md bg-orange-50">Familielede</a>
-                <a href="sosiale_media.html" class="text-gray-600 hover:text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-md">Sosiale Media</a>
-                <a href="application_form.html" class="text-gray-600 hover:text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-md">Aansoekvorm</a>
-            </div>
-
-            <!-- Mobile Menu Button -->
-            <div class="sm:hidden">
-                <button id="mobile-menu-button" class="text-gray-600 hover:text-orange-500 focus:outline-none">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
-                </button>
+            <!-- Desktop Spyskaart (Simmetries) -->
+            <div class="flex flex-wrap justify-center space-x-2 sm:space-x-4 font-bold text-sm sm:text-base">
+                <a href="index.html" class="text-gray-600 hover:text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Tuis</a>
+                <a href="BoyOrGirl.html" class="text-gray-600 hover:text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Gender Reveal!</a>
+                <a href="Familielede.html" class="text-gray-600 hover:text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Familielede</a>
+                <a href="sosiale_media.html" class="text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Sosiale Media</a>
+                <!-- New link for the Application Form -->
+                <a href="application_form.html" class="text-gray-600 hover:text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Aansoekvorm</a>
             </div>
         </nav>
-        <!-- Mobile Menu (versteek by verstek) -->
-        <div id="mobile-menu" class="hidden sm:hidden px-4 pt-2 pb-4 font-bold text-center">
-            <a href="index.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md hover:bg-gray-50">Tuis</a>
-            <a href="BoyOrGirl.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md hover:bg-gray-50">Gender Reveal!</a>
-            <a href="Familielede.html" class="block py-2 text-orange-500 bg-orange-100 rounded-md">Familielede</a>
-            <a href="sosiale_media.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md hover:bg-gray-50">Sosiale Media</a>
-            <a href="application_form.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md hover:bg-gray-50">Aansoekvorm</a>
+        <!-- Mobile Menu (Toegevoegde vir konsekwentheid) -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 font-bold text-center">
+            <a href="index.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md">Tuis</a>
+            <a href="BoyOrGirl.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md">Gender Reveal!</a>
+            <a href="Familielede.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md">Familielede</a>
+            <a href="sosiale_media.html" class="block py-2 text-orange-500 bg-orange-100 rounded-md">Sosiale Media</a>
+            <a href="application_form.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md">Aansoekvorm</a>
         </div>
     </header>
 
