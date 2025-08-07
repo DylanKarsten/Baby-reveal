@@ -178,6 +178,7 @@
             // Funksie om 'n volle sosiale media kaartjie te skep
             const createSocialCard = (account) => {
                 const card = document.createElement('div');
+                // Hierdie klas is nou dieselfde as die Familielede-blad
                 card.className = "bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 flex flex-col";
                 
                 let linksHtml = '';
@@ -227,8 +228,7 @@
                     ],
                 ],
             };
-            lucide.createIcons({ icons });
-
+            
             // Vul die bladsy met sosiale media kaartjies
             const container = document.getElementById('social-cards-container');
             if (container) {
