@@ -5,13 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Die Karstens - Ons Familie Webwerf</title>
     
+    <!-- Tailwind CSS & Plugins -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.tailwindcss.com/3.4.1"></script> <!-- Added for aspect-ratio plugin -->
+    <script>
+        // Custom Tailwind configuration can be placed here if needed
+        tailwind.config = {
+            theme: {
+                extend: {},
+            },
+            plugins: [
+                require('@tailwindcss/aspect-ratio'),
+            ],
+        }
+    </script>
     
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
     
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide-icons@latest"></script>
 
     <style>
@@ -22,9 +35,10 @@
         /* Default font for body */
         body {
             font-family: 'Nunito', sans-serif;
+            background-color: #FFF8E1; /* Warm background color */
         }
         
-        /* Custom animated gradient for Nicola's shop card */
+        /* Custom animated gradient for special cards */
         .bg-gradient-animated {
             background: linear-gradient(-45deg, #ff7e5f, #feb47b, #ffcc70, #23a6d5, #23d5ab);
             background-size: 400% 400%;
@@ -43,13 +57,12 @@
             color: #f97316; /* Orange-500 */
         }
 
-        /* Styles for the media container */
+        /* Styles for media containers (photos/videos) */
         .media-container {
             position: relative;
             overflow: hidden;
             border-radius: 0.5rem; /* rounded-lg */
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); /* shadow-lg */
-            border: 1px solid #e5e7eb; /* border-gray-200 */
         }
 
         .media-watermark {
@@ -57,88 +70,126 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%) rotate(-25deg);
-            color: rgba(255, 255, 255, 0.4);
+            color: rgba(255, 255, 255, 0.5);
             font-family: 'Pacifico', cursive;
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: bold;
             pointer-events: none;
             z-index: 10;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
         
         /* Play icon overlay for videos */
         .video-overlay {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0,0,0,0.2);
+            inset: 0;
+            background-color: rgba(0,0,0,0.3);
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 5;
-            pointer-events: none; /* Allows click to go to video */
+            pointer-events: none;
             transition: opacity 0.3s ease;
         }
 
         .video-container:hover .video-overlay {
             opacity: 0;
         }
-
     </style>
-</head>
-<body class="bg-yellow-50 text-gray-800">
+    
+    <script>
+        // Wait for the DOM to be fully loaded before running scripts
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Mobile Menu Toggle Logic ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
 
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // --- Lucide Icons Initialization ---
+            lucide.createIcons();
+        });
+    </script>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header Section -->
     <header class="bg-white shadow-lg sticky top-0 z-50">
-        <nav class="container mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-center">
-            <h1 class="text-3xl sm:text-4xl font-pacifico text-orange-500 mb-2 sm:mb-0">Die Karstens</h1>
-            <div class="flex flex-wrap justify-center space-x-2 sm:space-x-4 font-bold text-sm sm:text-base">
-                <a href="index.html" class="text-gray-600 hover:text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Tuis</a>
-                <a href="BoyOrGirl.html" class="text-gray-600 hover:text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Gender Reveal!</a>
-                <a href="Familielede.html" class="text-gray-600 hover:text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Familielede</a>
-                <a href="sosiale_media.html" class="text-gray-600 hover:text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Sosiale Media</a>
-                <a href="application_form.html" class="text-gray-600 hover:text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Aansoekvorm</a>
+        <div class="container mx-auto px-6 py-4">
+            <!-- Top bar with Logo, Desktop Menu, and Mobile Button -->
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <a href="index.html" class="text-3xl sm:text-4xl font-pacifico text-orange-500">Die Karstens</a>
+                
+                <!-- Desktop Navigation Menu -->
+                <nav class="hidden sm:flex flex-wrap justify-center space-x-2 sm:space-x-4 font-bold text-sm sm:text-base">
+                    <a href="index.html" class="text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Tuis</a>
+                    <a href="BoyOrGirl.html" class="text-gray-600 hover:text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Gender Reveal!</a>
+                    <a href="Familielede.html" class="text-gray-600 hover:text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Familielede</a>
+                    <a href="sosiale_media.html" class="text-gray-600 hover:text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Sosiale Media</a>
+                    <a href="application_form.html" class="text-gray-600 hover:text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Aansoekvorm</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="sm:hidden flex items-center">
+                    <button id="mobile-menu-button" type="button" class="text-gray-600 hover:text-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500 rounded-lg p-1">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
             </div>
-        </nav>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 font-bold text-center">
-            <a href="index.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md">Tuis</a>
-            <a href="BoyOrGirl.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md">Gender Reveal!</a>
-            <a href="Familielede.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md">Familielede</a>
-            <a href="sosiale_media.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md">Sosiale Media</a>
-            <a href="application_form.html" class="block py-2 text-gray-600 hover:text-orange-500 rounded-md">Aansoekvorm</a>
+            
+            <!-- Mobile Navigation Menu (collapsible) -->
+            <div id="mobile-menu" class="hidden sm:hidden">
+                <nav class="pt-2 pb-3 space-y-1 text-center font-bold">
+                    <a href="index.html" class="block py-2 px-3 text-orange-500 bg-orange-100 rounded-md">Tuis</a>
+                    <a href="BoyOrGirl.html" class="block py-2 px-3 text-gray-600 hover:text-orange-500 hover:bg-gray-100 rounded-md">Gender Reveal!</a>
+                    <a href="Familielede.html" class="block py-2 px-3 text-gray-600 hover:text-orange-500 hover:bg-gray-100 rounded-md">Familielede</a>
+                    <a href="sosiale_media.html" class="block py-2 px-3 text-gray-600 hover:text-orange-500 hover:bg-gray-100 rounded-md">Sosiale Media</a>
+                    <a href="application_form.html" class="block py-2 px-3 text-gray-600 hover:text-orange-500 hover:bg-gray-100 rounded-md">Aansoekvorm</a>
+                </nav>
+            </div>
         </div>
     </header>
 
     <main>
-        <section class="relative h-[60vh] min-h-[400px] bg-gray-300 flex items-center justify-center text-center">
+        <!-- Hero Section -->
+        <section class="relative h-[60vh] min-h-[400px] flex items-center justify-center text-center">
             <img src="https://placehold.co/1600x900/FEF3C7/F97316?text=Welkom+by+die+Karsten+Kraal!" 
                  alt="'n Gelukkige familie" 
                  class="w-full h-full object-cover absolute inset-0">
-            <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center text-white p-4">
-                <h2 class="font-pacifico text-4xl sm:text-5xl md:text-7xl font-bold leading-tight drop-shadow-lg">Welkom by die Karsten Kraal!</h2>
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white p-4">
+                <h2 class="font-pacifico text-4xl sm:text-5xl md:text-7xl drop-shadow-lg">Welkom by die Karsten Kraal!</h2>
                 <p class="mt-4 text-base sm:text-lg md:text-xl max-w-2xl font-semibold drop-shadow-md">Ons deel ons lewe, ons liefde, en ons storie met die mense wat die meeste saak maak.</p>
             </div>
         </section>
 
+        <!-- Quick Links Section -->
         <section class="py-16 sm:py-24 bg-white">
             <div class="container mx-auto px-6">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
                     
+                    <!-- Nicola's Shop Card -->
                     <div class="bg-gradient-animated rounded-xl p-8 text-center flex flex-col items-center shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 text-white border-4 border-transparent hover:border-white">
                         <div class="bg-white/30 rounded-full p-4 mb-4 shadow-inner">
                             <i data-lucide="shopping-cart" class="w-10 h-10"></i>
                         </div>
                         <h3 class="font-pacifico text-3xl sm:text-4xl">Nicola se Aanlyn Winkel</h3>
                         <p class="mt-2 font-semibold text-sm sm:text-base">Besoek NicFix vir die nuutste en beste produkte.</p>
-                        <a href="https://nicfix.shop" target="_blank" class="mt-6 inline-block bg-white/90 text-gray-800 font-bold py-3 px-8 rounded-full hover:bg-white transition-colors duration-300 shadow-lg text-sm sm:text-base transform hover:scale-105">Besoek Winkel</a>
+                        <a href="https://nicfix.shop" target="_blank" rel="noopener noreferrer" class="mt-6 inline-block bg-white/90 text-gray-800 font-bold py-3 px-8 rounded-full hover:bg-white transition-colors duration-300 shadow-lg text-sm sm:text-base transform hover:scale-105">Besoek Winkel</a>
                     </div>
 
+                    <!-- Social Media Card -->
                     <div class="bg-lime-100 rounded-xl p-8 text-center flex flex-col items-center shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 border-4 border-transparent hover:border-lime-300">
-                            <div class="bg-lime-500 text-white rounded-full p-4 mb-4 shadow-inner">
-                                <i data-lucide="share-2" class="w-10 h-10"></i>
-                            </div>
+                        <div class="bg-lime-500 text-white rounded-full p-4 mb-4 shadow-inner">
+                            <i data-lucide="share-2" class="w-10 h-10"></i>
+                        </div>
                         <h3 class="font-pacifico text-3xl sm:text-4xl text-lime-800">Bly Gekonnekteer</h3>
                         <p class="mt-2 text-gray-600 text-sm sm:text-base">Volg ons reis en daaglikse avonture op sosiale media.</p>
                         <a href="sosiale_media.html" class="mt-6 inline-block bg-lime-600 text-white font-bold py-3 px-8 rounded-full hover:bg-lime-700 transition-colors duration-300 shadow-lg text-sm sm:text-base transform hover:scale-105">Vind Ons Aanlyn</a>
@@ -169,11 +220,11 @@
                     <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-4 border-orange-200 flex flex-col items-center transform hover:-translate-y-2">
                         <h3 class="font-pacifico text-3xl sm:text-4xl text-orange-500 mb-6">Video van die Week</h3>
                         <div class="w-full aspect-w-16 aspect-h-9 media-container video-container">
-                            <video controls preload="metadata" class="w-full h-full object-cover">
+                            <video controls preload="metadata" class="w-full h-full object-cover rounded-lg">
                                 <source src="NV.mp4" type="video/mp4">
                                 Jou blaaier ondersteun nie die video-etiket nie.
                             </video>
-                            <div class="video-overlay">
+                            <div class="video-overlay rounded-lg">
                                 <i data-lucide="play-circle" class="w-16 h-16 text-white opacity-75"></i>
                             </div>
                             <span class="media-watermark">The Karstens</span>
@@ -181,45 +232,17 @@
                         <p class="mt-6 text-gray-700 text-base sm:text-lg">Nog 'n wonderlike herinnering vasgevang!</p>
                         <a href="NV.mp4" download="NV_Karstens.mp4" class="mt-4 inline-block bg-orange-500 text-white font-bold py-2 px-6 rounded-full hover:bg-orange-600 transition-colors duration-300 shadow-md hover:shadow-lg">Laai Video Af</a>
                     </div>
-                    
-                    <!-- Photo of the Day -->
-                    <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-4 border-orange-200 flex flex-col items-center transform hover:-translate-y-2">
-                        <h3 class="font-pacifico text-3xl sm:text-4xl text-orange-500 mb-6">Foto van die Dag</h3>
-                        <div class="w-full aspect-w-16 aspect-h-9 media-container">
-                            <img src="CT.jpg" alt="Foto van die Dag" class="w-full h-full object-cover">
-                            <span class="media-watermark">The Karstens</span>
-                        </div>
-                        <p class="mt-6 text-gray-700 text-base sm:text-lg">Gister se pragtige oomblik vasgevang!</p>
-                        <a href="CT.jpg" download="CT_Karstens.jpg" class="mt-4 inline-block bg-orange-500 text-white font-bold py-2 px-6 rounded-full hover:bg-orange-600 transition-colors duration-300 shadow-md hover:shadow-lg">Laai Foto Af</a>
-                    </div>
-
-                    <!-- Previous Video -->
-                    <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-4 border-orange-200 flex flex-col items-center transform hover:-translate-y-2">
-                        <h3 class="font-pacifico text-3xl sm:text-4xl text-orange-500 mb-6">Nog 'n Video</h3>
-                        <div class="w-full aspect-w-16 aspect-h-9 media-container video-container">
-                            <video controls preload="metadata" class="w-full h-full object-cover">
-                                <source src="CKV.mp4" type="video/mp4">
-                                Jou blaaier ondersteun nie die video-etiket nie.
-                            </video>
-                             <div class="video-overlay">
-                                <i data-lucide="play-circle" class="w-16 h-16 text-white opacity-75"></i>
-                            </div>
-                            <span class="media-watermark">The Karstens</span>
-                        </div>
-                        <p class="mt-6 text-gray-700 text-base sm:text-lg">Kyk hierdie prettige video!</p>
-                        <a href="CKV.mp4" download="CKV_Karstens.mp4" class="mt-4 inline-block bg-orange-500 text-white font-bold py-2 px-6 rounded-full hover:bg-orange-600 transition-colors duration-300 shadow-md hover:shadow-lg">Laai Video Af</a>
-                    </div>
                 </div>
             </div>
         </section>
-        <!-- End Photo and Video Highlights Section -->
 
-        <section class="py-16 sm:py-24 bg-yellow-50">
+        <!-- Meet the Family Section -->
+        <section class="py-16 sm:py-24 bg-white">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="font-pacifico text-4xl sm:text-5xl text-orange-500 mb-8">Ontmoet die Karstens!</h2>
                 <p class="mt-4 text-base sm:text-lg text-gray-600 max-w-3xl mx-auto mb-12">Ons is 'n besige, lawwe Mense! Leer ken elkeen van ons 'n bietjie beter.</p>
                 
-                <div class="mt-12 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 sm:gap-6 justify-items-center">
+                <div class="mt-12 flex flex-wrap justify-center gap-4 sm:gap-6">
                     <div class="w-20 h-20 sm:w-24 sm:h-24 bg-gray-200 rounded-full overflow-hidden shadow-md transform hover:scale-110 transition-transform duration-300 border-2 border-orange-300">
                         <img src="Pa.jpg" alt="Familielid 1" class="w-full h-full object-cover">
                     </div>
@@ -245,10 +268,10 @@
                         <img src="Sas.jpg" alt="Familielid 8" class="w-full h-full object-cover">
                     </div>
                     <div class="w-20 h-20 sm:w-24 sm:h-24 bg-gray-200 rounded-full overflow-hidden shadow-md transform hover:scale-110 transition-transform duration-300 border-2 border-orange-300">
-                        <img src="https://static.vecteezy.com/system/resources/previews/021/013/504/original/coming-soon-icon-symbol-coming-soon-icon-symbol-illustration-on-transparent-background-free-png.png" alt="Familielid 8" class="w-full h-full object-cover">
+                        <img src="https://placehold.co/96x96/E5E7EB/9CA3AF?text=+" alt="Nog 'n familielid" class="w-full h-full object-cover">
                     </div>
                     <div class="w-20 h-20 sm:w-24 sm:h-24 bg-gray-200 rounded-full overflow-hidden shadow-md transform hover:scale-110 transition-transform duration-300 border-2 border-orange-300">
-                        <img src="https://static.vecteezy.com/system/resources/previews/021/013/504/original/coming-soon-icon-symbol-coming-soon-icon-symbol-illustration-on-transparent-background-free-png.png" alt="Familielid 8" class="w-full h-full object-cover">
+                        <img src="https://placehold.co/96x96/E5E7EB/9CA3AF?text=+" alt="Nog 'n familielid" class="w-full h-full object-cover">
                     </div>
                 </div>
 
@@ -258,6 +281,7 @@
 
     </main>
 
+    <!-- Footer Section -->
     <footer class="bg-gray-800 text-white">
         <div class="container mx-auto px-6 py-8 text-center">
             <p class="text-sm sm:text-base">&copy; 2024 Die Karstens. Alle Regte Voorbehou.</p>
@@ -265,19 +289,5 @@
         </div>
     </footer>
 
-    <script>
-        // Initialize Lucide Icons
-        lucide.createIcons();
-        
-        // Tailwind config for aspect-ratio plugin
-        tailwind.config = {
-          theme: {
-            extend: {},
-          },
-          plugins: [
-            require('@tailwindcss/aspect-ratio'),
-          ],
-        }
-    </script>
 </body>
 </html>
