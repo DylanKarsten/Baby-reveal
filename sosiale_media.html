@@ -36,19 +36,63 @@
             transform: translateY(-2px);
             color: #f97316; /* Orange-500 */
         }
+
+        /* --- STYLING VIR NUWE SOSIALE MEDIA KNOPPIES --- */
+
+        /* Basisstyl vir alle sosiale knoppies */
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem; /* 8px */
+            color: white;
+            font-weight: 700; /* bold */
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            transform: scale(1);
+            text-decoration: none;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.15), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Facebook-spesifieke styl */
+        .btn-facebook {
+            background-color: #1877F2; /* Amptelike Facebook Blou */
+        }
+
+        /* Instagram-spesifieke styl */
+        .btn-instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+
+        /* TikTok-spesifieke styl */
+        .btn-tiktok {
+            background-color: #010101; /* Swart */
+        }
+        
+        .btn-tiktok:hover {
+            background-color: #25F4EE; /* TikTok Teal vir hover */
+            color: #010101; /* Maak ikoon swart op hover */
+        }
+        .btn-tiktok:hover .social-icon {
+            color: #010101;
+        }
+
     </style>
     
     <script>
-        // This script now waits for the entire HTML document to be loaded before running.
+        // Hierdie skrip wag vir die hele HTML-dokument om te laai voordat dit loop.
         document.addEventListener('DOMContentLoaded', function() {
             // --- Mobile Menu Toggle Logic ---
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
 
-            // Check if both the button and the menu exist before adding the click event
             if (mobileMenuButton && mobileMenu) {
                 mobileMenuButton.addEventListener('click', () => {
-                    // Toggle the 'hidden' class to show/hide the menu
                     mobileMenu.classList.toggle('hidden');
                 });
             }
@@ -94,7 +138,7 @@
                     <a href="index.html" class="text-gray-600 hover:text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Tuis</a>
                     <a href="BoyOrGirl.html" class="text-gray-600 hover:text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Gender Reveal!</a>
                     <a href="Familielede.html" class="text-gray-600 hover:text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Familielede</a>
-                    <a href="sosiale_media.html" class="text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Sosiale Media</a>
+                    <a href="sosiale_media.html" class="text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full bg-orange-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Sosiale Media</a>
                     <a href="application_form.html" class="text-gray-600 hover:text-orange-500 transition duration-300 nav-link-hover px-3 py-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500">Aansoekvorm</a>
                 </nav>
 
@@ -134,153 +178,153 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 justify-items-center">
                 
                 <!-- Marius Jr Karsten Kaart -->
-                <div class="bg-white rounded-xl shadow-xl p-6 text-center transform hover:-translate-y-2 transition-transform duration-300 border-t-4 border-orange-400 hover:border-orange-500 w-full max-w-xs">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Marius Jr Karsten</h3>
-                    <div class="space-y-3">
-                        <a href="https://www.facebook.com/marius.karsten.5" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center space-x-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300 shadow-inner">
-                            <i data-lucide="facebook" class="w-6 h-6 text-blue-600"></i>
-                            <span class="font-semibold text-gray-700">Facebook</span>
+                <div class="bg-white rounded-xl shadow-xl p-6 text-center border-t-4 border-orange-400 w-full max-w-xs flex flex-col">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Marius Jr Karsten</h3>
+                    <div class="space-y-4 mt-auto">
+                        <a href="https://www.facebook.com/marius.karsten.5" target="_blank" rel="noopener noreferrer" class="social-btn btn-facebook">
+                            <i data-lucide="facebook" class="w-6 h-6 mr-3 social-icon"></i>
+                            <span>Facebook</span>
                         </a>
-                        <a href="https://www.instagram.com/marius.karsten.jnr/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center space-x-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300 shadow-inner">
-                            <i data-lucide="instagram" class="w-6 h-6 text-pink-600"></i>
-                            <span class="font-semibold text-gray-700">Instagram</span>
+                        <a href="https://www.instagram.com/marius.karsten.jnr/" target="_blank" rel="noopener noreferrer" class="social-btn btn-instagram">
+                            <i data-lucide="instagram" class="w-6 h-6 mr-3 social-icon"></i>
+                            <span>Instagram</span>
                         </a>
-                        <a href="https://www.tiktok.com/@die.normale.karstens?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center space-x-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300 shadow-inner">
-                            <i data-lucide="tiktok" class="w-6 h-6 text-black"></i>
-                            <span class="font-semibold text-gray-700">TikTok</span>
+                        <a href="https://www.tiktok.com/@die.normale.karstens?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="social-btn btn-tiktok">
+                            <i data-lucide="tiktok" class="w-6 h-6 mr-3 social-icon"></i>
+                            <span>TikTok</span>
                         </a>
                     </div>
                 </div>
                 
                 <!-- Brenda Karsten Kaart -->
-                <div class="bg-white rounded-xl shadow-xl p-6 text-center transform hover:-translate-y-2 transition-transform duration-300 border-t-4 border-blue-400 hover:border-blue-500 w-full max-w-xs">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Brenda Karsten</h3>
-                    <div class="space-y-3">
-                        <a href="https://www.facebook.com/brenda.karsten1" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center space-x-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300 shadow-inner">
-                            <i data-lucide="facebook" class="w-6 h-6 text-blue-600"></i>
-                            <span class="font-semibold text-gray-700">Facebook</span>
+                <div class="bg-white rounded-xl shadow-xl p-6 text-center border-t-4 border-blue-400 w-full max-w-xs flex flex-col">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Brenda Karsten</h3>
+                    <div class="space-y-4 mt-auto">
+                        <a href="https://www.facebook.com/brenda.karsten1" target="_blank" rel="noopener noreferrer" class="social-btn btn-facebook">
+                            <i data-lucide="facebook" class="w-6 h-6 mr-3 social-icon"></i>
+                            <span>Facebook</span>
                         </a>
-                        <a href="https://www.instagram.com/karstenbrenda/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center space-x-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300 shadow-inner">
-                            <i data-lucide="instagram" class="w-6 h-6 text-pink-600"></i>
-                            <span class="font-semibold text-gray-700">Instagram</span>
+                        <a href="https://www.instagram.com/karstenbrenda/" target="_blank" rel="noopener noreferrer" class="social-btn btn-instagram">
+                            <i data-lucide="instagram" class="w-6 h-6 mr-3 social-icon"></i>
+                            <span>Instagram</span>
                         </a>
-                        <a href="https://www.tiktok.com/@bren12356?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center space-x-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300 shadow-inner">
-                            <i data-lucide="tiktok" class="w-6 h-6 text-black"></i>
-                            <span class="font-semibold text-gray-700">TikTok</span>
+                        <a href="https://www.tiktok.com/@bren12356?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="social-btn btn-tiktok">
+                            <i data-lucide="tiktok" class="w-6 h-6 mr-3 social-icon"></i>
+                            <span>TikTok</span>
                         </a>
                     </div>
                 </div>
 
                 <!-- Junior Karsten Kaart -->
-                <div class="bg-white rounded-xl shadow-xl p-6 text-center transform hover:-translate-y-2 transition-transform duration-300 border-t-4 border-pink-400 hover:border-pink-500 w-full max-w-xs">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Junior Karsten</h3>
-                    <div class="space-y-3">
-                        <a href="https://www.facebook.com/junior.karsten.585" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center space-x-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300 shadow-inner">
-                            <i data-lucide="facebook" class="w-6 h-6 text-blue-600"></i>
-                            <span class="font-semibold text-gray-700">Facebook</span>
+                <div class="bg-white rounded-xl shadow-xl p-6 text-center border-t-4 border-pink-400 w-full max-w-xs flex flex-col">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Junior Karsten</h3>
+                    <div class="space-y-4 mt-auto">
+                        <a href="https://www.facebook.com/junior.karsten.585" target="_blank" rel="noopener noreferrer" class="social-btn btn-facebook">
+                            <i data-lucide="facebook" class="w-6 h-6 mr-3 social-icon"></i>
+                            <span>Facebook</span>
                         </a>
-                        <a href="https://www.instagram.com/juniormariuskarsten/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center space-x-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300 shadow-inner">
-                            <i data-lucide="instagram" class="w-6 h-6 text-pink-600"></i>
-                            <span class="font-semibold text-gray-700">Instagram</span>
+                        <a href="https://www.instagram.com/juniormariuskarsten/" target="_blank" rel="noopener noreferrer" class="social-btn btn-instagram">
+                            <i data-lucide="instagram" class="w-6 h-6 mr-3 social-icon"></i>
+                            <span>Instagram</span>
                         </a>
-                        <a href="https://www.tiktok.com/@juniorkarsten69?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center space-x-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300 shadow-inner">
-                            <i data-lucide="tiktok" class="w-6 h-6 text-black"></i>
-                            <span class="font-semibold text-gray-700">TikTok</span>
+                        <a href="https://www.tiktok.com/@juniorkarsten69?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="social-btn btn-tiktok">
+                            <i data-lucide="tiktok" class="w-6 h-6 mr-3 social-icon"></i>
+                            <span>TikTok</span>
                         </a>
                     </div>
                 </div>
 
                 <!-- Dylan Karsten Kaart -->
-                <div class="bg-white rounded-xl shadow-xl p-6 text-center transform hover:-translate-y-2 transition-transform duration-300 border-t-4 border-teal-400 hover:border-teal-500 w-full max-w-xs">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Dylan Karsten</h3>
-                    <div class="space-y-3">
-                        <a href="https://www.facebook.com/dylan.karsten.7" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center space-x-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300 shadow-inner">
-                            <i data-lucide="facebook" class="w-6 h-6 text-blue-600"></i>
-                            <span class="font-semibold text-gray-700">Facebook</span>
+                <div class="bg-white rounded-xl shadow-xl p-6 text-center border-t-4 border-teal-400 w-full max-w-xs flex flex-col">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Dylan Karsten</h3>
+                    <div class="space-y-4 mt-auto">
+                        <a href="https://www.facebook.com/dylan.karsten.7" target="_blank" rel="noopener noreferrer" class="social-btn btn-facebook">
+                            <i data-lucide="facebook" class="w-6 h-6 mr-3 social-icon"></i>
+                            <span>Facebook</span>
                         </a>
-                        <a href="https://www.instagram.com/dylan_karsten_47/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center space-x-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300 shadow-inner">
-                            <i data-lucide="instagram" class="w-6 h-6 text-pink-600"></i>
-                            <span class="font-semibold text-gray-700">Instagram</span>
+                        <a href="https://www.instagram.com/dylan_karsten_47/" target="_blank" rel="noopener noreferrer" class="social-btn btn-instagram">
+                            <i data-lucide="instagram" class="w-6 h-6 mr-3 social-icon"></i>
+                            <span>Instagram</span>
                         </a>
-                        <a href="https://www.tiktok.com/@fat0cow0?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center space-x-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300 shadow-inner">
-                            <i data-lucide="tiktok" class="w-6 h-6 text-black"></i>
-                            <span class="font-semibold text-gray-700">TikTok</span>
+                        <a href="https://www.tiktok.com/@fat0cow0?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="social-btn btn-tiktok">
+                            <i data-lucide="tiktok" class="w-6 h-6 mr-3 social-icon"></i>
+                            <span>TikTok</span>
                         </a>
                     </div>
                 </div>
 
                 <!-- Charmone Karsten Kaart -->
-                <div class="bg-white rounded-xl shadow-xl p-6 text-center transform hover:-translate-y-2 transition-transform duration-300 border-t-4 border-purple-400 hover:border-purple-500 w-full max-w-xs">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Charmone Karsten</h3>
-                    <div class="space-y-3">
-                        <a href="https://www.facebook.com/profile.php?id=100068064489207" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center space-x-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300 shadow-inner">
-                            <i data-lucide="facebook" class="w-6 h-6 text-blue-600"></i>
-                            <span class="font-semibold text-gray-700">Facebook</span>
+                <div class="bg-white rounded-xl shadow-xl p-6 text-center border-t-4 border-purple-400 w-full max-w-xs flex flex-col">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Charmone Karsten</h3>
+                    <div class="space-y-4 mt-auto">
+                        <a href="https://www.facebook.com/profile.php?id=100068064489207" target="_blank" rel="noopener noreferrer" class="social-btn btn-facebook">
+                            <i data-lucide="facebook" class="w-6 h-6 mr-3 social-icon"></i>
+                            <span>Facebook</span>
                         </a>
-                        <a href="https://www.instagram.com/charmie_karsten/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center space-x-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300 shadow-inner">
-                            <i data-lucide="instagram" class="w-6 h-6 text-pink-600"></i>
-                            <span class="font-semibold text-gray-700">Instagram</span>
+                        <a href="https://www.instagram.com/charmie_karsten/" target="_blank" rel="noopener noreferrer" class="social-btn btn-instagram">
+                            <i data-lucide="instagram" class="w-6 h-6 mr-3 social-icon"></i>
+                            <span>Instagram</span>
                         </a>
-                        <a href="https://www.tiktok.com/@charmii_e?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center space-x-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300 shadow-inner">
-                            <i data-lucide="tiktok" class="w-6 h-6 text-black"></i>
-                            <span class="font-semibold text-gray-700">TikTok</span>
+                        <a href="https://www.tiktok.com/@charmii_e?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="social-btn btn-tiktok">
+                            <i data-lucide="tiktok" class="w-6 h-6 mr-3 social-icon"></i>
+                            <span>TikTok</span>
                         </a>
                     </div>
                 </div>
 
                 <!-- Nicola Karsten Kaart -->
-                <div class="bg-white rounded-xl shadow-xl p-6 text-center transform hover:-translate-y-2 transition-transform duration-300 border-t-4 border-red-400 hover:border-red-500 w-full max-w-xs">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Nicola Karsten</h3>
-                    <div class="space-y-3">
-                        <a href="https://www.facebook.com/nicola.karsten" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center space-x-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300 shadow-inner">
-                            <i data-lucide="facebook" class="w-6 h-6 text-blue-600"></i>
-                            <span class="font-semibold text-gray-700">Facebook</span>
+                <div class="bg-white rounded-xl shadow-xl p-6 text-center border-t-4 border-red-400 w-full max-w-xs flex flex-col">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Nicola Karsten</h3>
+                    <div class="space-y-4 mt-auto">
+                        <a href="https://www.facebook.com/nicola.karsten" target="_blank" rel="noopener noreferrer" class="social-btn btn-facebook">
+                            <i data-lucide="facebook" class="w-6 h-6 mr-3 social-icon"></i>
+                            <span>Facebook</span>
                         </a>
-                        <a href="https://www.instagram.com/nicola.karsten/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center space-x-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300 shadow-inner">
-                            <i data-lucide="instagram" class="w-6 h-6 text-pink-600"></i>
-                            <span class="font-semibold text-gray-700">Instagram</span>
+                        <a href="https://www.instagram.com/nicola.karsten/" target="_blank" rel="noopener noreferrer" class="social-btn btn-instagram">
+                            <i data-lucide="instagram" class="w-6 h-6 mr-3 social-icon"></i>
+                            <span>Instagram</span>
                         </a>
-                        <a href="https://www.tiktok.com/@nicolakarsten?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center space-x-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300 shadow-inner">
-                            <i data-lucide="tiktok" class="w-6 h-6 text-black"></i>
-                            <span class="font-semibold text-gray-700">TikTok</span>
+                        <a href="https://www.tiktok.com/@nicolakarsten?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="social-btn btn-tiktok">
+                            <i data-lucide="tiktok" class="w-6 h-6 mr-3 social-icon"></i>
+                            <span>TikTok</span>
                         </a>
                     </div>
                 </div>
 
                 <!-- Saskea Stols Kaart -->
-                <div class="bg-white rounded-xl shadow-xl p-6 text-center transform hover:-translate-y-2 transition-transform duration-300 border-t-4 border-yellow-400 hover:border-yellow-500 w-full max-w-xs">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Saskea Stols</h3>
-                    <div class="space-y-3">
-                        <a href="https://www.facebook.com/profile.php?id=61556812700972" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center space-x-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300 shadow-inner">
-                            <i data-lucide="facebook" class="w-6 h-6 text-blue-600"></i>
-                            <span class="font-semibold text-gray-700">Facebook</span>
+                <div class="bg-white rounded-xl shadow-xl p-6 text-center border-t-4 border-yellow-400 w-full max-w-xs flex flex-col">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Saskea Stols</h3>
+                    <div class="space-y-4 mt-auto">
+                        <a href="https://www.facebook.com/profile.php?id=61556812700972" target="_blank" rel="noopener noreferrer" class="social-btn btn-facebook">
+                            <i data-lucide="facebook" class="w-6 h-6 mr-3 social-icon"></i>
+                            <span>Facebook</span>
                         </a>
-                        <a href="https://www.instagram.com/_sassie_stols_/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center space-x-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300 shadow-inner">
-                            <i data-lucide="instagram" class="w-6 h-6 text-pink-600"></i>
-                            <span class="font-semibold text-gray-700">Instagram</span>
+                        <a href="https://www.instagram.com/_sassie_stols_/" target="_blank" rel="noopener noreferrer" class="social-btn btn-instagram">
+                            <i data-lucide="instagram" class="w-6 h-6 mr-3 social-icon"></i>
+                            <span>Instagram</span>
                         </a>
-                        <a href="https://www.tiktok.com/@sassie2006?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center space-x-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300 shadow-inner">
-                            <i data-lucide="tiktok" class="w-6 h-6 text-black"></i>
-                            <span class="font-semibold text-gray-700">TikTok</span>
+                        <a href="https://www.tiktok.com/@sassie2006?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="social-btn btn-tiktok">
+                            <i data-lucide="tiktok" class="w-6 h-6 mr-3 social-icon"></i>
+                            <span>TikTok</span>
                         </a>
                     </div>
                 </div>
 
                 <!-- Chermelé Wolmarans Kaart -->
-                <div class="bg-white rounded-xl shadow-xl p-6 text-center transform hover:-translate-y-2 transition-transform duration-300 border-t-4 border-green-400 hover:border-green-500 w-full max-w-xs">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Chermelé Wolmarans</h3>
-                    <div class="space-y-3">
-                        <a href="https://www.facebook.com/chermele.wolmarans.2025" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center space-x-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300 shadow-inner">
-                            <i data-lucide="facebook" class="w-6 h-6 text-blue-600"></i>
-                            <span class="font-semibold text-gray-700">Facebook</span>
+                <div class="bg-white rounded-xl shadow-xl p-6 text-center border-t-4 border-green-400 w-full max-w-xs flex flex-col">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Chermelé Wolmarans</h3>
+                    <div class="space-y-4 mt-auto">
+                        <a href="https://www.facebook.com/chermele.wolmarans.2025" target="_blank" rel="noopener noreferrer" class="social-btn btn-facebook">
+                            <i data-lucide="facebook" class="w-6 h-6 mr-3 social-icon"></i>
+                            <span>Facebook</span>
                         </a>
-                        <a href="https://www.instagram.com/its_me_chimmie/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center space-x-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300 shadow-inner">
-                            <i data-lucide="instagram" class="w-6 h-6 text-pink-600"></i>
-                            <span class="font-semibold text-gray-700">Instagram</span>
+                        <a href="https://www.instagram.com/its_me_chimmie/" target="_blank" rel="noopener noreferrer" class="social-btn btn-instagram">
+                            <i data-lucide="instagram" class="w-6 h-6 mr-3 social-icon"></i>
+                            <span>Instagram</span>
                         </a>
-                        <a href="https://www.tiktok.com/@its_me_chimmie07?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center space-x-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300 shadow-inner">
-                            <i data-lucide="tiktok" class="w-6 h-6 text-black"></i>
-                            <span class="font-semibold text-gray-700">TikTok</span>
+                        <a href="https://www.tiktok.com/@its_me_chimmie07?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="social-btn btn-tiktok">
+                            <i data-lucide="tiktok" class="w-6 h-6 mr-3 social-icon"></i>
+                            <span>TikTok</span>
                         </a>
                     </div>
                 </div>
